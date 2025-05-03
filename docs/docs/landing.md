@@ -9,33 +9,55 @@ The description on the CaDoodle site is:
 
 CaDoodle is a drag-and-drop editor for 3D objects.
 
-If you are new to markdown, see the [Getting Started](https://www.markdownguide.org/getting-started/) page on the Markdown Guide website.
+# Inspiration
 
+CaDoodle inspired by Tinkercad. The workflow of Tinkercad is an excellent experience for novice users of CAD: 
 
-## Resources
+1. Drag and drop shape
+2. Group and ungroup
+3. Solid and Hole status
+4. Undo of operations
+5. Stretch and move handles
+6. Library of examples
+7. Nearest Surface snappping
 
-- [mkdocs.org](https://www.mkdocs.org) homepage
-- [mkdocs/mkdocs ![Repo stars](https://img.shields.io/github/stars/mkdocs/mkdocs?style=social)](https://github.com/mkdocs/mkdocs)
-- [MkDocs Wiki](https://github.com/mkdocs/mkdocs/wiki) - covering themes, plugins, recipes and more.
-- [Release notes](https://www.mkdocs.org/about/release-notes/) for MkDocs.
+However, this workflow suffers from a few fundemental problems:
 
+1. Web based UI means it is enclosed by whomever runs the server
+2. Subscription model is precarious (Autodesk is not known as a reliable partner for free tools over time)
+3. Proprietary source files
 
-## Reasons to use MkDocs
+# Solution 
 
-- Create an elegant, modern docs site for your project.
-- Create a static site and serve from GitHub Pages easily.
-- Low-code solution
-    - No need to write HTML or learn templating syntax needed
-    - Use your existing markdown files as content.
-    - Configure with a simple YAML file.
-- Customizable.
-    - Add custom HTML if you want.
-    - Plugins available.
-    - Flexible theme choices.
-- Includes search by default.
-- Broken links to files (including from your navbar) will be detected at build time and shown as warnings.
+This application is Java based and uses BowerStudio as the CAD kernel.
 
+All scripts will be compatible BowlerStudio scripts. 
 
-## Do I need to know Python?
+UI will be laid out in SceneBuilder / JavaFX.
 
-MkDocs is built in Python (like Sphinx), but you don't have to write Python code. If you set up a [Deploy](deploy) flow right, you don't even have to set it up locally, though then you can't preview.
+OpenJDK 17 
+
+# Hardware Requirements
+
+The following platforms will be targeted:
+
+* Windows
+* Mac OS (Intel and Aarch64)
+* Linux Ubuntu .deb and flatpack)
+* ChromeOS
+* 8 gb of ram is required.
+  
+The following platforms will not be targeted:
+
+* Android
+* iOS
+
+## Chrome OS Instructions
+
+- First, set up Linux using the instructions : https://support.google.com/chromebook/answer/9145439?hl=en
+
+- Next download the Linux .DEB installer from : https://github.com/CommonWealthRobotics/CaDoodle/releases
+
+- Finally double-click on the .DEB to install CaDoodle.
+
+- You can now launch CaDoodle from the applications launcher window.
