@@ -13,11 +13,5 @@ extra:
   favicon: favicon.ico
 nav:
   - About CaDoodle CAD: landing.md
-  - History: tutorial/history.md
-  - Tutorial:
-      - TL;DR: tutorial/tldr.md
-      - Installation: tutorial/installation.md
-      - Set up project: tutorial/setup-project.md
-      - Advanced: tutorial/advanced.md
-      - Usage: tutorial/usage.md
-      - Deploy: tutorial/deploy.md
+  - Tutorial: 
+    - History: tutorial/history.md 
