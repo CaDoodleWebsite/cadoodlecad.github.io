@@ -3,11 +3,11 @@
 
 ## What is CaDoodle?
 
-The description on the MkDocs site is:
+The description on the CaDoodle site is:
 
 > A simple yet powerful CAD solution for designers and engineers 
 
-MkDocs is a Python tool that generates a static site based on content written in Markdown.
+CaDoodle is a drag-and-drop editor for 3D objects.
 
 If you are new to markdown, see the [Getting Started](https://www.markdownguide.org/getting-started/) page on the Markdown Guide website.
 
