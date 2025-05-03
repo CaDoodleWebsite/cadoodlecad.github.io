@@ -13,6 +13,7 @@ extra:
   favicon: favicon.ico
 nav:
   - About CaDoodle CAD: landing.md
+  - History: tutorial/history.md
   - Tutorial:
       - TL;DR: tutorial/tldr.md
       - Installation: tutorial/installation.md
