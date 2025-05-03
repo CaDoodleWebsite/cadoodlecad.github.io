@@ -1,11 +1,11 @@
-# About MkDocs
+# About CaDoodle 
 
 
-## What is MkDocs?
+## What is CaDoodle?
 
 The description on the MkDocs site is:
 
-> Project documentation with Markdown.
+> A simple yet powerful CAD solution for designers and engineers 
 
 MkDocs is a Python tool that generates a static site based on content written in Markdown.
 
