@@ -11,7 +11,7 @@ CaDoodle is a drag-and-drop editor for 3D objects.
 
 # Inspiration
 
-CaDoodle inspired by Tinkercad. The workflow of Tinkercad is an excellent experience for novice users of CAD: 
+CaDoodle is inspired by Tinkercad. The workflow of Tinkercad is an excellent experience for novice users of CAD: 
 
 1. Drag and drop shape
 2. Group and ungroup
@@ -42,10 +42,10 @@ OpenJDK 17
 The following platforms will be targeted:
 
 * Windows
-* Mac OS (Intel and Aarch64)
-* Linux Ubuntu .deb and flatpack)
+* Mac OS (Arch 64)
+* Linux Ubuntu .deb and Flatpak)
 * ChromeOS
-* 8 gb of ram is required.
+* 8 GB of ram is required.
   
 The following platforms will not be targeted:
 
