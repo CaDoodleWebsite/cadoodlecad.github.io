@@ -9,6 +9,8 @@ theme: readthedocs
 use_directory_urls: false  # Prevents redirects
 docs_dir: docs  # Where your documentation files live
 site_dir: site  # Where mkdocs will build the final site
+extra:
+  favicon: favicon.ico
 nav:
   - About CaDoodle CAD: landing.md
   - Tutorial:
