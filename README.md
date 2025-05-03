@@ -3,7 +3,7 @@
 
 This is the source for the CaDoodle Website.
 
-[http://cadoodlecad.com/](http://cadoodlecad.com/)
+[https://cadoodlecad.com/](https://cadoodlecad.com/)
 
 # Local Build
 
