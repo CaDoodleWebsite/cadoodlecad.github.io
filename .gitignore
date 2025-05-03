@@ -2,3 +2,6 @@ venv
 
 site/
 docs/.DS_Store
+.DS_Store
+docs/docs/tutorial/.history.md.swp
+docs/docs/.landing.md.swp
