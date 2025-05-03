@@ -10,7 +10,7 @@ use_directory_urls: false  # Prevents redirects
 docs_dir: docs  # Where your documentation files live
 site_dir: site  # Where mkdocs will build the final site
 nav:
-  - About CaDoodle CAD: landings.md
+  - About CaDoodle CAD: landing.md
   - Tutorial:
       - TL;DR: tutorial/tldr.md
       - Installation: tutorial/installation.md
