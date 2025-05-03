@@ -1,19 +1,16 @@
 ### Site metadata ###
-
-site_name: MkDocs Quickstart
-site_description: Starter template for a MkDocs docs site on GH Pages - including CI
-site_url: https://michaelcurrin.github.io/mkdocs-quickstart/
-
-repo_url: https://github.com/MichaelCurrin/mkdocs-quickstart
+site_name: CaDoodle CAD
+site_description: Documentation for CaDoodle CAD - A simple yet powerful CAD solution
+site_url: https://cadoodlecad.com/
+repo_url: https://github.com/CaDoodleWebsite/cadoodlecad.github.io
 edit_uri: edit/master/docs/docs
-
 ### Build settings ###
-
 theme: readthedocs
-
+use_directory_urls: false  # Prevents redirects
+docs_dir: docs  # Where your documentation files live
+site_dir: site  # Where mkdocs will build the final site
 nav:
-  - Home: index.md
-  - About MkDocs: about-mkdocs.md
+  - About CaDoodle CAD: about-mkdocs.md
   - Tutorial:
       - TL;DR: tutorial/tldr.md
       - Installation: tutorial/installation.md

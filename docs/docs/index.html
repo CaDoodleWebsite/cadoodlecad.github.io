@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaDoodle CAD - Simple Yet Powerful CAD Solution</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .hero {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #ff6d00;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #e65100;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .feature {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            flex: 1 1 300px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: #2e7d32;
+        }
+        .footer {
+            background-color: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>CaDoodle CAD</h1>
+        <p>A simple yet powerful CAD solution for designers and engineers</p>
+        <a href="./about-mkdocs.html" class="btn">View Documentation</a>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <h3>Intuitive Design</h3>
+                <p>CaDoodle CAD features an intuitive interface that makes creating complex designs accessible to everyone, from beginners to professionals.</p>
+            </div>
+            <div class="feature">
+                <h3>Powerful Tools</h3>
+                <p>Access a comprehensive suite of design tools that streamline your workflow and help bring your ideas to life with precision and efficiency.</p>
+            </div>
+            <div class="feature">
+                <h3>Extensive Documentation</h3>
+                <p>Our detailed documentation covers everything from basic usage to advanced techniques, ensuring you can make the most of CaDoodle CAD.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 CaDoodle CAD. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io">GitHub</a> | 
+            <a href="./docs/">Documentation</a>
+        </p>
+    </footer>
+</body>
+</html>
