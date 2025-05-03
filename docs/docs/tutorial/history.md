@@ -1,24 +1,24 @@
-# CaDoodle
+# CaDoodle History
 A free and open source CAD package using drag-and-drop shapes. 
 
 [![Github All Releases](https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle/total.svg)]()
 
 ![Screen Shot](CaDoodle-Screenshot.png)
 
-# Download
+## Download
 
 [Download and Install here](https://github.com/CommonWealthRobotics/CaDoodle/releases)
 
-# Source Code
+## Source Code
 
 This repository is the installer and auto-updater. The installable releases are found here. 
 
 The below link is for the source code of the main application itself.
 
-https://github.com/CommonWealthRobotics/CaDoodle-Application
+[https://github.com/CommonWealthRobotics/CaDoodle-Application](https://github.com/CommonWealthRobotics/CaDoodle-Application)
 
 
-# Inspiration
+## Inspiration
 
 The workflow of Tinkercad is an excellent experience for novice users of CAD. 
 
@@ -37,7 +37,7 @@ This workflow suffers from a few fundemental problems
 2. Subscription model is precarious (Autodesk is not known as a reliable partner for free tools over time)
 3. Proprietary source files
 
-# Solution 
+## Solution 
 
 This application is Java based and uses BowerStudio as the CAD kernel.
 
@@ -47,7 +47,7 @@ UI will be laid out in SceneBuilder / JavaFX.
 
 OpenJDK 17 
 
-# Hardware Requirements
+## Hardware Requirements
 
 The following platforms will be targeted:
 
@@ -64,9 +64,9 @@ The following platforms will not be targeted:
 
 ## Chrome OS Instructions
 
-First, set up Linux using the instructions : https://support.google.com/chromebook/answer/9145439?hl=en
+[First, set up Linux using the instructions ](https://support.google.com/chromebook/answer/9145439?hl=en)
 
-Next download the Linux .DEB installer from : https://github.com/CommonWealthRobotics/CaDoodle/releases
+[Next download the Linux .DEB installer from  ](https://github.com/CommonWealthRobotics/CaDoodle/releases)
 
 Finally double-click on the .DEB to install CaDoodle.
 
