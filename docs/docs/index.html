@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaDoodle CAD - Simple Yet Powerful CAD Solution</title>
     <style>
+        :root {
+            --logo-blue: #263d8c;
+            --logo-red: #bb1f09;
+            --logo-orange: #e7a436;
+            --logo-yellow: #f2c83d;
+            --logo-beige: #f4ede0;
+            --dark-blue: #1a2a63;
+            --light-blue: #3d5aaa;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             color: #333;
-            background-color: #f8f9fa;
+            background-color: var(--logo-beige);
         }
         .hero {
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            background: linear-gradient(135deg, var(--logo-blue), var(--dark-blue));
             color: white;
             padding: 80px 20px;
             text-align: center;
@@ -22,12 +32,15 @@
         .hero h1 {
             font-size: 3.2rem;
             margin-bottom: 20px;
+            color: var(--logo-yellow);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         .hero p {
             font-size: 1.4rem;
             max-width: 800px;
             margin: 0 auto 30px;
             opacity: 0.9;
+            color: white;
         }
         .container {
             max-width: 1200px;
@@ -36,7 +49,7 @@
         }
         .btn {
             display: inline-block;
-            background-color: #ff6d00;
+            background-color: var(--logo-orange);
             color: white;
             padding: 12px 30px;
             border-radius: 30px;
@@ -47,9 +60,15 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .btn:hover {
-            background-color: #e65100;
+            background-color: var(--logo-red);
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .section-heading {
+            color: var(--logo-blue);
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 30px;
         }
         .features {
             display: flex;
@@ -65,6 +84,7 @@
             flex: 1 1 300px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
+            border-top: 4px solid var(--logo-yellow);
         }
         .feature:hover {
             transform: translateY(-5px);
@@ -72,20 +92,45 @@
         .feature h3 {
             font-size: 1.4rem;
             margin-top: 0;
-            color: #2e7d32;
+            color: var(--logo-blue);
+        }
+        .download-option {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 4px solid var(--logo-blue);
+        }
+        .download-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         .footer {
-            background-color: #333;
-            color: #aaa;
+            background-color: var(--logo-blue);
+            color: var(--logo-beige);
             text-align: center;
             padding: 30px 20px;
             margin-top: 60px;
         }
         .footer a {
-            color: #fff;
+            color: var(--logo-yellow);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
         .footer a:hover {
+            color: var(--logo-orange);
             text-decoration: underline;
         }
         @media (max-width: 768px) {
@@ -106,18 +151,16 @@
     </div>
 
     <div class="container">
-
-        
-        <div style="text-align: center; margin-top: 60px;">
+        <div class="section-heading">
             <h2>Download CaDoodle CAD</h2>
             <p>Choose your platform below to get started</p>
         </div>
         
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
-            <div style="flex: 1; min-width: 250px; max-width: 300px; text-align: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);">
-                <img src="/api/placeholder/100/100" alt="Linux" style="height: 100px; margin: 0 auto 20px;">
+        <div class="download-container">
+            <div class="download-option">
+                <img src="./img/linuxlogo.png" alt="Linux" style="height: 100px; margin: 0 auto 20px;">
                 <h3>Linux Downloads</h3>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="download-buttons">
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.AppImage" class="btn" style="margin: 5px 0;">ARM Linux AppImage</a>
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Linux Deb</a>
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.AppImage" class="btn" style="margin: 5px 0;">x86 Linux AppImage</a>
@@ -125,26 +168,26 @@
                 </div>
             </div>
             
-            <div style="flex: 1; min-width: 250px; max-width: 300px; text-align: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);">
-                <img src="/api/placeholder/100/100" alt="Windows" style="height: 100px; margin: 0 auto 20px;">
+            <div class="download-option">
+                <img src="./img/windowslogo.png" alt="Windows" style="height: 100px; margin: 0 auto 20px;">
                 <h3>Windows Downloads</h3>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="download-buttons">
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.zip" class="btn" style="margin: 5px 0;">Windows Standalone</a>
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.exe" class="btn" style="margin: 5px 0;">Windows Installer</a>
                 </div>
             </div>
             
-            <div style="flex: 1; min-width: 250px; max-width: 300px; text-align: center; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);">
-                <img src="./img/applelogo.png" alt="Mac" style="height: 100px; margin: 0 auto 20px;">
+            <div class="download-option">
+                <img src="./img/applelogo.svg" alt="Mac" style="height: 100px; margin: 0 auto 20px;">
                 <h3>Mac Downloads</h3>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="download-buttons">
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-arm64.dmg" class="btn" style="margin: 5px 0;">Mac ARM</a>
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-x86_64.dmg" class="btn" style="margin: 5px 0;">Mac Intel</a>
                 </div>
             </div>
         </div>
         
-                <div class="features">
+        <div class="features">
             <div class="feature">
                 <h3>Intuitive Design</h3>
                 <p>CaDoodle CAD features an intuitive interface that makes creating complex designs accessible to everyone, from beginners to professionals.</p>
