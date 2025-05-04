@@ -3,7 +3,7 @@ site_name: CaDoodle CAD
 site_description: Documentation for CaDoodle CAD - A simple yet powerful CAD solution
 site_url: https://cadoodlecad.com/
 repo_url: https://github.com/CaDoodleWebsite/cadoodlecad.github.io
-edit_uri: edit/master/docs/docs
+edit_uri: edit/main/docs/docs/
 ### Build settings ###
 theme: readthedocs
 use_directory_urls: false  # Prevents redirects
