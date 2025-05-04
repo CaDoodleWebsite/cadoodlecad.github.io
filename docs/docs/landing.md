@@ -36,7 +36,7 @@ OpenJDK 17
 
 ## Hardware Requirements
 
-* 8 GB of RAM is required
+* 4 GB of RAM is required
 
 **The following platforms will be targeted:**
 
