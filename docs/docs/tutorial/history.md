@@ -7,10 +7,6 @@ A free and open source CAD package using drag-and-drop shapes.
 
 ![Screen Shot](../img/1.png)
 
-## Download
-
-[Download and Install here](https://github.com/CommonWealthRobotics/CaDoodle/releases)
-
 ## Source Code
 
 This repository is the installer and auto-updater. The installable releases are found here. 
@@ -81,7 +77,7 @@ Linux is off by default. You can turn it on any time from Settings.
 5.    A terminal window opens. You have a Debian environment. You can run Linux commands, install more tools using the APT package manager, and customize your shell.
 
 
-[Next download the Linux .DEB installer from  ](https://github.com/CommonWealthRobotics/CaDoodle/releases)
+[Next download the Chromeos .deb installer from  ](https://cadoodlecad.com/)
 
 Finally double-click on the .DEB to install CaDoodle.
 
