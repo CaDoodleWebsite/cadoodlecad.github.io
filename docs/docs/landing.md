@@ -89,8 +89,8 @@ My solution was to make a locally installed application, that used an open file 
 
 In July 2024 I began work in earnest on CaDoodle. 
 
-![CaDoodle First Running Version](../img/2.png)
+![CaDoodle First Running Version](./img/2.png)
 
 In April 2025 I hit a level of feature completeness to open it up for Beta testing.  
 
-![CaDoodle Beta Release](../img/1.png)
+![CaDoodle Beta Release](./img/1.png)
