@@ -9,25 +9,25 @@ The description on the CaDoodle site is:
 
 CaDoodle is a drag-and-drop editor for 3D objects.
 
-# Inspiration
+## Inspiration
 
 CaDoodle is inspired by Tinkercad. The workflow of Tinkercad is an excellent experience for novice users of CAD: 
 
 1. Drag and drop shape
-2. Group and ungroup
-3. Solid and Hole status
-4. Undo of operations
-5. Stretch and move handles
-6. Library of examples
-7. Nearest Surface snappping
+1. Group and ungroup
+1. Solid and Hole status
+1. Undo of operations
+1. Stretch and move handles
+1. Library of examples
+1. Nearest Surface snappping
 
 However, this workflow suffers from a few fundemental problems:
 
 1. Web based UI means it is enclosed by whomever runs the server
-2. Subscription model is precarious (Autodesk is not known as a reliable partner for free tools over time)
-3. Proprietary source files
+1. Subscription model is precarious (Autodesk is not known as a reliable partner for free tools over time)
+1. Proprietary source files
 
-# Solution 
+## Solution 
 
 This application is Java based and uses BowerStudio as the CAD kernel.
 
@@ -37,27 +37,30 @@ UI will be laid out in SceneBuilder / JavaFX.
 
 OpenJDK 17 
 
-# Hardware Requirements
+## Hardware Requirements
 
-The following platforms will be targeted:
+* 8 GB of RAM is required
+
+**The following platforms will be targeted:**
 
 * Windows
 * Mac OS (Arch 64)
-* Linux Ubuntu .deb and Flatpak)
+* Linux Ubuntu (.deb and Flatpak)
 * ChromeOS
-* 8 GB of ram is required.
   
-The following platforms will not be targeted:
+The following platforms will **not** be targeted:
 
 * Android
 * iOS
 
 ## Chrome OS Instructions
 
-- First, set up Linux using the instructions : https://support.google.com/chromebook/answer/9145439?hl=en
+- First, set up Linux using the instructions : 
+    [https://support.google.com/chromebook/answer/9145439?hl=en](https://support.google.com/chromebook/answer/9145439?hl=en)
 
-- Next download the Linux .DEB installer from : https://github.com/CommonWealthRobotics/CaDoodle/releases
+- Next download the Linux .deb installer from : 
+    [https://github.com/CommonWealthRobotics/CaDoodle/releases](https://github.com/CommonWealthRobotics/CaDoodle/releases)
 
-- Finally double-click on the .DEB to install CaDoodle.
+- Finally, double-click on the .deb to install CaDoodle.
 
 - You can now launch CaDoodle from the applications launcher window.
