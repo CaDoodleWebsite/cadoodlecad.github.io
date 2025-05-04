@@ -179,11 +179,13 @@
         }
         
         .footer {
-            background-color: var(--logo-blue);
+            background-color: var(--light-blue);
             color: var(--logo-beige);
             text-align: center;
             padding: 30px 20px;
             margin-top: 60px;
+            vertical-align: middle;
+            margin-top: calc(1ex - 1cap);
         }
         
         .footer a {
@@ -191,10 +193,13 @@
             text-decoration: none;
             transition: color 0.2s ease;
         }
-        
-        .footer a:hover {
+        .footer img {
+            transform: translateY(3px);
+        }
+        .footer img:hover {
             color: var(--logo-orange);
             text-decoration: underline;
+            transform: translateY(-1px);
         }
         
         @media (max-width: 768px) {
@@ -338,7 +343,7 @@
             <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io">GitHub</a> | 
             <a href="./landing.html">Documentation</a> | Installer Count
             <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases">
-                  <img src="https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle/total.svg" alt="Installer">
+                  <img src="https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle/total.svg" alt="Installer" >
             </a> | Application Count
             <a href="https://github.com/CommonWealthRobotics/CaDoodle-Application/releases">
                   <img src="https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle-Application/total.svg" alt="Application">
