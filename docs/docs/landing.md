@@ -1,6 +1,3 @@
-# About CaDoodle 
-
-
 ## What is CaDoodle?
 
 The description on the CaDoodle site is:
@@ -11,7 +8,7 @@ CaDoodle is a drag-and-drop editor for 3D objects.
 
 ## Inspiration
 
-CaDoodle is inspired by Tinkercad. The workflow of Tinkercad is an excellent experience for novice users of CAD: 
+CaDoodle is inspired by TinkerCAD. The workflow of TinkerCAD is an excellent experience for novice users of CAD: 
 
 1. Drag and drop shape
 1. Group and ungroup
@@ -19,9 +16,9 @@ CaDoodle is inspired by Tinkercad. The workflow of Tinkercad is an excellent exp
 1. Undo of operations
 1. Stretch and move handles
 1. Library of examples
-1. Nearest Surface snappping
+1. Nearest Surface snapping
 
-However, this workflow suffers from a few fundemental problems:
+However, this workflow suffers from a few fundamental problems:
 
 1. Web based UI means it is enclosed by whomever runs the server
 1. Subscription model is precarious (Autodesk is not known as a reliable partner for free tools over time)
