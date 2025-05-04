@@ -1,3 +1,5 @@
+# About CaDoodle
+
 ## What is CaDoodle?
 
 The description on the CaDoodle site is:
@@ -71,7 +73,9 @@ Linux is off by default. You can turn it on any time from Settings.
 
 8. You can now launch CaDoodle from the applications launcher window.
 
+
 ## History
+
 
 As an elementary school technology teacher, TinkerCAD provided easy to use on-ramps for students as young as 2nd grade. I spent the 23/24 school year teaching with TinkerCAD and found myself increasingly upset by the limitations and constraints of TinkerCAD. First and foremost, the fact of the CAD models sources being entirely unavailable. The "Tinkercad source" is actually entries in the Autodesk servers database. With no option to access those actual sources, students are tied entirely to the tinkercad website.
 
