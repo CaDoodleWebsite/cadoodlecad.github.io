@@ -66,7 +66,20 @@ The following platforms will not be targeted:
 
 ## Chrome OS Instructions
 
-[First, set up Linux using the instructions ](https://support.google.com/chromebook/answer/9145439?hl=en)
+Turn on Linux
+
+Linux is off by default. You can turn it on any time from Settings.
+
+1.    On your Chromebook, at the bottom right, select the time.
+
+2.    Select Settings and then About ChromeOS and then Developers.
+
+3.    Next to "Linux development environment," select Set up.
+
+4.    Follow the on-screen instructions. Setup can take 10 minutes or more.
+
+5.    A terminal window opens. You have a Debian environment. You can run Linux commands, install more tools using the APT package manager, and customize your shell.
+
 
 [Next download the Linux .DEB installer from  ](https://github.com/CommonWealthRobotics/CaDoodle/releases)
 
