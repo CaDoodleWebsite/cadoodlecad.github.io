@@ -87,4 +87,10 @@ Finally i began to contemplate the pedagogical damage being done by teaching stu
 
 My solution was to make a locally installed application, that used an open file format that is stored locally on the disk, and that had access to the full resources of the computer the application was running on.
 
-In July 2024 I began work in earnest on CaDoodle. In April 2025 I hit a level of feature completeness to open it up for Beta testing.  
+In July 2024 I began work in earnest on CaDoodle. 
+
+![CaDoodle First Running Version](../img/2.png)
+
+In April 2025 I hit a level of feature completeness to open it up for Beta testing.  
+
+![CaDoodle Beta Release](../img/1.png)
