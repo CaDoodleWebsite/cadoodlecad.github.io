@@ -45,7 +45,7 @@ OpenJDK 17
 
 * Windows
 * Mac OS (Arch 64)
-* Linux Ubuntu (.deb and Flatpak)
+* Linux Ubuntu (.deb and AppImage)
 * ChromeOS
   
 The following platforms will **not** be targeted:
