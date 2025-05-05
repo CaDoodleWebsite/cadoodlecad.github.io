@@ -2,11 +2,7 @@
 
 ## What is CaDoodle?
 
-The description on the CaDoodle site is:
-
-> A simple yet powerful CAD solution for designers and engineers 
-
-CaDoodle is a drag-and-drop editor for 3D objects.
+CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.
 
 ## Inspiration
 
