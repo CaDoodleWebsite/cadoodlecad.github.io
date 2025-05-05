@@ -43,7 +43,7 @@ OpenJDK 17
 **The following platforms will be targeted:**
 
 * Windows
-* Mac OS (Arch 64)
+* Mac OS (ARM)
 * Linux Ubuntu (.deb and AppImage)
 * ChromeOS
   
