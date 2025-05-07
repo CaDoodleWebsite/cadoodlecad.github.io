@@ -274,6 +274,7 @@
             align-items: center;
             z-index: 1000;
             backdrop-filter: blur(5px);
+            overflow-y: auto;
         }
         
         .paywall-container {
@@ -286,6 +287,9 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             border-top: 6px solid var(--logo-orange);
+            margin: 20px auto;
+            max-height: 85vh;
+            overflow-y: auto;
         }
         
         .paywall-container h2 {
@@ -353,6 +357,7 @@
             flex-direction: column;
             gap: 15px;
             align-items: center;
+            padding-bottom: 10px;
         }
         
         .skip-button {
@@ -363,8 +368,10 @@
             font-size: 1rem;
             text-decoration: underline;
             transition: color 0.2s ease;
-            margin-top: 10px;
+            margin-top: 5px;
             padding: 5px;
+            position: relative;
+            z-index: 10;
         }
         
         .skip-button:hover {
@@ -438,12 +445,32 @@
             }
             
             .paywall-container {
-                padding: 25px;
+                padding: 25px 15px;
+                margin: 15px;
+                max-height: 80vh;
+            }
+            
+            .paywall-container h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .paywall-container p {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
             }
             
             .sponsor-option {
-                padding: 15px;
-                width: 100px;
+                padding: 12px;
+                width: 110px;
+            }
+            
+            .sponsor-option h3 {
+                font-size: 1.1rem;
+            }
+            
+            .sponsor-option p {
+                font-size: 0.9rem;
             }
         }
         
@@ -484,12 +511,106 @@
             }
             
             .paywall-container {
-                padding: 20px;
-                width: 95%;
+                padding: 15px 10px;
+                width: 92%;
+                max-height: 85vh;
+                margin: 10px;
+            }
+            
+            .paywall-container h2 {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+            
+            .paywall-container p {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+            
+            .sponsor-options {
+                gap: 8px;
+                margin-bottom: 15px;
             }
             
             .sponsor-option {
-                width: 45%;
+                padding: 10px;
+                width: 43%;
+                min-height: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .sponsor-option h3 {
+                font-size: 1rem;
+                margin-bottom: 2px;
+            }
+            
+            .sponsor-option p {
+                font-size: 0.8rem;
+                margin: 2px 0 0;
+            }
+            
+            .paywall-buttons {
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .skip-button {
+                font-size: 0.9rem;
+                padding: 8px;
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+        }
+        
+        /* Additional styles for very small screens */
+        @media (max-height: 640px) {
+            .paywall-container {
+                padding: 12px 8px;
+                max-height: 90vh;
+            }
+            
+            .paywall-container h2 {
+                font-size: 1.2rem;
+                margin: 5px 0;
+            }
+            
+            .paywall-container p {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+            
+            .sponsor-options {
+                gap: 6px;
+                margin-bottom: 10px;
+            }
+            
+            .sponsor-option {
+                padding: 8px;
+                min-height: 70px;
+            }
+            
+            .sponsor-option h3 {
+                font-size: 0.9rem;
+            }
+            
+            .sponsor-option p {
+                font-size: 0.8rem;
+            }
+            
+            .btn {
+                padding: 6px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .skip-button {
+                font-size: 0.85rem;
+                padding: 5px;
             }
         }
     </style>
