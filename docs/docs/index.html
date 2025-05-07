@@ -163,6 +163,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
             border-bottom: 4px solid var(--logo-blue);
+            transition: all 0.3s ease;
         }
         .download-option a {
           border-width: 1px;
@@ -218,6 +219,52 @@
             transform: translateY(-1px);
         }
         
+        /* OS Selector Styles */
+        .os-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .os-button {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color: white;
+            color: var(--logo-blue);
+            border: 2px solid var(--logo-blue);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .os-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .os-button.active {
+            background-color: var(--logo-blue);
+            color: white;
+        }
+        
+        .show-all-button {
+            background-color: var(--logo-yellow);
+            color: var(--logo-blue);
+        }
+        
+        .active-option {
+            animation: pulse 1s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
         @media (max-width: 768px) {
             .hero {
                 height: 300px;
@@ -253,6 +300,11 @@
             .download-option img {
                 height: 70px;
             }
+            
+            .os-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -279,6 +331,17 @@
                 padding: 8px 16px;
                 font-size: 0.85rem;
             }
+            
+            .os-selector {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .os-button {
+                width: 200px;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
@@ -297,10 +360,12 @@
             <h2>Download CaDoodle CAD</h2>
             
             <p>Choose your platform below to get started</p>
+            
+            <!-- OS selector will be inserted here by JavaScript -->
         </div>
         
         <div class="download-container">
-            <div class="download-option">
+            <div class="download-option" data-os="linux">
                 <img src="./img/linuxlogo.png" alt="Linux">
                 <h3>Linux</h3>
                 <div class="download-buttons">
@@ -310,7 +375,7 @@
                     <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
                 </div>
             </div>
-            <div class="download-option">
+            <div class="download-option" data-os="chrome">
                 <img src="./img/chromelogo.png" alt="Chrome OS">
                 <h3>Chrome OS</h3>
                 <div class="download-buttons">
@@ -319,7 +384,7 @@
                     <a href="./landing.html#chrome-os-instructions" class="btn" style="margin: 5px 0;">Instructions</a>
                 </div>
             </div>
-            <div class="download-option">
+            <div class="download-option" data-os="windows">
                 <img src="./img/windowslogo.png" alt="Windows">
                 <h3>Windows</h3>
                 <div class="download-buttons">
@@ -328,7 +393,7 @@
                 </div>
             </div>
             
-            <div class="download-option">
+            <div class="download-option" data-os="mac">
                 <img src="./img/applelogo.svg" alt="Mac">
                 <h3>Mac OS</h3>
                 <div class="download-buttons">
@@ -369,5 +434,119 @@
             </a>
         </p>
     </footer>
+    
+    <script>
+    // OS detection and selection script for CaDoodle downloads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all download options
+        const downloadOptions = document.querySelectorAll('.download-option');
+        
+        // Function to show only the relevant download option and hide others
+        function showDownloadOption(osType) {
+            downloadOptions.forEach(option => {
+                const title = option.querySelector('h3').textContent.toLowerCase();
+                
+                if (title.includes(osType.toLowerCase()) || 
+                   (osType === 'Chrome OS' && title.includes('chrome'))) {
+                    option.style.display = 'block';
+                    option.classList.add('active-option');
+                } else {
+                    option.style.display = 'none';
+                    option.classList.remove('active-option');
+                }
+            });
+        }
+        
+        // Create OS selection buttons
+        const sectionHeading = document.querySelector('.section-heading');
+        
+        // Create OS selector container
+        const osSelectorDiv = document.createElement('div');
+        osSelectorDiv.className = 'os-selector';
+        
+        // Create OS selector buttons
+        const osTypes = ['Linux', 'Chrome OS', 'Windows', 'Mac OS'];
+        
+        osTypes.forEach(osType => {
+            const button = document.createElement('button');
+            button.textContent = osType;
+            button.className = 'os-button';
+            
+            // Add click event to show the selected OS
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.os-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Show the corresponding download option
+                showDownloadOption(osType);
+            });
+            
+            osSelectorDiv.appendChild(button);
+        });
+        
+        // Insert OS selector after the download heading paragraph
+        sectionHeading.appendChild(osSelectorDiv);
+        
+        // Detect user's OS
+        function detectOS() {
+            const userAgent = window.navigator.userAgent;
+            let detectedOS = 'Linux'; // Default to Linux
+            
+            if (userAgent.indexOf("Windows") !== -1) {
+                detectedOS = 'Windows';
+            } else if (userAgent.indexOf("Mac") !== -1) {
+                detectedOS = 'Mac OS';
+            } else if (userAgent.indexOf("CrOS") !== -1) {
+                detectedOS = 'Chrome OS';
+            } else if (userAgent.indexOf("Linux") !== -1) {
+                detectedOS = 'Linux';
+            }
+            
+            return detectedOS;
+        }
+        
+        // Try to detect and select user's OS
+        const userOS = detectOS();
+        
+        // Find and click the button corresponding to the user's OS
+        const matchingButton = Array.from(osSelectorDiv.querySelectorAll('.os-button'))
+            .find(btn => btn.textContent === userOS);
+        
+        if (matchingButton) {
+            matchingButton.click();
+        } else {
+            // Default to first button (Linux) if detection fails
+            osSelectorDiv.querySelector('.os-button').click();
+        }
+        
+        // Add a "Show All" button
+        const showAllButton = document.createElement('button');
+        showAllButton.textContent = 'Show All';
+        showAllButton.className = 'os-button show-all-button';
+        
+        showAllButton.addEventListener('click', function() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.os-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to this button
+            this.classList.add('active');
+            
+            // Show all download options
+            downloadOptions.forEach(option => {
+                option.style.display = 'block';
+                option.classList.remove('active-option');
+            });
+        });
+        
+        osSelectorDiv.appendChild(showAllButton);
+    });
+    </script>
 </body>
 </html>
