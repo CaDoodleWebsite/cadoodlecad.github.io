@@ -497,7 +497,7 @@
 
     <div class="container">
         <div class="section-heading">
-        <a href="https://github.com/sponsors/CommonWealthRobotics" class="btn">Support CaDoodle</a>
+          <a id="externalSupportButton" href="https://github.com/sponsors/CommonWealthRobotics" class="btn">Support CaDoodle</a>
         <p>CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.</p>
             <h2>Download CaDoodle CAD</h2>
             
@@ -618,6 +618,13 @@
     // OS detection and selection script for CaDoodle downloads
 // OS detection and selection script for CaDoodle downloads
 document.addEventListener('DOMContentLoaded', function() {
+    const externalSupportButton = document.getElementById('externalSupportButton');
+    if (externalSupportButton) {
+        externalSupportButton.addEventListener('click', () => {
+            localStorage.setItem('hasSupportedCaDoodle', 'true');
+        });
+    }
+
     const hasSupported = localStorage.getItem('hasSupportedCaDoodle') === 'true';
 
 
@@ -746,14 +753,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show all download options
         showDownloadOption('all');
     });
+    osSelectorDiv.appendChild(showAllButton);
     if (hasSupported) {
         // Skip paywall and show downloads immediately
         document.getElementById('paywallOverlay').style.display = 'none';
         document.getElementById('downloadSection').style.display = 'block';
         document.getElementById('thankYouMessage').style.display = 'block';
+        showDownloadOption(userOS)
         return; // Exit early so paywall logic isn't re-initialized
     }
-    osSelectorDiv.appendChild(showAllButton);
+
     
     // Paywall functionality
     const sponsorButton = document.getElementById('sponsorButton');
