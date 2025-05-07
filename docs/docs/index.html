@@ -585,7 +585,6 @@
         <div class="paywall-container">
             <h2>Support CaDoodle Development</h2>
             <p>CaDoodle is a community-driven open source project. Your support helps us continue development and keep the software free for everyone.</p>
-            <p id="osSelectedMessage"></p>
             
             <div class="sponsor-options">
               <div class="sponsor-option selected" data-amount="20">
@@ -689,12 +688,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 option.classList.remove('active-option');
             }
         });
-
-        // Update message
-        const osMessage = document.getElementById('osSelectedMessage');
-        osMessage.textContent = osType === 'all'
-            ? 'You selected to view all download options.'
-            : `You selected ${osType} as your operating system.`;
 
         // Show downloads immediately if user supported before
         if (hasSupported) {
