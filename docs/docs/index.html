@@ -620,13 +620,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hasSupported = localStorage.getItem('hasSupportedCaDoodle') === 'true';
 
-    if (hasSupported) {
-        // Skip paywall and show downloads immediately
-        document.getElementById('paywallOverlay').style.display = 'none';
-        document.getElementById('downloadSection').style.display = 'block';
-        document.getElementById('thankYouMessage').style.display = 'block';
-        return; // Exit early so paywall logic isn't re-initialized
-    }
+
     // Get all download options
     const downloadOptions = document.querySelectorAll('.download-option');
     
@@ -648,37 +642,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to show only the relevant download option and hide others
     function showDownloadOption(osType) {
         selectedOS = osType;
-        
-        if (osType === 'all') {
-            // Show all download options
-            downloadOptions.forEach(option => {
+
+        // Show/hide download cards
+        downloadOptions.forEach(option => {
+            const title = option.querySelector('h3').textContent.toLowerCase();
+            if (osType === 'all' || title.includes(osType.toLowerCase()) || 
+                (osType === 'Chrome OS' && title.includes('chrome'))) {
                 option.style.display = 'block';
-            });
-        } else {
-            // Show only the selected OS download option
-            downloadOptions.forEach(option => {
-                const title = option.querySelector('h3').textContent.toLowerCase();
-                
-                if (title.includes(osType.toLowerCase()) || 
-                   (osType === 'Chrome OS' && title.includes('chrome'))) {
-                    option.style.display = 'block';
-                    option.classList.add('active-option');
-                } else {
-                    option.style.display = 'none';
-                    option.classList.remove('active-option');
-                }
-            });
-        }
-        
-        // Update the OS message in the paywall
+                option.classList.add('active-option');
+            } else {
+                option.style.display = 'none';
+                option.classList.remove('active-option');
+            }
+        });
+
+        // Update message
         const osMessage = document.getElementById('osSelectedMessage');
-        osMessage.textContent = osType === 'all' 
-            ? 'You selected to view all download options.' 
+        osMessage.textContent = osType === 'all'
+            ? 'You selected to view all download options.'
             : `You selected ${osType} as your operating system.`;
-        
-        // Show the paywall when OS is selected
-        paywallOverlay.style.display = 'flex';
+
+        // Show downloads immediately if user supported before
+        if (hasSupported) {
+            paywallOverlay.style.display = 'none';
+            downloadSection.style.display = 'block';
+            thankYouMessage.style.display = 'block';
+        } else {
+            paywallOverlay.style.display = 'flex';
+        }
     }
+
     
     // Create OS selection buttons
     const sectionHeading = document.querySelector('.section-heading');
@@ -753,7 +746,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show all download options
         showDownloadOption('all');
     });
-    
+    if (hasSupported) {
+        // Skip paywall and show downloads immediately
+        document.getElementById('paywallOverlay').style.display = 'none';
+        document.getElementById('downloadSection').style.display = 'block';
+        document.getElementById('thankYouMessage').style.display = 'block';
+        return; // Exit early so paywall logic isn't re-initialized
+    }
     osSelectorDiv.appendChild(showAllButton);
     
     // Paywall functionality
