@@ -99,9 +99,10 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                        border-width: 5px;
+            border-width: 5px;
             border-style: solid;
             border-color: var(--logo-red);
+            cursor: pointer;
         }
         
         .btn:hover {
@@ -259,6 +260,129 @@
             animation: pulse 1s;
         }
         
+        /* Paywall Styles */
+        .paywall-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .paywall-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border-top: 6px solid var(--logo-orange);
+        }
+        
+        .paywall-container h2 {
+            color: var(--logo-blue);
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        
+        .paywall-container p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        #osSelectedMessage {
+            font-weight: bold;
+            color: var(--logo-blue);
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+        
+        .sponsor-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .sponsor-option {
+            background-color: var(--logo-beige);
+            border-radius: 8px;
+            padding: 20px;
+            width: 120px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .sponsor-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--logo-yellow);
+        }
+        
+        .sponsor-option h3 {
+            margin: 0;
+            color: var(--logo-blue);
+            font-size: 1.3rem;
+        }
+        
+        .sponsor-option p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .sponsor-option.selected {
+            border-color: var(--logo-orange);
+            background-color: rgba(231, 164, 54, 0.1);
+        }
+        
+        .paywall-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .skip-button {
+            background: none;
+            border: none;
+            color: var(--logo-blue);
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+            margin-top: 10px;
+            padding: 5px;
+        }
+        
+        .skip-button:hover {
+            color: var(--logo-red);
+        }
+        
+        .download-section {
+            display: none;
+        }
+        
+        .thank-you-message {
+            color: var(--logo-orange);
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.03); }
@@ -305,6 +429,15 @@
                 padding: 8px 16px;
                 font-size: 0.9rem;
             }
+            
+            .paywall-container {
+                padding: 25px;
+            }
+            
+            .sponsor-option {
+                padding: 15px;
+                width: 100px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -342,6 +475,15 @@
                 width: 200px;
                 padding: 8px 16px;
             }
+            
+            .paywall-container {
+                padding: 20px;
+                width: 95%;
+            }
+            
+            .sponsor-option {
+                width: 45%;
+            }
         }
     </style>
 </head>
@@ -356,7 +498,7 @@
     <div class="container">
         <div class="section-heading">
         <a href="https://github.com/sponsors/CommonWealthRobotics" class="btn">Support CaDoodle</a>
-        <p>CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac  and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection. </p>
+        <p>CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.</p>
             <h2>Download CaDoodle CAD</h2>
             
             <p>Choose your platform below to get started</p>
@@ -364,44 +506,52 @@
             <!-- OS selector will be inserted here by JavaScript -->
         </div>
         
-        <div class="download-container">
-            <div class="download-option" data-os="linux">
-                <img src="./img/linuxlogo.png" alt="Linux">
-                <h3>Linux</h3>
-                <div class="download-buttons">
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.AppImage" class="btn" style="margin: 5px 0;">ARM AppImage</a>
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Deb</a>
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.AppImage" class="btn" style="margin: 5px 0;">x86 AppImage</a>
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
-                </div>
-            </div>
-            <div class="download-option" data-os="chrome">
-                <img src="./img/chromelogo.png" alt="Chrome OS">
-                <h3>Chrome OS</h3>
-                <div class="download-buttons">
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Deb</a>
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
-                    <a href="./landing.html#chrome-os-instructions" class="btn" style="margin: 5px 0;">Instructions</a>
-                </div>
-            </div>
-            <div class="download-option" data-os="windows">
-                <img src="./img/windowslogo.png" alt="Windows">
-                <h3>Windows</h3>
-                <div class="download-buttons">
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.zip" class="btn" style="margin: 5px 0;">Standalone EXE</a>
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.exe" class="btn" style="margin: 5px 0;">Local Installer</a>
-                </div>
+        <!-- Download section (will be hidden by default) -->
+        <div class="download-section" id="downloadSection">
+            <div class="thank-you-message" id="thankYouMessage">
+                Thank you for supporting CaDoodle! Your contribution helps us continue development.
             </div>
             
-            <div class="download-option" data-os="mac">
-                <img src="./img/applelogo.svg" alt="Mac">
-                <h3>Mac OS</h3>
-                <div class="download-buttons">
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-arm64.dmg" class="btn" style="margin: 5px 0;">ARM</a>
-                    <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-x86_64.dmg" class="btn" style="margin: 5px 0;">Intel</a>
+            <div class="download-container">
+                <div class="download-option" data-os="linux">
+                    <img src="./img/linuxlogo.png" alt="Linux">
+                    <h3>Linux</h3>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.AppImage" class="btn" style="margin: 5px 0;">ARM AppImage</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Deb</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.AppImage" class="btn" style="margin: 5px 0;">x86 AppImage</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
+                    </div>
+                </div>
+                <div class="download-option" data-os="chrome">
+                    <img src="./img/chromelogo.png" alt="Chrome OS">
+                    <h3>Chrome OS</h3>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Deb</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
+                        <a href="./landing.html#chrome-os-instructions" class="btn" style="margin: 5px 0;">Instructions</a>
+                    </div>
+                </div>
+                <div class="download-option" data-os="windows">
+                    <img src="./img/windowslogo.png" alt="Windows">
+                    <h3>Windows</h3>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.zip" class="btn" style="margin: 5px 0;">Standalone EXE</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.exe" class="btn" style="margin: 5px 0;">Local Installer</a>
+                    </div>
+                </div>
+                
+                <div class="download-option" data-os="mac">
+                    <img src="./img/applelogo.svg" alt="Mac">
+                    <h3>Mac OS</h3>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-arm64.dmg" class="btn" style="margin: 5px 0;">ARM</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-x86_64.dmg" class="btn" style="margin: 5px 0;">Intel</a>
+                    </div>
                 </div>
             </div>
         </div>
+        
         <div class="section-heading">
             <img src="./img/1.png" alt="CaDoodle Screenshot">
         </div>
@@ -417,6 +567,35 @@
             <div class="feature">
                 <h3>Local Application</h3>
                 <p>CaDoodle is a local application that uses the resources of the computer running it. Models are stored on your own computer.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paywall Overlay -->
+    <div class="paywall-overlay" id="paywallOverlay">
+        <div class="paywall-container">
+            <h2>Support CaDoodle Development</h2>
+            <p>CaDoodle is a community-driven open source project. Your support helps us continue development and keep the software free for everyone.</p>
+            <p id="osSelectedMessage"></p>
+            
+            <div class="sponsor-options">
+              <div class="sponsor-option selected" data-amount="20">
+                  <h3>$20</h3>
+                  <p>Standard</p>
+              </div>
+              <div class="sponsor-option" data-amount="50">
+                  <h3>$50</h3>
+                  <p>Supporter</p>
+              </div>
+              <div class="sponsor-option" data-amount="1000">
+                  <h3>$1000</h3>
+                  <p>Patron</p>
+              </div>
+            </div>
+            
+            <div class="paywall-buttons">
+                <a href="#" class="btn" id="sponsorButton">Support & Download</a>
+                <button class="skip-button" id="skipButton">Skip Payment and Download</button>
             </div>
         </div>
     </div>
@@ -437,12 +616,46 @@
     
     <script>
     // OS detection and selection script for CaDoodle downloads
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get all download options
-        const downloadOptions = document.querySelectorAll('.download-option');
+// OS detection and selection script for CaDoodle downloads
+document.addEventListener('DOMContentLoaded', function() {
+    const hasSupported = localStorage.getItem('hasSupportedCaDoodle') === 'true';
+
+    if (hasSupported) {
+        // Skip paywall and show downloads immediately
+        document.getElementById('paywallOverlay').style.display = 'none';
+        document.getElementById('downloadSection').style.display = 'block';
+        document.getElementById('thankYouMessage').style.display = 'block';
+        return; // Exit early so paywall logic isn't re-initialized
+    }
+    // Get all download options
+    const downloadOptions = document.querySelectorAll('.download-option');
+    
+    // Get the paywall overlay element
+    const paywallOverlay = document.getElementById('paywallOverlay');
+    
+    // Initially hide the paywall overlay
+    paywallOverlay.style.display = 'none';
+    
+    // Get the download section
+    const downloadSection = document.getElementById('downloadSection');
+    
+    // Initially hide download section
+    downloadSection.style.display = 'none';
+    
+    // Set a variable to store the selected OS
+    let selectedOS = null;
+    
+    // Function to show only the relevant download option and hide others
+    function showDownloadOption(osType) {
+        selectedOS = osType;
         
-        // Function to show only the relevant download option and hide others
-        function showDownloadOption(osType) {
+        if (osType === 'all') {
+            // Show all download options
+            downloadOptions.forEach(option => {
+                option.style.display = 'block';
+            });
+        } else {
+            // Show only the selected OS download option
             downloadOptions.forEach(option => {
                 const title = option.querySelector('h3').textContent.toLowerCase();
                 
@@ -457,96 +670,146 @@
             });
         }
         
-        // Create OS selection buttons
-        const sectionHeading = document.querySelector('.section-heading');
+        // Update the OS message in the paywall
+        const osMessage = document.getElementById('osSelectedMessage');
+        osMessage.textContent = osType === 'all' 
+            ? 'You selected to view all download options.' 
+            : `You selected ${osType} as your operating system.`;
         
-        // Create OS selector container
-        const osSelectorDiv = document.createElement('div');
-        osSelectorDiv.className = 'os-selector';
+        // Show the paywall when OS is selected
+        paywallOverlay.style.display = 'flex';
+    }
+    
+    // Create OS selection buttons
+    const sectionHeading = document.querySelector('.section-heading');
+    
+    // Create OS selector container
+    const osSelectorDiv = document.createElement('div');
+    osSelectorDiv.className = 'os-selector';
+    
+    // Create OS selector buttons
+    const osTypes = ['Linux', 'Chrome OS', 'Windows', 'Mac OS'];
+    
+    osTypes.forEach(osType => {
+        const button = document.createElement('button');
+        button.textContent = osType;
+        button.className = 'os-button';
         
-        // Create OS selector buttons
-        const osTypes = ['Linux', 'Chrome OS', 'Windows', 'Mac OS'];
-        
-        osTypes.forEach(osType => {
-            const button = document.createElement('button');
-            button.textContent = osType;
-            button.className = 'os-button';
-            
-            // Add click event to show the selected OS
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.os-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Show the corresponding download option
-                showDownloadOption(osType);
-            });
-            
-            osSelectorDiv.appendChild(button);
-        });
-        
-        // Insert OS selector after the download heading paragraph
-        sectionHeading.appendChild(osSelectorDiv);
-        
-        // Detect user's OS
-        function detectOS() {
-            const userAgent = window.navigator.userAgent;
-            let detectedOS = 'Linux'; // Default to Linux
-            
-            if (userAgent.indexOf("Windows") !== -1) {
-                detectedOS = 'Windows';
-            } else if (userAgent.indexOf("Mac") !== -1) {
-                detectedOS = 'Mac OS';
-            } else if (userAgent.indexOf("CrOS") !== -1) {
-                detectedOS = 'Chrome OS';
-            } else if (userAgent.indexOf("Linux") !== -1) {
-                detectedOS = 'Linux';
-            }
-            
-            return detectedOS;
-        }
-        
-        // Try to detect and select user's OS
-        const userOS = detectOS();
-        
-        // Find and click the button corresponding to the user's OS
-        const matchingButton = Array.from(osSelectorDiv.querySelectorAll('.os-button'))
-            .find(btn => btn.textContent === userOS);
-        
-        if (matchingButton) {
-            matchingButton.click();
-        } else {
-            // Default to first button (Linux) if detection fails
-            osSelectorDiv.querySelector('.os-button').click();
-        }
-        
-        // Add a "Show All" button
-        const showAllButton = document.createElement('button');
-        showAllButton.textContent = 'Show All';
-        showAllButton.className = 'os-button show-all-button';
-        
-        showAllButton.addEventListener('click', function() {
+        // Add click event to show the OS selection and paywall
+        button.addEventListener('click', function() {
             // Remove active class from all buttons
             document.querySelectorAll('.os-button').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Add active class to this button
+            // Add active class to clicked button
             this.classList.add('active');
             
-            // Show all download options
-            downloadOptions.forEach(option => {
-                option.style.display = 'block';
-                option.classList.remove('active-option');
-            });
+            // Show the corresponding download option
+            showDownloadOption(osType);
         });
         
-        osSelectorDiv.appendChild(showAllButton);
+        osSelectorDiv.appendChild(button);
     });
+    
+    // Insert OS selector after the download heading paragraph
+    sectionHeading.appendChild(osSelectorDiv);
+    
+    // Detect user's OS but don't automatically select it
+    function detectOS() {
+        const userAgent = window.navigator.userAgent;
+        let detectedOS = 'Linux'; // Default to Linux
+        
+        if (userAgent.indexOf("Windows") !== -1) {
+            detectedOS = 'Windows';
+        } else if (userAgent.indexOf("Mac") !== -1) {
+            detectedOS = 'Mac OS';
+        } else if (userAgent.indexOf("CrOS") !== -1) {
+            detectedOS = 'Chrome OS';
+        } else if (userAgent.indexOf("Linux") !== -1) {
+            detectedOS = 'Linux';
+        }
+        
+        return detectedOS;
+    }
+    
+    // Get the user's OS but don't automatically select it
+    const userOS = detectOS();
+    
+    // Add a "Show All" button
+    const showAllButton = document.createElement('button');
+    showAllButton.textContent = 'Show All';
+    showAllButton.className = 'os-button show-all-button';
+    
+    showAllButton.addEventListener('click', function() {
+        // Remove active class from all buttons
+        document.querySelectorAll('.os-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Add active class to this button
+        this.classList.add('active');
+        
+        // Show all download options
+        showDownloadOption('all');
+    });
+    
+    osSelectorDiv.appendChild(showAllButton);
+    
+    // Paywall functionality
+    const sponsorButton = document.getElementById('sponsorButton');
+    const skipButton = document.getElementById('skipButton');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    const sponsorOptions = document.querySelectorAll('.sponsor-option');
+    
+    // Set selected sponsor amount
+    let selectedAmount = 20; // Default amount
+    
+    // Handle sponsor option selection
+    sponsorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected class from all options
+            sponsorOptions.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+            
+            // Update selected amount
+            selectedAmount = parseInt(this.getAttribute('data-amount'));
+        });
+    });
+    
+    // Handle sponsor button click
+    sponsorButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Open GitHub Sponsors page with selected amount
+        let tierId = selectedAmount === 20 ? 485899 : selectedAmount === 50 ? 485800 : 485921;
+        window.open(`https://github.com/sponsors/CommonWealthRobotics/sponsorships?tier_id=${tierId}`, '_blank');
+        
+        // Hide paywall and show downloads
+        paywallOverlay.style.display = 'none';
+        downloadSection.style.display = 'block';
+        
+        // Show thank you message
+        thankYouMessage.style.display = 'block';
+        
+        // Track sponsor click (you could add analytics here)
+        console.log(`User clicked sponsor with amount: ${selectedAmount}`);
+        localStorage.setItem('hasSupportedCaDoodle', 'true');
+    });
+    
+    // Handle skip button click
+    skipButton.addEventListener('click', function() {
+        // Hide paywall and show downloads
+        paywallOverlay.style.display = 'none';
+        downloadSection.style.display = 'block';
+        
+        // Track skip click (you could add analytics here)
+        console.log('User skipped payment');
+        localStorage.setItem('hasSupportedCaDoodle', 'true');
+    });
+});
     </script>
 </body>
 </html>
