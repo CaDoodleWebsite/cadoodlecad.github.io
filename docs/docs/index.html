@@ -23,7 +23,7 @@
             color: #333;
             background-color: var(--logo-beige);
         }
-        
+
         .hero {
             background: url('./img/banner.png'), linear-gradient(135deg, var(--logo-orange), var(--logo-red),var(--dark-blue));
             background-size: contain;
@@ -115,7 +115,8 @@
             color: var(--logo-blue);
             text-align: center;
             margin-top: 60px;
-            margin-bottom: 30px;
+            margin-bottom: 30px;         
+
         }
         
         .section-heading img {
@@ -381,9 +382,14 @@
           margin: 20px auto;
           display: none;
           text-align: center;
-          max-width: 600px;
+          max-width: 800px;
         }
-        
+        .description {
+          color: var(--dark-blue);
+          margin: 20px auto;
+          text-align: center;
+          max-width: 800px;
+        }
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.03); }
@@ -499,7 +505,9 @@
     <div class="container">
         <div class="section-heading">
           <a id="externalSupportButton" href="https://github.com/sponsors/CommonWealthRobotics" class="btn">Support CaDoodle</a>
-        <p>CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.</p>
+          <div class="description" >
+            <p>CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.</p>
+         </div>
             <h2>Download CaDoodle CAD</h2>
             
             <p>Choose your platform below to get started</p>
