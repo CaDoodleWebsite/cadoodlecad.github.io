@@ -589,16 +589,20 @@
             
             <div class="sponsor-options">
               <div class="sponsor-option selected" data-amount="20">
-                  <h3>$20</h3>
+                  <h3>$20 one time</h3>
                   <p>Standard</p>
               </div>
+              <div class="sponsor-option " data-amount="5">
+                  <h3>$5/month</h3>
+                  <p>Helper</p>
+              </div>
               <div class="sponsor-option" data-amount="50">
-                  <h3>$50</h3>
+                  <h3>$25/month</h3>
                   <p>Supporter</p>
               </div>
-              <div class="sponsor-option" data-amount="1000">
-                  <h3>$1000</h3>
-                  <p>Patron</p>
+              <div class="sponsor-option" data-amount="500">
+                  <h3>$500/month</h3>
+                  <p>Corporate Subscription</p>
               </div>
             </div>
             
@@ -629,8 +633,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     const externalSupportButton = document.getElementById('externalSupportButton');
     if (externalSupportButton) {
-        externalSupportButton.addEventListener('click', () => {
+        externalSupportButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default navigation
             localStorage.setItem('hasSupportedCaDoodle', 'true');
+
+
+            // Clear selection state if any
+            document.querySelectorAll('.os-button').forEach(btn => btn.classList.remove('active'));
+
+            // Show the paywall overlay explicitly
+            document.getElementById('paywallOverlay').style.display = 'flex';
+
+            // You can set a default OS message or clear it:
+            document.getElementById('osSelectedMessage').textContent = 'Select your operating system below to continue.';
+
+            // Optional: scroll into view
+            document.getElementById('paywallOverlay').scrollIntoView({ behavior: 'smooth' });
         });
     }
 
@@ -763,14 +781,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showDownloadOption('all');
     });
     osSelectorDiv.appendChild(showAllButton);
-    if (hasSupported) {
-        // Skip paywall and show downloads immediately
-        document.getElementById('paywallOverlay').style.display = 'none';
-        document.getElementById('downloadSection').style.display = 'block';
-        document.getElementById('thankYouMessage').style.display = 'block';
-        showDownloadOption(userOS)
-        return; // Exit early so paywall logic isn't re-initialized
-    }
+
 
     
     // Paywall functionality
@@ -801,7 +812,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         
         // Open GitHub Sponsors page with selected amount
-        let tierId = selectedAmount === 20 ? 485899 : selectedAmount === 50 ? 485800 : 485921;
+        let tierId = selectedAmount === 20 ? 485899 : selectedAmount === 50 ? 485797 : selectedAmount === 5 ?485796: 485801;
         window.open(`https://github.com/sponsors/CommonWealthRobotics/sponsorships?tier_id=${tierId}`, '_blank');
         
         // Hide paywall and show downloads
@@ -826,6 +837,14 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('User skipped payment');
         localStorage.setItem('hasSupportedCaDoodle', 'true');
     });
+    if (hasSupported) {
+        // Skip paywall and show downloads immediately
+        document.getElementById('paywallOverlay').style.display = 'none';
+        document.getElementById('downloadSection').style.display = 'block';
+        document.getElementById('thankYouMessage').style.display = 'block';
+        showDownloadOption(userOS)
+        return; // Exit early so paywall logic isn't re-initialized
+    }
 });
     </script>
 </body>
