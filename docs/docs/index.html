@@ -402,7 +402,10 @@
             50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
-        
+        .sponsor-option img {
+               max-height: 100px;
+               max-width: 100px;
+         }
         @media (max-width: 768px) {
             .hero {
                 height: 300px;
@@ -471,6 +474,10 @@
             
             .sponsor-option p {
                 font-size: 0.9rem;
+            }
+            .sponsor-option img {
+               max-height: 80px;
+               max-width: 80px;
             }
         }
         
@@ -566,6 +573,10 @@
                 margin-top: 0;
                 margin-bottom: 5px;
             }
+            .sponsor-option img {
+               max-height: 70px;
+               max-width: 70px;
+            }
         }
         
         /* Additional styles for very small screens */
@@ -602,7 +613,7 @@
             .sponsor-option p {
                 font-size: 0.8rem;
             }
-            
+
             .btn {
                 padding: 6px 15px;
                 font-size: 0.85rem;
@@ -611,6 +622,10 @@
             .skip-button {
                 font-size: 0.85rem;
                 padding: 5px;
+            }
+            .sponsor-option img {
+               max-height: 50px;
+               max-width: 50px;
             }
         }
     </style>
@@ -709,18 +724,22 @@
             
             <div class="sponsor-options">
               <div class="sponsor-option selected" data-amount="20">
+                  <img src="./img/github.png" alt="GitHub logo" >
                   <h3>$20 one time</h3>
                   <p>Personal Use</p>
               </div>
               <div class="sponsor-option " data-amount="5">
+                  <img src="./img/github.png" alt="GitHub logo">
                   <h3>$5/month</h3>
                   <p>Supporter Subscription</p>
               </div>
               <div class="sponsor-option" data-amount="50">
+                  <img src="./img/github.png" alt="GitHub logo" >
                   <h3>$25/month</h3>
                   <p>Sponsor Subscription</p>
               </div>
               <div class="sponsor-option" data-amount="500">
+                  <img src="./img/github.png" alt="GitHub logo" >
                   <h3>$500/month</h3>
                   <p>Enterprise Subscription</p>
               </div>
