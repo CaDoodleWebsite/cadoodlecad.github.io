@@ -406,6 +406,10 @@
                max-height: 100px;
                max-width: 100px;
          }
+         .paypal-option img {
+               max-height: 100px;
+               max-width: 100px;
+         }
         @media (max-width: 768px) {
             .hero {
                 height: 300px;
@@ -476,6 +480,10 @@
                 font-size: 0.9rem;
             }
             .sponsor-option img {
+               max-height: 80px;
+               max-width: 80px;
+            }
+            .paypal-option img {
                max-height: 80px;
                max-width: 80px;
             }
@@ -577,6 +585,10 @@
                max-height: 70px;
                max-width: 70px;
             }
+            .paypal-option img {
+               max-height: 70px;
+               max-width: 70px;
+            }
         }
         
         /* Additional styles for very small screens */
@@ -624,6 +636,10 @@
                 padding: 5px;
             }
             .sponsor-option img {
+               max-height: 50px;
+               max-width: 50px;
+            }
+            .paypal-option img {
                max-height: 50px;
                max-width: 50px;
             }
@@ -723,6 +739,11 @@
             <p>CaDoodle is a community-driven open source project. Your support helps us continue development and keep the software free for everyone.</p>
             
             <div class="sponsor-options">
+              <div class="sponsor-option" data-amount="21">
+                  <img src="./img/paypal.png" alt="Paypal logo" >
+                  <h3>$20 one time</h3>
+                  <p>Personal Use</p>
+              </div>
               <div class="sponsor-option selected" data-amount="20">
                   <img src="./img/github.png" alt="GitHub logo" >
                   <h3>$20 one time</h3>
@@ -946,7 +967,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Open GitHub Sponsors page with selected amount
         let tierId = selectedAmount === 20 ? 485899 : selectedAmount === 50 ? 485797 : selectedAmount === 5 ?485796: 485801;
-        window.open(`https://github.com/sponsors/CommonWealthRobotics/sponsorships?tier_id=${tierId}`, '_blank');
+        if(selectedAmount ==21){
+        	window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mad.hephaestus%40gmail.com&amount=20&currency_code=USD&item_name=One-time%20Personal%20Use%20Payment`, '_blank');
+        }
+        else{
+        	window.open(`https://github.com/sponsors/CommonWealthRobotics/sponsorships?tier_id=${tierId}`, '_blank');
+        }
         
         // Hide paywall and show downloads
         paywallOverlay.style.display = 'none';
@@ -959,6 +985,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`User clicked sponsor with amount: ${selectedAmount}`);
         localStorage.setItem('hasSupportedCaDoodle', 'true');
     });
+ 
     
     // Handle skip button click
     skipButton.addEventListener('click', function() {
