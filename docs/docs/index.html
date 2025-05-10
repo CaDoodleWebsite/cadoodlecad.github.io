@@ -794,7 +794,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (externalSupportButton) {
         externalSupportButton.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent default navigation
-            //localStorage.setItem('hasSupportedCADoodle', 'true');
 
 
             // Clear selection state if any
@@ -811,7 +810,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const hasSupported = localStorage.getItem('hasSupportedCADoodle') === 'true';
+    const hasSupported = localStorage.getItem('hasSupportedCadoodle') === 'true';
 
 
     // Get all download options
@@ -973,7 +972,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Track sponsor click (you could add analytics here)
         console.log(`User clicked sponsor with amount: ${selectedAmount}`);
-        localStorage.setItem('hasSupportedCADoodle', 'true');
+        localStorage.setItem('hasSupportedCadoodle', 'true');
         });
     });
     
@@ -986,7 +985,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Track skip click (you could add analytics here)
         console.log('User skipped payment');
-        //localStorage.setItem('hasSupportedCADoodle', 'true');
     });
     if (hasSupported) {
         // Skip paywall and show downloads immediately
