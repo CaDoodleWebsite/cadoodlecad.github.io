@@ -410,6 +410,10 @@
                max-height: 100px;
                max-width: 100px;
          }
+        .dev-image img {
+               max-height: 150px;
+               max-width: 150px;
+        }
         @media (max-width: 768px) {
             .hero {
                 height: 300px;
@@ -486,6 +490,10 @@
             .paypal-option img {
                max-height: 80px;
                max-width: 80px;
+            }
+            .dev-image {
+               max-height: 100px;
+               max-width: 100px;
             }
         }
         
@@ -589,6 +597,10 @@
                max-height: 70px;
                max-width: 70px;
             }
+           .dev-image {
+               max-height: 80px;
+               max-width: 80px;
+            }
         }
         
         /* Additional styles for very small screens */
@@ -639,10 +651,15 @@
                max-height: 50px;
                max-width: 50px;
             }
-            .paypal-option img {
+           .paywall-container img {
+               max-height: 70px;
+               max-width: 70px;
+            }
+            .dev-image {
                max-height: 50px;
                max-width: 50px;
             }
+
         }
     </style>
 </head>
@@ -736,6 +753,7 @@
     <div class="paywall-overlay" id="paywallOverlay">
         <div class="paywall-container">
             <h2>Support CaDoodle Development</h2>
+            <img class="dev-image"  src="./img/kevin.jpeg" alt="Lead Developer Kevin Harrington" >
             <p>CaDoodle is a community-driven open source project. Your support helps us continue development and keep the software free for everyone.</p>
             
             <div class="sponsor-options">
@@ -765,7 +783,7 @@
                   <p>Enterprise Subscription</p>
               </div>
               <div class="sponsor-option" data-amount="0">
-                  <img src="./img/kevin.jpeg" alt="Lead Developer Kevin Harrington" >
+                  <img src="./img/no-kevin.jpeg" alt="Lead Developer Kevin Harrington" >
                   <h3>$0</h3>
                   <p>Skip Support, Just Download</p>
               </div>
