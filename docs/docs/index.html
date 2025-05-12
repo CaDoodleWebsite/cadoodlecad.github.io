@@ -414,6 +414,42 @@
                max-height: 100px;
                max-width: 100px;
         }
+        .sponsor-blerb {
+		  display: flex;
+		  align-items: center;
+		  gap: 20px;
+		  padding: 20px;
+		  flex-wrap: wrap;
+		}
+		
+		.dev-image {
+		  width: 200px;
+		  max-width: 100%;
+		  height: auto;
+		  flex-shrink: 0;
+		}
+		
+		.text {
+		  flex: 1; /* Takes up remaining space */
+		  max-width: 600px; /* Optional: limits how wide the text can get */
+		}
+		
+		@media (max-width: 600px) {
+		  .sponsor-blerb {
+		    flex-direction: column;
+		    text-align: center;
+		  }
+		
+		  .dev-image {
+		    width: 100%;
+		    max-width: 300px;
+		  }
+		
+		  .text {
+		    max-width: 100%;
+		  }
+		}
+		        
         @media (max-width: 768px) {
             .hero {
                 height: 300px;
@@ -752,10 +788,13 @@
     <!-- Paywall Overlay -->
     <div class="paywall-overlay" id="paywallOverlay">
         <div class="paywall-container">
-            <h2>Support CaDoodle Development</h2>
-            <img class="dev-image"  src="./img/kevin.jpeg" alt="Lead Developer Kevin Harrington" >
-            <p>CaDoodle is a community-driven open source project. Your support helps us continue development and keep the software free for everyone.</p>
-            
+            <div class="sponsor-blerb">
+               <img class="dev-image"  src="./img/kevin.jpeg" alt="Lead Developer Kevin Harrington" >
+               <div class="text">
+                <h2>Support CaDoodle Development</h2>
+                <p>CaDoodle is a community-driven open source project. Your support helps us continue development and keep the software free for everyone.</p>
+              </div>
+            </div>
             <div class="sponsor-options">
               <div class="sponsor-option" data-amount="21">
                   <img src="./img/paypal.png" alt="Paypal logo" >
