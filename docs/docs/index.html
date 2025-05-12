@@ -377,7 +377,27 @@
         .skip-button:hover {
             color: var(--logo-red);
         }
-        
+        .developer-image {
+            max-width: 300px;
+            height: auto;
+            align-items: left;
+        }
+
+        .paywall-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        .skip-button {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            align-items: right;
+        }
         .download-section {
             display: none;
         }
@@ -406,10 +426,7 @@
                max-height: 100px;
                max-width: 100px;
          }
-         .paypal-option img {
-               max-height: 100px;
-               max-width: 100px;
-         }
+
         @media (max-width: 768px) {
             .hero {
                 height: 300px;
@@ -483,7 +500,7 @@
                max-height: 80px;
                max-width: 80px;
             }
-            .paypal-option img {
+           .img {
                max-height: 80px;
                max-width: 80px;
             }
@@ -585,7 +602,7 @@
                max-height: 70px;
                max-width: 70px;
             }
-            .paypal-option img {
+           .img {
                max-height: 70px;
                max-width: 70px;
             }
@@ -639,7 +656,7 @@
                max-height: 50px;
                max-width: 50px;
             }
-            .paypal-option img {
+           .img {
                max-height: 50px;
                max-width: 50px;
             }
@@ -765,7 +782,7 @@
                   <p>Enterprise Subscription</p>
               </div>
             </div>
-            
+            <img src="./img/kevin.jpeg" alt="GitHub logo" class="developer-image">
             <div class="paywall-buttons">
                 <button class="skip-button" id="skipButton">Skip Support, Just Download</button>
             </div>
