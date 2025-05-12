@@ -377,27 +377,7 @@
         .skip-button:hover {
             color: var(--logo-red);
         }
-        .developer-image {
-            max-width: 300px;
-            height: auto;
-            align-items: left;
-        }
-
-        .paywall-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            padding-bottom: 10px;
-        }
-
-        .skip-button {
-            padding: 10px 20px;
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            align-items: right;
-        }
+        
         .download-section {
             display: none;
         }
@@ -426,7 +406,10 @@
                max-height: 100px;
                max-width: 100px;
          }
-
+         .paypal-option img {
+               max-height: 100px;
+               max-width: 100px;
+         }
         @media (max-width: 768px) {
             .hero {
                 height: 300px;
@@ -500,7 +483,7 @@
                max-height: 80px;
                max-width: 80px;
             }
-           .img {
+            .paypal-option img {
                max-height: 80px;
                max-width: 80px;
             }
@@ -602,7 +585,7 @@
                max-height: 70px;
                max-width: 70px;
             }
-           .img {
+            .paypal-option img {
                max-height: 70px;
                max-width: 70px;
             }
@@ -656,7 +639,7 @@
                max-height: 50px;
                max-width: 50px;
             }
-           .img {
+            .paypal-option img {
                max-height: 50px;
                max-width: 50px;
             }
@@ -781,10 +764,11 @@
                   <h3>$500/month</h3>
                   <p>Enterprise Subscription</p>
               </div>
-            </div>
-            <img src="./img/kevin.jpeg" alt="GitHub logo" class="developer-image">
-            <div class="paywall-buttons">
-                <button class="skip-button" id="skipButton">Skip Support, Just Download</button>
+              <div class="sponsor-option" data-amount="0">
+                  <img src="./img/kevin.jpeg" alt="GitHub logo" >
+                  <h3>$0</h3>
+                  <p>Skip Support, Just Download</p>
+              </div>
             </div>
         </div>
     </div>
@@ -955,7 +939,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     // Paywall functionality
-    const skipButton = document.getElementById('skipButton');
     const thankYouMessage = document.getElementById('thankYouMessage');
     const sponsorOptions = document.querySelectorAll('.sponsor-option');
     
@@ -966,19 +949,28 @@ document.addEventListener('DOMContentLoaded', function() {
     sponsorOptions.forEach(option => {
         option.addEventListener('click', function(e) {
         e.preventDefault();
-
-            
             // Update selected amount
             selectedAmount = parseInt(this.getAttribute('data-amount'));
                     
         
         // Open GitHub Sponsors page with selected amount
         let tierId = selectedAmount === 20 ? 485899 : selectedAmount === 50 ? 485797 : selectedAmount === 5 ?485796: 485801;
-        if(selectedAmount ==21){
+        if(selectedAmount ===21){
         	window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mad.hephaestus%40gmail.com&amount=20&currency_code=USD&item_name=One-time%20Personal%20Use%20Payment`, '_blank');
         }
         else{
-        	window.open(`https://github.com/sponsors/CommonWealthRobotics/sponsorships?tier_id=${tierId}`, '_blank');
+        	if(selectedAmount===0){
+                // Hide paywall and show downloads
+		        paywallOverlay.style.display = 'none';
+		        downloadSection.style.display = 'block';
+		        
+		        // Track skip click (you could add analytics here)
+		        console.log('User skipped payment');
+		        localStorage.setItem('hasSupportedCaDoodle', 'true');
+		        return;
+        	}else{
+        		window.open(`https://github.com/sponsors/CommonWealthRobotics/sponsorships?tier_id=${tierId}`, '_blank');
+        	}
         }
         
         // Hide paywall and show downloads
@@ -995,16 +987,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     
-    // Handle skip button click
-    skipButton.addEventListener('click', function() {
-        // Hide paywall and show downloads
-        paywallOverlay.style.display = 'none';
-        downloadSection.style.display = 'block';
-        
-        // Track skip click (you could add analytics here)
-        console.log('User skipped payment');
-        localStorage.setItem('hasSupportedCaDoodle', 'true');
-    });
     if (hasSupported) {
         // Skip paywall and show downloads immediately
         document.getElementById('paywallOverlay').style.display = 'none';
