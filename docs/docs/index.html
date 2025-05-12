@@ -659,13 +659,7 @@
           <a id="externalSupportButton" href="https://github.com/sponsors/CommonWealthRobotics" class="btn">Support CaDoodle</a>
           <div class="description" >
             <p>CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.</p>
-         </div>
-            <h2>Download CaDoodle CAD</h2>
-            
-            <p>Choose your platform below to get started</p>
-            
-            <!-- OS selector will be inserted here by JavaScript -->
-        </div>
+ 
         
         <!-- Download section (will be hidden by default) -->
         <div class="download-section" id="downloadSection">
@@ -712,7 +706,13 @@
                 </div>
             </div>
         </div>
-        
+        </div>
+            <h2>Download CaDoodle CAD</h2>
+            
+            <p>Choose your platform below to get started</p>
+            
+            <!-- OS selector will be inserted here by JavaScript -->
+        </div>
         <div class="section-heading">
             <img src="./img/1.png" alt="CaDoodle Screenshot">
         </div>
@@ -795,7 +795,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (externalSupportButton) {
         externalSupportButton.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent default navigation
-            localStorage.setItem('hasSupportedCaDoodle', 'true');
 
 
             // Clear selection state if any
@@ -812,7 +811,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const hasSupported = localStorage.getItem('hasSupportedCaDoodle') === 'true';
+    const hasSupported = localStorage.getItem('hasSupportedCadoodle') === 'true';
 
 
     // Get all download options
@@ -982,7 +981,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Track sponsor click (you could add analytics here)
         console.log(`User clicked sponsor with amount: ${selectedAmount}`);
-        localStorage.setItem('hasSupportedCaDoodle', 'true');
+        localStorage.setItem('hasSupportedCadoodle', 'true');
         });
     });
     
