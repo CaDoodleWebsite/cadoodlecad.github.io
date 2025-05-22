@@ -41,6 +41,8 @@
 
 <p>Supported file types are:</p>
 
+<p>Doodle files (CaDoodle native file format)</p>
+
 
 <p>BowlerStudio scripted cad (Groovy)</p>
 
