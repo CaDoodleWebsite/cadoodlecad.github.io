@@ -14,5 +14,6 @@ extra:
 nav:
   - About CaDoodle CAD: landing.md
   - Tutorial: 
-    #- History: tutorial/history.md
     - Getting Started: tutorial/getting-started.md 
+  - Developer Information:
+    - HOWTO Add new examples: tutorial/AddNewExampleObjects.md
