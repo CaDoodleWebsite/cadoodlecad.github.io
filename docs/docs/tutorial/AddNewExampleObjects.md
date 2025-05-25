@@ -1,4 +1,4 @@
-<p>I Absolutly want to have folks add more example shapes! The shapes pallet is defined by the contents of this repo:&nbsp;<a href="https://github.com/madhephaestus/CaDoodle-Example-Objects" class="relative pointer-events-auto a cursor-pointer          underline  " rel="noopener nofollow ugc" target="_blank">https://github.com/madhephaestus/CaDoodle-Example-Objects</a>&nbsp;and cloned into&nbsp;<code>~/Documents/CaDoodle-workspace/gitcache/github.com/madhephaestus/CaDoodle-Example-Objects/</code></p>
+<p>I Absolutly want to have folks add more example shapes! The shapes pallet is defined by the contents of this repo:&nbsp;<a href="https://github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content" class="relative pointer-events-auto a cursor-pointer          underline  " rel="noopener nofollow ugc" target="_blank">https://github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content</a>&nbsp;and cloned into&nbsp;<code>~/Documents/CaDoodle-workspace/gitcache/github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content/</code></p>
 
 <p>If you wanted to experement, you can modify the existing .json files, or create your own to make a new menu item. Just close CaDoodle and open it up again to see your changes.</p>
 
@@ -33,7 +33,7 @@
 <p>This will make a copy of the source file into the users directory and provide an editor button in the UI for the user to edit the file. If you make a blender file you wan the user to sculpt on, then you would use that flag.</p>
 
 
-<p>If you would like to add your example shapes to the whole community, make a pull request with your updated&nbsp;<a href="https://github.com/madhephaestus/CaDoodle-Example-Objects" class="relative pointer-events-auto a cursor-pointer          underline  " rel="noopener nofollow ugc" target="_blank">https://github.com/madhephaestus/CaDoodle-Example-Objects</a></p>
+<p>If you would like to add your example shapes to the whole community, make a pull request with your updated&nbsp;<a href="https://github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content" class="relative pointer-events-auto a cursor-pointer          underline  " rel="noopener nofollow ugc" target="_blank">https://github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content</a></p>
 
 
 <p>Once I merge your PR, that object will be availible to the whole community as an example object.</p>
