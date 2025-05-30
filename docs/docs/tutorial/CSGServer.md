@@ -27,6 +27,26 @@ Assuming this server will run on the default port of 3742
 
 `$JAVA_HOME/bin/java -Dprism.forceGPU=true -XX:MaxRAMPercentage=90.0 --add-exports javafx.graphics/com.sun.javafx.css=ALL-UNNAMED --add-exports javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED --add-exports javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED --add-exports javafx.controls/com.sun.javafx.scene.control.skin.resources=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.util=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.scene.input=ALL-UNNAMED --add-opens javafx.graphics/javafx.scene=ALL-UNNAMED  -jar BowlerStudio.jar -csgserver File.txt 3742`
 
+## Server launch script
+
+`git clone https://github.com/CommonWealthRobotics/CSGServerScripts.git`
+
+`cd CSGServerScripts`
+
+`bash launch.sh File.txt 3742`
+
+## Docker
+
+Put your API keys in `/opt/File.txt` and populate the file with API keys. 
+
+run:
+
+`sudo bash docker-launch.sh`
+
+or install the Dockerfile and Docker Compose files as needed. 
+
+
+
 # 3. Connect to the server
 
 For BowlerStudio scripts add this line to your code:
