@@ -1,5 +1,9 @@
 CaDoodle supports running a remote server that will process the compute/ram heave operations and return the result into your running application.
 
+# 0 Functionality
+
+When a client is connected to a server, then all CSG operations in the application will be tested for size, and off-loaded if the Operation is on more than 200 polygons. 
+
 # 1. Setup the Server
 
 On the server you will need:
@@ -53,7 +57,21 @@ To just run the server, add the docker-compose.yml to your server and it will lo
 For BowlerStudio scripts add this line to your code:
 
 `
-CSGClient.start("127.0.0.1", 3742, new File("File.txt"));
+CSGClient.start("127.0.0.1", 3742, new File("/opt/File.txt"));
+
+# 4. Configure client 
+
+By default the client will only off-load CSG operations that are more than 200 polygons. 
+
+To configure this call:
+
+`
+// Set a low number to ensure the Server is used. this defaults to 200
+CSG.setMinPolygonsForOffloading(4);
+`
+
+
+
 `
 
 
