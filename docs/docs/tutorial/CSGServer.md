@@ -39,12 +39,13 @@ Assuming this server will run on the default port of 3742
 
 Put your API keys in `/opt/File.txt` and populate the file with API keys. 
 
-run:
+To compile the image from the dockerfile:
 
 `sudo bash docker-launch.sh`
 
 or install the Dockerfile and Docker Compose files as needed. 
 
+To just run the server, add the docker-compose.yml to your server and it will load the latest image from dockerhub. 
 
 
 # 3. Connect to the server
