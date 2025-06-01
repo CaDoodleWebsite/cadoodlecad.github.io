@@ -58,6 +58,7 @@ For BowlerStudio scripts add this line to your code:
 
 `
 CSGClient.start("127.0.0.1", 3742, new File("/opt/File.txt"));
+`
 
 ## 3.1 Configure client 
 
@@ -68,6 +69,7 @@ To configure this call:
 `
 // Set a low number to ensure the Server is used. this defaults to 200
 CSG.setMinPolygonsForOffloading(4);
+`
 
 ## 3.2 Close the client
 
