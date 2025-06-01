@@ -8,7 +8,7 @@ When a client is connected to a server, then all CSG operations in the applicati
 
 On the server you will need:
 
-BowlerStudio.jar v3.10.0+
+BowlerStudio.jar v3.10.1+
 
 Java17 JDK+JFX
 
@@ -59,7 +59,7 @@ For BowlerStudio scripts add this line to your code:
 `
 CSGClient.start("127.0.0.1", 3742, new File("/opt/File.txt"));
 
-# 4. Configure client 
+## 3.1 Configure client 
 
 By default the client will only off-load CSG operations that are more than 200 polygons. 
 
@@ -68,6 +68,14 @@ To configure this call:
 `
 // Set a low number to ensure the Server is used. this defaults to 200
 CSG.setMinPolygonsForOffloading(4);
+
+## 3.2 Close the client
+
+When you are done running with a client, you can close it by calling:
+
+`
+CSGClient,close()
+`
 `
 
 
