@@ -8,7 +8,7 @@ When a client is connected to a server, then all CSG operations in the applicati
 
 On the server you will need:
 
-BowlerStudio.jar v3.10.1+
+BowlerStudio.jar v3.10.3+
 
 Java17 JDK+JFX
 
