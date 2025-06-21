@@ -17,3 +17,5 @@ This is the source for the CaDoodle Website.
 
 
 Navigate to http://127.0.0.1:8000
+
+# How to Add a Tutorial
