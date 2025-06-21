@@ -31,8 +31,8 @@ These instructions assume that:
 
 - Navigate to the tutorial directory: `cd ~/Documents/GitHub/cadoodlecad.github.io/docs/docs/tutorial`
 - Create a Markdown file with the extension `nano <Name of Tutorial File>.md`
-- Add tutorial content to the file and save
-- Commit changes
+- Add tutorial content to the file
+- Save file, commit and push changes
 
 ## Show Markdown File in Documentation
 
@@ -42,4 +42,4 @@ These instructions assume that:
 
 - Create a new line under nav > Tutorial using the following format: `<Display Page Name>: tutorial/<Name of Tutorial File>.md`
     - E.g. `Getting Started: tutorial/getting-started.md`
-- Save file and commit changes
+- Save file, commit and push changes
