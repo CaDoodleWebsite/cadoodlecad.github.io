@@ -18,3 +18,4 @@ nav:
   - Developer Information:
     - HOWTO Add new examples: tutorial/AddNewExampleObjects.md
     - CSG Server: tutorial/CSGServer.md
+    - Where Are My Files: tutorial/where-are-my-files.md
