@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cadoodlecad.com/landing.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>About CaDoodle CAD - CaDoodle CAD</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "About CaDoodle CAD";
+        var mkdocs_page_input_path = "landing.md";
+        var mkdocs_page_url = "/landing.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> CaDoodle CAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">About CaDoodle CAD</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-cadoodle">What is CaDoodle?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inspiration">Inspiration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#solution">Solution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#chrome-os-instructions">Chrome OS Instructions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#history">History</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorial/getting-started.html">Getting Started</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorial/AddNewExampleObjects.html">HOWTO Add new examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorial/CSGServer.html">CSG Server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorial/where-are-my-files.html">Where Are My Files</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">CaDoodle CAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">About CaDoodle CAD</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io/edit/main/docs/docs/landing.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="about-cadoodle">About CaDoodle</h1>
+<h2 id="what-is-cadoodle">What is CaDoodle?</h2>
+<p>CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.</p>
+<h2 id="inspiration">Inspiration</h2>
+<p>CaDoodle is inspired by TinkerCAD. The workflow of TinkerCAD is an excellent experience for novice users of CAD: </p>
+<ol>
+<li>Drag and drop shape</li>
+<li>Group and ungroup</li>
+<li>Solid and Hole status</li>
+<li>Undo of operations</li>
+<li>Stretch and move handles</li>
+<li>Library of examples</li>
+<li>Nearest Surface snapping</li>
+</ol>
+<p>However, this workflow suffers from a few fundamental problems:</p>
+<ol>
+<li>Web based UI means it is enclosed by whomever runs the server</li>
+<li>Subscription model is precarious (Autodesk is not known as a reliable partner for free tools over time)</li>
+<li>Proprietary source files limit sharing, collaboration, and reproducability</li>
+</ol>
+<h2 id="solution">Solution</h2>
+<p>This application is Java based and uses BowerStudio as the CAD kernel.</p>
+<p>All scripts will be compatible BowlerStudio scripts. </p>
+<p>UI will be laid out in SceneBuilder / JavaFX.</p>
+<p>OpenJDK 17 </p>
+<h2 id="hardware-requirements">Hardware Requirements</h2>
+<ul>
+<li>4 GB of RAM is required</li>
+</ul>
+<p><strong>The following platforms will be targeted:</strong></p>
+<ul>
+<li>Windows</li>
+<li>Mac OS (ARM)</li>
+<li>Linux Ubuntu (.deb and AppImage)</li>
+<li>ChromeOS</li>
+</ul>
+<p>The following platforms will <strong>not</strong> be targeted:</p>
+<ul>
+<li>Android</li>
+<li>iOS</li>
+</ul>
+<h2 id="chrome-os-instructions">Chrome OS Instructions</h2>
+<p>Linux is off by default. You can turn it on any time from Settings.</p>
+<ol>
+<li>
+<p>On your Chromebook, at the bottom right, select the time.</p>
+</li>
+<li>
+<p>Select Settings and then About ChromeOS and then Developers.</p>
+</li>
+<li>
+<p>Next to "Linux development environment," select Set up.</p>
+</li>
+<li>
+<p>Follow the on-screen instructions. Setup can take 10 minutes or more.</p>
+</li>
+<li>
+<p>A terminal window opens. You have a Debian environment. You can run Linux commands, install more tools using the APT package manager, and customize your shell.</p>
+</li>
+<li>
+<p><a href="https://cadoodlecad.com/">Next download the ChromeOS .deb installer here</a></p>
+</li>
+<li>
+<p>Finally, double-click on the .deb to install CaDoodle.</p>
+</li>
+<li>
+<p>You can now launch CaDoodle from the applications launcher window.</p>
+</li>
+<li>
+<p>(If possible on your hardware) Enable GPU acceleration via these instructions: (Source: https://www.aboutchromebooks.com/chrome-flags-crostini-gpu-support/ )</p>
+</li>
+</ol>
+<p>Enabling GPU acceleration for Linux applications on Chrome OS significantly enhances performance for demanding tasks such as gaming, 3D modeling, and hardware-accelerated video rendering.</p>
+<p>This guide provides a complete step-by-step approach to activating the chrome://flags/#crostini-gpu-support flag, helping your Linux environment utilize GPU resources efficiently.
+What Is chrome://flags/#crostini-gpu-support?</p>
+<p>Crostini is Chrome OS’s built-in feature that lets users run Linux applications inside a secure container using select Chrome Flags.</p>
+<p>By default, these applications rely on CPU-based rendering. However, when GPU acceleration is enabled via the Crostini GPU Support flag, it offloads rendering to your Chromebook’s GPU, improving performance, responsiveness, and battery efficiency during intensive tasks.
+Prerequisites</p>
+<p>Before enabling GPU support for Linux apps, confirm that your system meets the following criteria:</p>
+<pre><code>Chrome OS Version: Your Chromebook must run Chrome OS 76 or newer.
+
+Crostini Enabled: Linux (Beta) must be turned on in system settings.
+
+Hardware Support: Your Chromebook must support GPU virtualization.
+</code></pre>
+<p>Steps to Enable Crostini GPU Support
+1. Access Chrome Flags</p>
+<pre><code>Open the Chrome browser.
+
+Type chrome://flags in the address bar and hit Enter.
+</code></pre>
+<ol>
+<li>
+<p>Locate the Crostini GPU Support Flag</p>
+<p>In the flags search bar, type: Crostini GPU Support</p>
+<p>Or go directly to: chrome://flags/#crostini-gpu-support</p>
+</li>
+<li>
+<p>Enable the Flag</p>
+<p>Next to the Crostini GPU Support flag, click the dropdown and select Enabled.</p>
+</li>
+<li>
+<p>Restart Your Chromebook</p>
+<p>A prompt will appear at the bottom of the browser.</p>
+<p>Click Restart to apply the changes.</p>
+</li>
+</ol>
+<p>Steps to Enable Crostini GPU Support
+Verifying GPU Acceleration in Linux</p>
+<p>To confirm that GPU acceleration is enabled:</p>
+<pre><code>Open the Linux Terminal.
+</code></pre>
+<p>Run the following commands:</p>
+<p>sudo apt-get update</p>
+<p>sudo apt-get install mesa-utils</p>
+<p>glxinfo -B</p>
+<ol>
+<li>Check for the line:</li>
+</ol>
+<p>OpenGL renderer string: Mesa DRI…</p>
+<pre><code> If the GPU is being utilized, your actual GPU name will appear instead of “llvmpipe.”
+</code></pre>
+<p>Additional Developer Flags You Might Find Useful
+1. chrome://flags/#enable-force-dark</p>
+<p>Enable dark mode for all web content, even if a site doesn’t support it. Especially useful for developers testing UI accessibility under dark environments.</p>
+<p>Use case: Enables CSS overrides to simulate a dark theme sitewide.
+2. chrome://flags/#allow-insecure-localhost</p>
+<p>Allows Chrome to load insecure content (HTTP) from localhost during development without blocking or warning. Ideal for testing local APIs or self-signed HTTPS certificates.</p>
+<p>Use case: Running local development environments without needing valid SSL certificates.
+3. chrome://flags/#ash-debug-shortcuts</p>
+<p>Activates developer keyboard shortcuts in Chrome OS. Great for debugging UI components, window managers, or testing multiple screen setups in dev environments.</p>
+<p>Use case: Chrome OS app development and layout testing on Chrome devices.
+4. chrome://flags/#enable-command-line-on-non-rooted-devices</p>
+<p>This flag enables command-line access on non-rooted Android devices, facilitating debugging for mobile web developers using remote debugging or ADB.</p>
+<p>Use case: Simulating mobile interactions and terminal access in development workflows.</p>
+<h2 id="history">History</h2>
+<p>As an elementary school technology teacher, TinkerCAD provided easy to use on-ramps for students as young as 2nd grade. I spent the 23/24 school year teaching with TinkerCAD and found myself increasingly upset by the limitations and constraints of TinkerCAD. First and foremost, the fact of the CAD models sources being entirely unavailable. The "Tinkercad source" is actually entries in the Autodesk servers database. With no option to access those actual sources, students are tied entirely to the tinkercad website.</p>
+<p>The first real problem came when a student made a model in 5th grade that was so complex that the Tinkercad site crashed. The model was not recoverable, and the student that had done all of that extra work to add detail to his model lost everything. This experience started me thinking about how this could be made better for the students.</p>
+<p>The next major problem came when another student wanted to do CAD work on her ride home (which due to bus schedules took over an hour each day). She wanted to keep designing things, but without an internet connection she was unable to do any work.</p>
+<p>Finally i began to contemplate the pedagogical damage being done by teaching students a skill that is only accessible to them as mediated by a company. I began to feel a deep sense of unease that the skills of my students were increasingly being trapped behind a paywall.</p>
+<p>My solution was to make a locally installed application, that used an open file format that is stored locally on the disk, and that had access to the full resources of the computer the application was running on.</p>
+<p>In July 2024 I began work in earnest on CaDoodle. </p>
+<p><img alt="CaDoodle First Running Version" src="img/2.png" /></p>
+<p>In April 2025 I hit a level of feature completeness to open it up for Beta testing.  </p>
+<p><img alt="CaDoodle Beta Release" src="img/1.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="tutorial/getting-started.html" class="btn btn-neutral float-right" title="Getting Started">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+      <span><a href="tutorial/getting-started.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cadoodlecad.com/tutorial/CSGServer.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>CSG Server - CaDoodle CAD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "CSG Server";
+        var mkdocs_page_input_path = "tutorial/CSGServer.md";
+        var mkdocs_page_url = "/tutorial/CSGServer.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CaDoodle CAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../landing.html">About CaDoodle CAD</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Information</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="AddNewExampleObjects.html">HOWTO Add new examples</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">CSG Server</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="where-are-my-files.html">Where Are My Files</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CaDoodle CAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developer Information</li>
+      <li class="breadcrumb-item active">CSG Server</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io/edit/main/docs/docs/tutorial/CSGServer.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>CaDoodle supports running a remote server that will process the compute/ram heave operations and return the result into your running application.</p>
+<h1 id="0-functionality">0 Functionality</h1>
+<p>When a client is connected to a server, then all CSG operations in the application will be tested for size, and off-loaded if the Operation is on more than 200 polygons. </p>
+<h1 id="1-setup-the-server">1. Setup the Server</h1>
+<p>On the server you will need:</p>
+<p>BowlerStudio.jar v3.10.3+</p>
+<p>Java17 JDK+JFX</p>
+<p>A file containing valid API keys (In the tutorial it will be called File.txt)</p>
+<p>JAVA_HOME configured to point towards the JVM installed</p>
+<p>Using the auto-updater is not recommended for server use. </p>
+<h1 id="2-run-the-server">2. Run the server</h1>
+<p>Assuming JAVA_HOME is set to the java installation</p>
+<p>Assuming File.txt is in the current directory and contains the API keys</p>
+<p>Assuming BowlerStudio.jar is in the current directory</p>
+<p>Assuming this server will run on the default port of 3742</p>
+<p><code>$JAVA_HOME/bin/java -Dprism.forceGPU=true -XX:MaxRAMPercentage=90.0 --add-exports javafx.graphics/com.sun.javafx.css=ALL-UNNAMED --add-exports javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED --add-exports javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED --add-exports javafx.controls/com.sun.javafx.scene.control.skin.resources=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.util=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.scene.input=ALL-UNNAMED --add-opens javafx.graphics/javafx.scene=ALL-UNNAMED  -jar BowlerStudio.jar -csgserver /opt/File.txt 3742</code></p>
+<h2 id="server-launch-script">Server launch script</h2>
+<p><code>git clone https://github.com/CommonWealthRobotics/CSGServerScripts.git</code></p>
+<p><code>cd CSGServerScripts</code></p>
+<p><code>bash launch.sh /opt/File.txt 3742</code></p>
+<h2 id="docker">Docker</h2>
+<p>Put your API keys in <code>/opt/File.txt</code> and populate the file with API keys. </p>
+<p>To compile the image from the dockerfile:</p>
+<p><code>sudo bash docker-launch.sh</code></p>
+<p>or install the Dockerfile and Docker Compose files as needed. </p>
+<p>To just run the server, add the docker-compose.yml to your server and it will load the latest image from dockerhub. </p>
+<h1 id="3-connect-to-the-server">3. Connect to the server</h1>
+<p>For BowlerStudio scripts add this line to your code:</p>
+<p><code>CSGClient.start("127.0.0.1", 3742, new File("/opt/File.txt"));</code></p>
+<h2 id="31-configure-client">3.1 Configure client</h2>
+<p>By default the client will only off-load CSG operations that are more than 200 polygons. </p>
+<p>To configure this call:</p>
+<p><code>// Set a low number to ensure the Server is used. this defaults to 200
+CSG.setMinPolygonsForOffloading(4);</code></p>
+<h2 id="32-close-the-client">3.2 Close the client</h2>
+<p>When you are done running with a client, you can close it by calling:</p>
+<p><code>CSGClient,close()</code>
+`</p>
+<p>`</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="AddNewExampleObjects.html" class="btn btn-neutral float-left" title="HOWTO Add new examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="where-are-my-files.html" class="btn btn-neutral float-right" title="Where Are My Files">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="AddNewExampleObjects.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="where-are-my-files.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

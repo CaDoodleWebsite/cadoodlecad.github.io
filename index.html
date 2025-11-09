@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>CaDoodle - Free Offline CAD Software | Tinkercad Alternative for Education</title>
+    <meta name="description" content="CaDoodle is a free drag-and-drop CAD app for Windows, Mac, Linux, and ChromeOS—no internet required, making it perfect for schools, makerspaces, and offline learning. It feels familiar to TinkerCAD users but adds powerful extras like boolean operations, Inkscape sketching, and easy export to STL, SVG, OBJ, and more.">
+    <meta name="keywords" content="CAD software, offline CAD, Tinkercad alternative, free CAD, education CAD, 3D modeling, no internet, schools, ChromeOS CAD, drag and drop CAD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cadoodlecad.com/">
+    <meta property="og:title" content="CaDoodle - Free Offline CAD Alternative to Tinkercad">
+    <meta property="og:description" content="Free drag-and-drop CAD that works offline. Perfect for schools and education. Runs on Windows, Mac, Linux, and ChromeOS.">
+    <meta property="og:image" content="https://cadoodlecad.com/images/cadoodle-preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cadoodlecad.com/">
+    <meta property="twitter:title" content="CaDoodle - Free Offline CAD Alternative to Tinkercad">
+    <meta property="twitter:description" content="Free drag-and-drop CAD that works offline. Perfect for schools and education.">
+    <meta property="twitter:image" content="https://cadoodlecad.com/images/cadoodle-preview.png">
+    <title>CaDoodle - Drag-And-Drop CAD for 3D Printing</title>
+    <style>
+        :root {
+            --logo-blue: #263d8c;
+            --logo-red: #bb1f09;
+            --logo-orange: #e7a436;
+            --logo-yellow: #f2c83d;
+            --logo-beige: #f4ede0;
+            --dark-blue: #1a2a63;
+            --light-blue: #3d5aaa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: var(--logo-beige);
+        }
+
+        .hero {
+            background: url('./img/banner.png'), linear-gradient(135deg, var(--logo-orange), var(--logo-red),var(--dark-blue));
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        .hero a {
+          border-width: 1px;
+          border-style: solid;
+          border-color: var(--light-blue);
+          margin-right: 10px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            color: var(--logo-yellow);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: auto;
+        }
+
+        .hero .btn {
+            align-self: center;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            margin-top: auto;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--logo-orange);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--logo-red);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--logo-red);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-heading {
+            color: var(--logo-blue);
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 30px;         
+
+        }
+        
+        .section-heading img {
+            max-width: 100%;
+            height: auto;
+            max-height: 700px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .feature {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            flex: 1 1 300px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--logo-yellow);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: var(--logo-blue);
+        }
+        
+        .download-option {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 4px solid var(--logo-blue);
+            transition: all 0.3s ease;
+        }
+        .download-option a {
+          border-width: 1px;
+          border-style: solid;
+          border-color: var(--light-blue);
+          margin-right: 10px;
+        }
+        
+        .download-option img {
+            height: 100px;
+            width: auto;
+            max-width: 100%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        
+        .download-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .footer {
+            background-color: var(--light-blue);
+            color: var(--logo-beige);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            vertical-align: middle;
+            margin-top: calc(1ex - 1cap);
+        }
+        
+        .footer a {
+            color: var(--logo-yellow);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer img {
+            vertical-align: middle;
+            margin-top: calc(1ex - 1cap);
+        }
+        .footer img:hover {
+            color: var(--logo-orange);
+            text-decoration: underline;
+            transform: translateY(-1px);
+        }
+        
+        /* OS Selector Styles */
+        .os-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .os-button {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color: white;
+            color: var(--logo-blue);
+            border: 2px solid var(--logo-blue);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .os-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .os-button.active {
+            background-color: var(--logo-blue);
+            color: white;
+        }
+        
+        .show-all-button {
+            background-color: var(--logo-yellow);
+            color: var(--logo-blue);
+        }
+        
+        .active-option {
+            animation: pulse 1s;
+        }
+        
+        /* Paywall Styles */
+        .paywall-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+        }
+        
+        .paywall-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border-top: 6px solid var(--logo-orange);
+            margin: 20px auto;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        
+        .paywall-container h2 {
+            color: var(--logo-blue);
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        
+        .paywall-container p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        #osSelectedMessage {
+            font-weight: bold;
+            color: var(--logo-blue);
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+        
+        .sponsor-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .sponsor-option {
+            background-color: var(--logo-beige);
+            border-radius: 8px;
+            padding: 20px;
+            width: 120px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .sponsor-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--logo-yellow);
+        }
+        
+        .sponsor-option h3 {
+            margin: 0;
+            color: var(--logo-blue);
+            font-size: 1.3rem;
+        }
+        
+        .sponsor-option p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .sponsor-option.selected {
+            border-color: var(--logo-orange);
+            background-color: rgba(231, 164, 54, 0.1);
+        }
+        
+        .paywall-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+        
+        .skip-button {
+            background: none;
+            border: none;
+            color: var(--logo-blue);
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+            margin-top: 5px;
+            padding: 5px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .skip-button:hover {
+            color: var(--logo-red);
+        }
+        
+        .download-section {
+            display: none;
+        }
+        
+        .thank-you-message {
+          color: var(--logo-orange);
+          font-weight: bold;
+          font-size: 1.2rem;
+          margin: 20px auto;
+          display: none;
+          text-align: center;
+          max-width: 800px;
+        }
+        .description {
+          color: var(--dark-blue);
+          margin: 20px auto;
+          text-align: center;
+          max-width: 800px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        .sponsor-option img {
+               max-height: 100px;
+               max-width: 100px;
+         }
+         .paypal-option img {
+               max-height: 100px;
+               max-width: 100px;
+         }
+        .dev-image img {
+               max-height: 100px;
+               max-width: 100px;
+        }
+        .sponsor-blerb {
+		  display: flex;
+		  align-items: center;
+		  gap: 20px;
+		  padding: 20px;
+		  flex-wrap: wrap;
+		}
+		
+		.dev-image {
+		  width: 200px;
+		  max-width: 100%;
+		  height: auto;
+		  flex-shrink: 0;
+		}
+		
+		.text {
+		  flex: 1; /* Takes up remaining space */
+		  max-width: 600px; /* Optional: limits how wide the text can get */
+		}
+		
+		@media (max-width: 600px) {
+		  .sponsor-blerb {
+		    flex-direction: column;
+		    text-align: center;
+		  }
+		
+		  .dev-image {
+		    width: 100%;
+		    max-width: 400px;
+		  }
+		
+
+		  .text {
+		    display: none; /* 👈 Hide the text on small screens */
+		  }
+		}
+		        
+        @media (max-width: 768px) {
+            .hero {
+                height: 300px;
+                background-size: contain;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero .btn {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-heading img {
+                max-height: 400px;
+            }
+            
+            .download-option {
+                min-width: 120px;
+            }
+            
+            .download-option img {
+                height: 70px;
+            }
+            
+            .os-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .paywall-container {
+                padding: 25px 15px;
+                margin: 15px;
+                max-height: 80vh;
+            }
+            
+            .paywall-container h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .paywall-container p {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
+            
+            .sponsor-option {
+                padding: 12px;
+                width: 110px;
+            }
+            
+            .sponsor-option h3 {
+                font-size: 1.1rem;
+            }
+            
+            .sponsor-option p {
+                font-size: 0.9rem;
+            }
+            .sponsor-option img {
+               max-height: 80px;
+               max-width: 80px;
+            }
+            .paypal-option img {
+               max-height: 80px;
+               max-width: 80px;
+            }
+            .dev-image {
+               max-height: 100px;
+               max-width: 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 200px;
+                padding: 15px;
+            }
+            
+            .section-heading img {
+                max-height: 300px;
+            }
+            
+            .feature {
+                padding: 20px;
+            }
+            
+            .download-option {
+                min-width: 100%;
+                max-width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .download-buttons .btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .os-selector {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .os-button {
+                width: 200px;
+                padding: 8px 16px;
+            }
+            
+            .paywall-container {
+                padding: 15px 10px;
+                width: 92%;
+                max-height: 85vh;
+                margin: 10px;
+            }
+            
+            .paywall-container h2 {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+            
+            .paywall-container p {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+            
+            .sponsor-options {
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+            
+            .sponsor-option {
+                padding: 10px;
+                width: 43%;
+                min-height: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .sponsor-option h3 {
+                font-size: 1rem;
+                margin-bottom: 2px;
+            }
+            
+            .sponsor-option p {
+                font-size: 0.8rem;
+                margin: 2px 0 0;
+            }
+            
+            .paywall-buttons {
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .skip-button {
+                font-size: 0.9rem;
+                padding: 8px;
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+            .sponsor-option img {
+               max-height: 70px;
+               max-width: 70px;
+            }
+            .paypal-option img {
+               max-height: 70px;
+               max-width: 70px;
+            }
+           .dev-image {
+               max-height: 80px;
+               max-width: 80px;
+            }
+        }
+        
+        /* Additional styles for very small screens */
+        @media (max-height: 640px) {
+            .paywall-container {
+                padding: 12px 8px;
+                max-height: 90vh;
+            }
+            
+            .paywall-container h2 {
+                font-size: 1.2rem;
+                margin: 5px 0;
+            }
+            
+            .paywall-container p {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+            
+            .sponsor-options {
+                gap: 6px;
+                margin-bottom: 10px;
+            }
+            
+            .sponsor-option {
+                padding: 8px;
+                min-height: 70px;
+            }
+            
+            .sponsor-option h3 {
+                font-size: 0.9rem;
+            }
+            
+            .sponsor-option p {
+                font-size: 0.8rem;
+            }
+
+            .btn {
+                padding: 6px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .skip-button {
+                font-size: 0.85rem;
+                padding: 5px;
+            }
+            .sponsor-option img {
+               max-height: 50px;
+               max-width: 50px;
+            }
+           .paywall-container img {
+               max-height: 70px;
+               max-width: 70px;
+            }
+            .dev-image {
+               max-height: 50px;
+               max-width: 50px;
+            }
+
+        }
+    </style>
+    
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CV8RHWZ8S5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'G-CV8RHWZ8S5');
+	</script>
+	    
+</head>
+<body>
+
+    <div class="hero">
+        <a href="./landing.html" class="btn">Documentation</a>
+        <a href="https://github.com/CommonWealthRobotics/CaDoodle-Application" class="btn">Source</a>
+        <a href="https://hackaday.io/project/202791/logs" class="btn">What's New?</a>
+        <a href="https://discord.gg/fuJc3cbB7w" class="btn">Join the Discord!</a>
+    </div>
+
+    <div class="container">
+        <div class="section-heading">
+          <a id="externalSupportButton" href="https://github.com/sponsors/CommonWealthRobotics" class="btn">Support CaDoodle</a>
+          <div class="description" >
+            <p>CaDoodle is an easy drag-and-drop CAD app for Windows, Mac, Linux, and ChromeOS. It runs entirely offline, keeping all your designs stored safely on your own computer.</p>
+ 
+        
+        <!-- Download section (will be hidden by default) -->
+        <div class="download-section" id="downloadSection">
+            <div class="thank-you-message" id="thankYouMessage">
+                Thank you for supporting CaDoodle! Your contribution helps us continue development.
+            </div>
+            
+            <div class="download-container">
+                <div class="download-option" data-os="linux">
+                    <img src="./img/linuxlogo.png" alt="Linux">
+                    <h3>Linux</h3>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.AppImage" class="btn" style="margin: 5px 0;">ARM AppImage</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Deb</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.AppImage" class="btn" style="margin: 5px 0;">x86 AppImage</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
+                    </div>
+                </div>
+                <div class="download-option" data-os="chrome">
+                    <img src="./img/chromelogo.png" alt="Chrome OS">
+                    <h3>Chrome OS</h3>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Deb</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
+                        <a href="./landing.html#chrome-os-instructions" class="btn" style="margin: 5px 0;">Instructions</a>
+                    </div>
+                </div>
+                <div class="download-option" data-os="windows">
+                    <img src="./img/windowslogo.png" alt="Windows">
+                    <h3>Windows</h3>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.zip" class="btn" style="margin: 5px 0;">Standalone EXE</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.exe" class="btn" style="margin: 5px 0;">Local Installer</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-System-x86_64.exe" class="btn" style="margin: 5px 0;">System-Wide Installer</a>
+                    </div>
+                    
+                </div>
+                
+                <div class="download-option" data-os="mac">
+                    <img src="./img/applelogo.svg" alt="Mac">
+                    <h3>Mac OS</h3>
+                   <a href="https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac"> Instructions for running unsigned apps on MacOS 13+.</a>
+                    <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-arm64.dmg" class="btn" style="margin: 5px 0;">ARM</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-x86_64.dmg" class="btn" style="margin: 5px 0;">Intel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+            <h2>Download CaDoodle CAD</h2>
+            
+            <p>Choose your platform below to get started</p>
+            
+            <!-- OS selector will be inserted here by JavaScript -->
+        </div>
+        <div class="section-heading">
+            <img src="./img/1.png" alt="CaDoodle Screenshot">
+        </div>
+        <div class="features">
+            <div class="feature">
+                <h3>Intuitive Design</h3>
+                <p>CaDoodle CAD features an intuitive interface that makes creating complex designs accessible to everyone, from beginners to professionals.</p>
+            </div>
+            <div class="feature">
+                <h3>Powerful Plugins</h3>
+                <p>Extend the CaDoodle workflow with file type support for Blender, FreeCAD, Inkscape, OpenSCAD, BolwerStudio and STL.</p>
+            </div>
+            <div class="feature">
+                <h3>Local Application</h3>
+                <p>CaDoodle is a local application that uses the resources of the computer running it. Models are stored on your own computer.</p>
+            </div>
+            <div class="feature">
+			<h3>Tinkercad Alternative</h3>
+			<p>CaDoodle offers a familiar drag-and-drop workflow for Tinkercad users, but works completely offline with no internet required. Perfect for schools and education.</p>
+			</div>
+        </div>
+    </div>
+
+    <!-- Paywall Overlay -->
+    <div class="paywall-overlay" id="paywallOverlay">
+        <div class="paywall-container">
+            <div class="sponsor-blerb">
+               <img class="dev-image"  src="./img/kevin.jpeg" alt="Lead Developer Kevin Harrington" >
+               <div class="text">
+                <h2>Support CaDoodle Development</h2>
+                <p>CaDoodle is a community-driven open source project. Your support helps us continue development and keep the software free for everyone.</p>
+              </div>
+            </div>
+            <div class="sponsor-options">
+              <div class="sponsor-option" data-amount="21">
+                  <img src="./img/paypal.png" alt="Paypal logo" >
+                  <h3>$20 one time</h3>
+                  <p>Personal Use</p>
+              </div>
+              <div class="sponsor-option selected" data-amount="20">
+                  <img src="./img/github.png" alt="GitHub logo" >
+                  <h3>$20 one time</h3>
+                  <p>Personal Use</p>
+              </div>
+              <div class="sponsor-option " data-amount="5">
+                  <img src="./img/github.png" alt="GitHub logo">
+                  <h3>$5/month</h3>
+                  <p>Supporter Subscription</p>
+              </div>
+              <div class="sponsor-option" data-amount="50">
+                  <img src="./img/github.png" alt="GitHub logo" >
+                  <h3>$25/month</h3>
+                  <p>Sponsor Subscription</p>
+              </div>
+              <div class="sponsor-option" data-amount="500">
+                  <img src="./img/github.png" alt="GitHub logo" >
+                  <h3>$500/month</h3>
+                  <p>Enterprise Subscription</p>
+              </div>
+              <div class="sponsor-option" data-amount="0">
+                  <img src="./img/kevin.jpeg" alt="Lead Developer Kevin Harrington" >
+                  <h3>$0</h3>
+                  <p>I promise to pay it forward.</p>
+              </div>
+              <div class="sponsor-option" data-amount="0">
+                  <img src="./img/no-kevin.jpeg" alt="Lead Developer Kevin Harrington" >
+                  <h3>$0</h3>
+                  <p>Skip Support, Just Download</p>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 CaDoodle CAD. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io">Web Page Source</a> | 
+            <a href="./landing.html">Documentation</a> | Latest Installer Count
+            <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases">
+                  <img src="https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle/latest/total" alt="Installer" >
+            </a> | Total Installer Count
+            <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases">
+                  <img src="https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle/total" alt="Installer" >
+            </a> | Latest Application Count
+            <a href="https://github.com/CommonWealthRobotics/CaDoodle-Application/releases">
+                  <img src="https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle-Application/latest/total" alt="Application">
+            </a> | Total Application Count
+            <a href="https://github.com/CommonWealthRobotics/CaDoodle-Application/releases">
+                  <img src="https://img.shields.io/github/downloads/CommonWealthRobotics/CaDoodle-Application/total" alt="Application">
+            </a>
+        </p>
+    </footer>
+    
+    <script>
+    // OS detection and selection script for CaDoodle downloads
+// OS detection and selection script for CaDoodle downloads
+document.addEventListener('DOMContentLoaded', function() {
+    const externalSupportButton = document.getElementById('externalSupportButton');
+    if (externalSupportButton) {
+        externalSupportButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default navigation
+
+
+            // Clear selection state if any
+            document.querySelectorAll('.os-button').forEach(btn => btn.classList.remove('active'));
+
+            // Show the paywall overlay explicitly
+            document.getElementById('paywallOverlay').style.display = 'flex';
+
+            // You can set a default OS message or clear it:
+            document.getElementById('osSelectedMessage').textContent = 'Select your operating system below to continue.';
+
+            // Optional: scroll into view
+            document.getElementById('paywallOverlay').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    const hasSupported = localStorage.getItem('hasSupportedCadoodle') === 'true';
+
+
+    // Get all download options
+    const downloadOptions = document.querySelectorAll('.download-option');
+    
+    // Get the paywall overlay element
+    const paywallOverlay = document.getElementById('paywallOverlay');
+    
+    // Initially hide the paywall overlay
+    paywallOverlay.style.display = 'none';
+    
+    // Get the download section
+    const downloadSection = document.getElementById('downloadSection');
+    
+    // Initially hide download section
+    downloadSection.style.display = 'none';
+    
+    // Set a variable to store the selected OS
+    let selectedOS = null;
+    
+    // Function to show only the relevant download option and hide others
+    function showDownloadOption(osType) {
+        selectedOS = osType;
+
+        // Show/hide download cards
+        downloadOptions.forEach(option => {
+            const title = option.querySelector('h3').textContent.toLowerCase();
+            if (osType === 'all' || title.includes(osType.toLowerCase()) || 
+                (osType === 'Chrome OS' && title.includes('chrome'))) {
+                option.style.display = 'block';
+                option.classList.add('active-option');
+            } else {
+                option.style.display = 'none';
+                option.classList.remove('active-option');
+            }
+        });
+
+        // Show downloads immediately if user supported before
+        //if (hasSupported) {
+        //    paywallOverlay.style.display = 'none';
+        //    downloadSection.style.display = 'block';
+        //    thankYouMessage.style.display = 'block';
+        //} else {
+            paywallOverlay.style.display = 'flex';
+        //}
+    }
+
+    
+    // Create OS selection buttons
+    const sectionHeading = document.querySelector('.section-heading');
+    
+    // Create OS selector container
+    const osSelectorDiv = document.createElement('div');
+    osSelectorDiv.className = 'os-selector';
+    
+    // Create OS selector buttons
+    const osTypes = ['Linux', 'Chrome OS', 'Windows', 'Mac OS'];
+    
+    osTypes.forEach(osType => {
+        const button = document.createElement('button');
+        button.textContent = osType;
+        button.className = 'os-button';
+        
+        // Add click event to show the OS selection and paywall
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.os-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Show the corresponding download option
+            showDownloadOption(osType);
+        });
+        
+        osSelectorDiv.appendChild(button);
+    });
+    
+    // Insert OS selector after the download heading paragraph
+    sectionHeading.appendChild(osSelectorDiv);
+    
+    // Detect user's OS but don't automatically select it
+    function detectOS() {
+        const userAgent = window.navigator.userAgent;
+        let detectedOS = 'Linux'; // Default to Linux
+        
+        if (userAgent.indexOf("Windows") !== -1) {
+            detectedOS = 'Windows';
+        } else if (userAgent.indexOf("Mac") !== -1) {
+            detectedOS = 'Mac OS';
+        } else if (userAgent.indexOf("CrOS") !== -1) {
+            detectedOS = 'Chrome OS';
+        } else if (userAgent.indexOf("Linux") !== -1) {
+            detectedOS = 'Linux';
+        }
+        
+        return detectedOS;
+    }
+    
+    // Get the user's OS but don't automatically select it
+    const userOS = detectOS();
+    
+    // Add a "Show All" button
+    const showAllButton = document.createElement('button');
+    showAllButton.textContent = 'Show All';
+    showAllButton.className = 'os-button show-all-button';
+    
+    showAllButton.addEventListener('click', function() {
+        // Remove active class from all buttons
+        document.querySelectorAll('.os-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Add active class to this button
+        this.classList.add('active');
+        
+        // Show all download options
+        showDownloadOption('all');
+    });
+    osSelectorDiv.appendChild(showAllButton);
+
+
+    
+    // Paywall functionality
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    const sponsorOptions = document.querySelectorAll('.sponsor-option');
+    
+    // Set selected sponsor amount
+    let selectedAmount = 20; // Default amount
+    
+    // Handle sponsor option selection
+    sponsorOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+        e.preventDefault();
+            // Update selected amount
+            selectedAmount = parseInt(this.getAttribute('data-amount'));
+                    
+        
+        // Open GitHub Sponsors page with selected amount
+        let tierId = selectedAmount === 20 ? 485899 : selectedAmount === 50 ? 485797 : selectedAmount === 5 ?485796: 485801;
+        if(selectedAmount ===21){
+        	window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mad.hephaestus%40gmail.com&amount=20&currency_code=USD&item_name=One-time%20Personal%20Use%20Payment`, '_blank');
+        }
+        else{
+        	if(selectedAmount===0){
+                // Hide paywall and show downloads
+		        paywallOverlay.style.display = 'none';
+		        downloadSection.style.display = 'block';
+		        
+		        // Track skip click (you could add analytics here)
+		        console.log('User skipped payment');
+		        localStorage.setItem('hasSupportedCaDoodle', 'true');
+		        return;
+        	}else{
+        		window.open(`https://github.com/sponsors/CommonWealthRobotics/sponsorships?tier_id=${tierId}`, '_blank');
+        	}
+        }
+        
+        // Hide paywall and show downloads
+        paywallOverlay.style.display = 'none';
+        downloadSection.style.display = 'block';
+        
+        // Show thank you message
+        thankYouMessage.style.display = 'block';
+        
+        // Track sponsor click (you could add analytics here)
+        console.log(`User clicked sponsor with amount: ${selectedAmount}`);
+        localStorage.setItem('hasSupportedCadoodle', 'true');
+        });
+    });
+    
+    
+   // if (hasSupported) {
+   //     // Skip paywall and show downloads immediately
+   //     document.getElementById('paywallOverlay').style.display = 'none';
+   //     document.getElementById('downloadSection').style.display = 'block';
+   //     document.getElementById('thankYouMessage').style.display = 'block';
+   //     showDownloadOption(userOS)
+   //     return; // Exit early so paywall logic isn't re-initialized
+   // }
+});
+    </script>
+</body>
+</html>
