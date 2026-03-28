@@ -14,7 +14,8 @@ extra:
 nav:
   - About CaDoodle CAD: landing.md
   - Tutorial: 
-    - Getting Started: tutorial/getting-started.md 
+    - Getting Started: tutorial/getting-started.md
+    - Keyboard Shortcuts: tutorial/KeyboardShortcuts.md
   - Developer Information:
     - HOWTO Add new examples: tutorial/AddNewExampleObjects.md
     - CSG Server: tutorial/CSGServer.md
