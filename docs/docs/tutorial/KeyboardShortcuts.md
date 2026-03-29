@@ -60,12 +60,12 @@
 
 | Action | Key |
 |---|---|
-| **Top View** | `Home` |
 | **Front View** | `1` |
-| **Back View** | `2` |
-| **Left View** | `3` |
+| **Back View** | `3` |
+| **Left View** | `2` |
 | **Right View** | `4` |
 | **Bottom View** | `5` |
+| **Top View** | `6` |
 | **Perspective / Orthographic Toggle** | `P` |
 
 ---
