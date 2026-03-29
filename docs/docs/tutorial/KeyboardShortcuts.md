@@ -13,7 +13,7 @@
 | **Make a Hole** | `H` | `H` |
 | **Make a Solid** | `S` | `S` |
 | **Make Transparent** | `T` | `T` |
-| **Lock or Unlock** | `L` | `L` |
+| **Lock or Unlock** |`Ctrl` + `L` |  `Cmd` + `L` |
 | **Hide** | `Ctrl` + `H` | `Cmd` + `H` |
 | **Show All** | `Ctrl` + `Shift` + `H` | `Cmd` + `Shift` + `H` |
 | **Duplicate** | `Ctrl` + `D` | `Cmd` + `D` |
