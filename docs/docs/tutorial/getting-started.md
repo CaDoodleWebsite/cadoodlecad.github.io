@@ -38,3 +38,19 @@ Once grouped, the shapes move and resize together as one object.
 ![Shapes after grouping, shown as a single selection](../img/grouped-object.png)
 
 To edit individual shapes again, select the group and click **Ungroup**.
+
+## Solid vs Hole
+
+Every shape in CaDoodle has a status: **Solid** or **Hole**. Solids are the material your model is made of. Holes subtract from solids when grouped together — they're how you carve out features like screw holes, slots, or hollow interiors.
+
+To change a shape's status, select it and use the **Solid / Hole** toggle in the customization menu.
+
+![A shape selected with the Solid / Hole toggle visible](../img/solid-hole-toggle.png)
+
+When a shape is set to Hole, it appears striped or transparent — that's the visual cue that it won't appear in the final model on its own.
+
+![A shape set to hole status, shown with a striped, transparent appearance](../img/hole-shape.png)
+
+Holes only do something when grouped with a solid. Place a hole shape where you want material removed, position it, then group it with the solid. The result is the solid minus the hole.
+
+![Result after grouping a solid with a hole — material has been subtracted](../img/hole-grouped.gif)
