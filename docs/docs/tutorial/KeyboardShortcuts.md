@@ -23,24 +23,24 @@
 
 ## Helpers
 
-| Action | Windows / Linux | Mac |
+| Action | Windows / Linux / Mac | 
 |---|---|---|
-| **Place Ruler** | `R` | `R` |
-| **Place Workplane** | `W` | `W` |
-| **Place Workplane at Shape** | `Shift` + click shape | `Shift` + click shape |
-| **Show Shape Workplane** | `Shift` + `W` | `Shift` + `W` |
+| **Place Ruler** | `R` |
+| **Place Workplane** | `W` |
+| **Place Workplane at Shape** | `Shift` + click shape | 
+| **Show Shape Workplane** | `Shift` + `W` |
 
 ---
 
 ## Viewing 3D Space
 
-| Action | Windows / Linux | Mac |
+| Action | Windows / Linux / Mac | 
 |---|---|---|
-| **Fit Selected in View** | `F` | `F` |
-| **Orbit** | Right-click + drag | Right-click + drag |
-| **Pan** | Middle-click + drag | Middle-click + drag |
-| **Pan (alternate)** | `Shift` + Right-click + drag | `Shift` + Right-click + drag |
-| **Zoom In or Out** | Scroll wheel | Scroll wheel |
+| **Fit Selected in View** | `F` | 
+| **Orbit** | Right-click + drag | 
+| **Pan** | Middle-click + drag | 
+| **Pan (alternate)** | `Shift` + Right-click + drag | 
+| **Zoom In or Out** | Scroll wheel | 
 
 ---
 
