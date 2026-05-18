@@ -18,6 +18,7 @@
 | **Show All** | `Ctrl` + `Shift` + `H` | `Cmd` + `Shift` + `H` |
 | **Duplicate** | `Ctrl` + `D` | `Cmd` + `D` |
 | **Wire Frame View** | `Ctrl` + `W` | `Cmd` + `W` |
+
 ---
 
 ## Helpers
