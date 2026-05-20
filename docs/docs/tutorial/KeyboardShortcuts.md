@@ -24,7 +24,7 @@
 ## Helpers
 
 | Action | Windows / Linux / Mac | 
-|---|---|---|
+|---|---|
 | **Place Ruler** | `R` |
 | **Place Workplane** | `W` |
 | **Place Workplane at Shape** | `Shift` + click shape | 
@@ -35,7 +35,7 @@
 ## Viewing 3D Space
 
 | Action | Windows / Linux / Mac | 
-|---|---|---|
+|---|---|
 | **Fit Selected in View** | `F` | 
 | **Orbit** | Right-click + drag | 
 | **Pan** | Middle-click + drag | 
