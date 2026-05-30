@@ -54,3 +54,19 @@ When a shape is set to Hole, it appears striped or transparent — that's the vi
 Holes only do something when grouped with a solid. Place a hole shape where you want material removed, position it, then group it with the solid. The result is the solid minus the hole.
 
 ![Result after grouping a solid with a hole — material has been subtracted](../img/hole-grouped.gif)
+
+## Moving, rotating, and resizing
+
+When a shape (or group) is selected, handles appear around it for transforming it on the workplane. Drag the dedicated handles to rotate or resize, or move the shape directly as described below.
+
+To **move** a shape, double-click it and drag — release the mouse button to drop it in place. You can also nudge a selected shape with the arrow keys.
+
+![Double-clicking a shape and dragging to move it](../img/move-handles.gif)
+
+The **rotate** handles wrap around the shape on each axis. Drag a rotation handle to spin the shape around that axis.
+
+![Dragging a rotation handle to spin a shape](../img/rotate-handles.gif)
+
+The **resize** handles sit on the corners and edges of the shape's bounding box. Drag a corner to resize uniformly, or drag an edge handle to stretch along a single axis.
+
+<!-- ![Shape with stretch/resize handles visible](../img/stretch-handles.png) -->
