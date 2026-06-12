@@ -174,6 +174,89 @@
             color: var(--logo-blue);
         }
         
+        .modes-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .modes-section h2 {
+            color: var(--logo-blue);
+            margin-bottom: 40px;
+        }
+        
+        .modes-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .mode-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            flex: 1 1 280px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--logo-yellow);
+        }
+        
+        .mode-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mode-card h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            color: var(--logo-blue);
+        }
+        
+        .mode-card img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+            margin: 15px 0;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        .mode-card p {
+            color: #555;
+        }
+        
+        .languages-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .languages-section h2 {
+            color: var(--logo-blue);
+            margin-bottom: 15px;
+        }
+        
+        .languages-section > p {
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .languages-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .languages-grid span {
+            background-color: #f5f5f5;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--logo-blue);
+            white-space: nowrap;
+        }
+        
         .download-option {
             flex: 1;
             min-width: 150px;
@@ -802,7 +885,80 @@
             <!-- OS selector will be inserted here by JavaScript -->
         </div>
         <div class="section-heading">
-            <img src="./img/1.png" alt="CaDoodle Screenshot">
+            <img src="./img/CaDoodleScreenshot.png" alt="CaDoodle Screenshot">
+        </div>
+        <div class="modes-section">
+            <h2>Modes</h2>
+            <div class="modes-grid">
+                <div class="mode-card">
+                    <h3>Basic Mode</h3>
+                    <img src="./img/BasicMode.png" alt="CaDoodle Basic Mode">
+                    <p>Simplified, intuitive interface ideal for beginners and quick modeling tasks.</p>
+                </div>
+                <div class="mode-card">
+                    <h3>Advanced Mode</h3>
+                    <img src="./img/AdvancedMode.png" alt="CaDoodle Advanced Mode">
+                    <p>Extended toolsets, precise control handles, and advanced CSG operations for experienced users.</p>
+                </div>
+                <div class="mode-card">
+                    <h3>Themes</h3>
+                    <img src="./img/themes.gif" alt="CaDoodle Themes">
+                    <p>Multiple color themes that can be switched on the fly.</p>
+                </div>
+            </div>
+        </div>
+        <div class="languages-section">
+            <h2>Languages</h2>
+            <p>CaDoodle supports 46 languages to make the application accessible to users worldwide: </p>
+            <div class="languages-grid">
+                <span>Albanian (sq)</span>
+                <span>Amharic (am)</span>
+                <span>Arabic (ar)</span>
+                <span>Bulgarian (bg)</span>
+                <span>Bengali (bn)</span>
+                <span>Catalan (ca)</span>
+                <span>Czech (cs)</span>
+                <span>Danish (da)</span>
+                <span>Dutch (nl)</span>
+                <span>English (en)</span>
+                <span>Estonian (et)</span>
+                <span>Farsi (fa)</span>
+                <span>Finnish (fi)</span>
+                <span>French (fr)</span>
+                <span>German (de)</span>
+                <span>Gujarati (gu)</span>
+                <span>Hebrew/Armenian (hy)</span>
+                <span>Hindi (hi)</span>
+                <span>Hungarian (hu)</span>
+                <span>Indonesian (id)</span>
+                <span>Italian (it)</span>
+                <span>Japanese (ja)</span>
+                <span>Kazakh (kk)</span>
+                <span>Korean (ko)</span>
+                <span>Latvian (lv)</span>
+                <span>Lithuanian (lt)</span>
+                <span>Malay (ms)</span>
+                <span>Norwegian (no)</span>
+                <span>Polish (pl)</span>
+                <span>Portuguese (pt)</span>
+                <span>Romanian (ro)</span>
+                <span>Russian (ru)</span>
+                <span>Slovak (sk)</span>
+                <span>Serbian (sr)</span>
+                <span>Swedish (sv)</span>
+                <span>Swahili (sw)</span>
+                <span>Tamil (ta)</span>
+                <span>Telugu (te)</span>
+                <span>Thai (th)</span>
+                <span>Tagalog (tl)</span>
+                <span>Turkish (tr)</span>
+                <span>Ukrainian (uk)</span>
+                <span>Urdu (ur)</span>
+                <span>Vietnamese (vi)</span>
+                <span>Chinese (zh)</span>
+            </div>
+			<p>*Seeking Humans to help confirm or correct the translations*</p>
+
         </div>
         <div class="features">
             <div class="feature">

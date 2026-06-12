@@ -12,19 +12,19 @@ CaDoodle offers two primary modes of operation to suit different workflow needs:
 
 Basic mode provides a simplified, intuitive interface ideal for beginners and quick modeling tasks. It features drag-and-drop functionality, basic shape manipulation, and an easy-to-navigate toolbar.
 
-![CaDoodle Basic Mode](./img/cadoodle_dashboard_1.png)
+![CaDoodle Basic Mode](./img/BasicMode.png)
 
 ### Advanced Mode
 
 Advanced mode unlocks the full power of CaDoodle with extended toolsets, precise control handles, nearest surface snapping, and advanced CSG operations for experienced users.
 
-![CaDoodle Advanced Mode](./img/cadoodle_dashboard_2.png)
+![CaDoodle Advanced Mode](./img/AdvancedMode.png)
 
 ### Themes
 
 CaDoodle supports multiple color themes that can be switched on the fly.
 
-![CaDoodle Themes](./img/cadoodle_dashboard.gif)
+![CaDoodle Themes](./img/themes.gif)
 
 ## Languages
 
