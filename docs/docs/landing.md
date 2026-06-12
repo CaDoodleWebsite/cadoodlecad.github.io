@@ -4,6 +4,61 @@
 
 CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.
 
+## Modes
+
+CaDoodle offers two primary modes of operation to suit different workflow needs:
+
+### Basic Mode
+
+Basic mode provides a simplified, intuitive interface ideal for beginners and quick modeling tasks. It features drag-and-drop functionality, basic shape manipulation, and an easy-to-navigate toolbar.
+
+![CaDoodle Basic Mode](./img/cadoodle_dashboard_1.png)
+
+### Advanced Mode
+
+Advanced mode unlocks the full power of CaDoodle with extended toolsets, precise control handles, nearest surface snapping, and advanced CSG operations for experienced users.
+
+![CaDoodle Advanced Mode](./img/cadoodle_dashboard_2.png)
+
+### Themes
+
+CaDoodle supports multiple color themes that can be switched on the fly.
+
+![CaDoodle Themes](./img/cadoodle_dashboard.gif)
+
+## Languages
+
+CaDoodle supports 46 languages to make the application accessible to users worldwide. The application ships with language files for:
+
+| Language | Code | Language | Code |
+|----------|------|----------|------|
+| Albanian | sq | Portuguese | pt |
+| Amharic | am | Romanian | ro |
+| Arabic | ar | Russian | ru |
+| Bulgarian | bg | Slovak | sk |
+| Bengali | bn | Slovenian | (not included) |
+| Catalan | ca | Serbian | sr |
+| Czech | cs | Swedish | sv |
+| Danish | da | Swahili | sw |
+| Dutch | nl | Tamil | ta |
+| English | en | Telugu | te |
+| Estonian | et | Thai | th |
+| Farsi (Persian) | fa | Tagalog | tl |
+| Finnish | fi | Turkish | tr |
+| French | fr | Ukrainian | uk |
+| German | de | Urdu | ur |
+| Gujarati | gu | Vietnamese | vi |
+| Hebrew (Armenian) | hy | Chinese | zh |
+| Hindi | hi | Japanese | ja |
+| Hungarian | hu | Korean | ko |
+| Indonesian | id | Lithuanian | lt |
+| Italian | it | Latvian | lv |
+| Georgian (Kartuli) | ka | Malay | ms |
+| Kazakh | kk | Norwegian | no |
+| Punjabi | pa | Polish | pl |
+
+Each language is defined in a `Messages_*.properties` file located in the `lang` directory of the application resources. The application automatically detects the system locale and loads the corresponding language file, falling back to English if no translation is available.
+
 ## Inspiration
 
 CaDoodle is inspired by TinkerCAD. The workflow of TinkerCAD is an excellent experience for novice users of CAD: 
