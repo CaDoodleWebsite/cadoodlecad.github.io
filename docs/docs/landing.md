@@ -73,6 +73,18 @@ OpenJDK 17
 * Linux Ubuntu (.deb and AppImage)
 * ChromeOS
   
+## Mac OS Instructions
+
+1. Install CaDoodle and required plugins via Homebrew:
+
+   ```
+   brew install --cask blender freecad meshlab
+   ```
+
+   ```
+   brew install --cask openscad@snapshot
+   ```
+
 The following platforms will **not** be targeted:
 
 * Android

@@ -512,10 +512,23 @@
                max-height: 100px;
                max-width: 100px;
          }
-        .dev-image img {
+       .dev-image img {
                max-height: 100px;
                max-width: 100px;
-        }
+         }
+         pre {
+             background-color: #f4f4f4;
+             border: 1px solid #ddd;
+             border-radius: 4px;
+             padding: 12px 16px;
+             margin: 8px 0;
+             overflow-x: auto;
+             white-space: pre;
+         }
+         code {
+             font-family: 'Courier New', Courier, monospace;
+             font-size: 0.95rem;
+         }
         .sponsor-blerb {
 		  display: flex;
 		  align-items: center;
@@ -819,6 +832,7 @@
         <a href="./landing.html" class="btn">Documentation</a>
         <a href="https://github.com/CommonWealthRobotics/CaDoodle-Application" class="btn">Source</a>
         <a href="https://hackaday.io/project/202791/logs" class="btn">What's New?</a>
+		<a href="https://github.com/CommonWealthRobotics/CaDoodle-Application/issues/new/choose" class="btn">Report A Bug</a>
         <a href="https://discord.gg/fuJc3cbB7w" class="btn">Join the Discord!</a>
     </div>
 
@@ -841,8 +855,8 @@
                     <h3>Linux</h3>
                     <div class="download-buttons">
                         <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.AppImage" class="btn" style="margin: 5px 0;">ARM AppImage</a>
+						<a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.AppImage" class="btn" style="margin: 5px 0;">x86 AppImage</a>
                         <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.deb" class="btn" style="margin: 5px 0;">ARM Deb</a>
-                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.AppImage" class="btn" style="margin: 5px 0;">x86 AppImage</a>
                         <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.deb" class="btn" style="margin: 5px 0;">x86 Deb</a>
                     </div>
                 </div>
@@ -860,7 +874,7 @@
                     <h3>Windows</h3>
                     <div class="download-buttons">
                         <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.zip" class="btn" style="margin: 5px 0;">Standalone EXE</a>
-                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.exe" class="btn" style="margin: 5px 0;">Local Installer</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.exe" class="btn" style="margin: 5px 0;">User Local Installer</a>
                         <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-System-x86_64.exe" class="btn" style="margin: 5px 0;">System-Wide Installer</a>
                     </div>
                     
@@ -869,10 +883,11 @@
                 <div class="download-option" data-os="mac">
                     <img src="./img/applelogo.svg" alt="Mac">
                     <h3>Mac OS</h3>
-                   <a href="https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac"> Instructions for running unsigned apps on MacOS 13+.</a>
-                    <div class="download-buttons">
-                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-arm64.dmg" class="btn" style="margin: 5px 0;">ARM</a>
-                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-x86_64.dmg" class="btn" style="margin: 5px 0;">Intel</a>
+                    <p>Install plugins via Homebrew:</p>
+                    <pre><code>brew install --cask blender freecad meshlab openscad@snapshot</code></pre>
+                     <div class="download-buttons">
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-arm64.dmg" class="btn" style="margin: 5px 0;">Apple Silicon</a>
+                        <a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-x86_64.dmg" class="btn" style="margin: 5px 0;">Intel (Depricated)</a>
                     </div>
                 </div>
             </div>
@@ -881,7 +896,7 @@
             <h2>Download CaDoodle CAD</h2>
 			<div class="stores-section" style="margin: 30px 0;">
 			    <h3>Stores</h3>
-				<p>Stores have a fixed price because of the cost and bariors presented to open source applications. If you would prefer a free, but unsigned, installer the links are below. For folks that want both signed security and a low cost, you can compile the application in your trusted environment and sign it there.</p>
+				<p>Stores have a fixed price because of the cost and bariors presented to open source applications. If you would prefer a free, but unsigned, installer the links are below.</p>
 			    <a href="https://apps.microsoft.com/detail/9ndfp6cz826h" class="btn">Windows Store</a>
 			</div>
 			
