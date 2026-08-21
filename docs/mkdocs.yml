@@ -15,13 +15,20 @@ exclude_docs: |
   \#*\#
 extra:
   favicon: favicon.ico
+extra_javascript:
+  - js/vendor/babylon.js
+  - js/vendor/babylon.stlFileLoader.js
+  - path: js/stl-viewer.mjs
+    type: module
+extra_css:
+  - css/stl-viewer.css
 nav:
   - About CaDoodle CAD: landing.md
   - Tutorial: 
     - Getting Started: tutorial/getting-started.md
     - Keyboard Shortcuts: tutorial/KeyboardShortcuts.md
   - Developer Information:
-    - HOWTO Add new examples: tutorial/AddNewExampleObjects.md
+    - Adding New Example Objects: tutorial/AddNewExampleObjects.md
     - Theme Customization: tutorial/ThemeCustomization.md
     - CSG Server: tutorial/CSGServer.md
     - Where Are My Files: tutorial/where-are-my-files.md
