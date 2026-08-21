@@ -1,4 +1,4 @@
- # Theme Customization
+# Theme Customization
 
 CaDoodle's colors, icons, and general look come from a separate repository,
 [Style-Cadoodle](https://github.com/CommonWealthRobotics/Style-Cadoodle),
