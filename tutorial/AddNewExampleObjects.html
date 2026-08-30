@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cadoodlecad.com/tutorial/AddNewExampleObjects.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Adding New Example Objects - CaDoodle CAD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/stl-viewer.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Adding New Example Objects";
+        var mkdocs_page_input_path = "tutorial/AddNewExampleObjects.md";
+        var mkdocs_page_url = "/tutorial/AddNewExampleObjects.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CaDoodle CAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../landing.html">About CaDoodle CAD</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Information</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Adding New Example Objects</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-a-cadoodle-object">What is a CaDoodle object?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#see-an-example-object-right-here-in-the-page">See an example object, right here in the page</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-a-new-example-object-in-the-real-cadoodle-app">Add a new example object, in the real CaDoodle app</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#how-the-json-and-the-script-produce-what-you-see">How the JSON and the script produce what you see</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-your-clone-to-a-merged-pr">From your clone to a merged PR</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-file-types">Supported file types</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ThemeCustomization.html">Theme Customization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="CSGServer.html">CSG Server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="where-are-my-files.html">Where Are My Files</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CaDoodle CAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developer Information</li>
+      <li class="breadcrumb-item active">Adding New Example Objects</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io/edit/main/docs/docs/tutorial/AddNewExampleObjects.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="adding-new-example-objects">Adding New Example Objects</h1>
+<h2 id="overview">Overview</h2>
+<p>This page covers two things: visualizing a real example object right here on
+this page, and adding your own to CaDoodle for everyone to use. Jump to
+whichever you're after, or read straight through.</p>
+<h2 id="what-is-a-cadoodle-object">What is a CaDoodle object?</h2>
+<p>A CaDoodle object is a script that generates a real 3D shape when you pick
+it from the <a href="getting-started.html#creating-your-first-shape">shapes palette</a>.
+Most are <code>build123d</code> Python scripts or Groovy scripts. CaDoodle also
+supports OpenSCAD, Blender, FreeCAD, and a few other formats. Plugins are
+how CaDoodle accesses and creates example shapes in those formats.</p>
+<p>Each object lives in a git repo (usually
+<a href="https://github.com/CommonWealthRobotics/CaDoodle-Example-Objects">CaDoodle-Example-Objects</a>)
+and gets a button in the shapes palette grid. Pick the button, and CaDoodle
+runs the script and drops the result into your scene.</p>
+<h2 id="see-an-example-object-right-here-in-the-page">See an example object, right here in the page</h2>
+<p>This spur gear is a real example object, rendered below on a grid styled to
+match CaDoodle's design plane, running in your browser rather than inside the
+real app. Use the on-screen controls to orbit, zoom, and reset the view.</p>
+<div class="stl-viewer"
+     data-stl="../models/spur-gear.stl"
+     data-color="#37A2DB"
+     data-background="#F4EDE0"
+     data-grid="true"
+     data-height="350px"></div>
+<p class="stl-viewer__caption">spur-gear.stl: 485 KB, 9,940 facets, binary</p>
+
+<p>Take it with you: open the STL in another viewer, or the
+<a href="../downloads/SpurGear.groovy">Groovy script</a> below to see how the gear is
+built.</p>
+<div class="stl-viewer__downloads">
+  <a class="stl-viewer__download-btn" href="../models/spur-gear.stl" download>Download STL</a>
+  <a class="stl-viewer__download-btn" href="../downloads/SpurGear.groovy" download>Download source script</a>
+</div>
+
+<h2 id="add-a-new-example-object-in-the-real-cadoodle-app">Add a new example object, in the real CaDoodle app</h2>
+<p>I absolutely want to have folks add more example shapes! Two repos work
+together to put an object in the shapes palette:</p>
+<ul>
+<li><a href="https://github.com/CommonWealthRobotics/CaDoodle-Example-Objects">CaDoodle-Example-Objects</a>
+  holds the scripts that generate geometry.</li>
+<li><a href="https://github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content">CaDoodle-ShapesPalet-Content</a>
+  holds the JSON files that register a script as a button in the shapes
+  palette, cloned into
+  <code>~/Documents/CaDoodle-workspace/gitcache/github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content/</code>.</li>
+</ul>
+<h3 id="how-the-json-and-the-script-produce-what-you-see">How the JSON and the script produce what you see</h3>
+<p>The JSON entry has no geometry in it. It just points CaDoodle at a script
+and says where to put the button:</p>
+<pre><code class="language-json">&quot;SpurGear&quot;: {
+  &quot;git&quot;: &quot;https://github.com/CommonWealthRobotics/CaDoodle-Example-Objects.git&quot;,
+  &quot;file&quot;: &quot;build123d/SpurGear.groovy&quot;,
+  &quot;order&quot;: &quot;8&quot;,
+  &quot;plugin&quot;: &quot;build123d&quot;
+},
+</code></pre>
+<ul>
+<li><code>git</code>: the repo CaDoodle clones or fetches the script from.</li>
+<li><code>file</code>: the script's path inside that repo. CaDoodle runs this file
+  when someone picks the button.</li>
+<li><code>order</code>: where the button lands in the grid. Lower numbers come first.</li>
+<li><code>plugin</code>: optional. Only needed when the script hands off to an external
+  plugin instead of building geometry in plain Groovy, see below.</li>
+<li><code>copyFile: true</code>: optional. Copies the source file into the user's own
+  directory and adds an editor button for it, so they can edit the
+  script itself instead of just running it. Use this for something like
+  a Blender file you want the user to sculpt on.</li>
+</ul>
+<p>Most objects skip <code>plugin</code> and build geometry directly, in plain Groovy,
+using BowlerStudio's own CSG classes. <code>cube.groovy</code> is a real example: it
+builds a <code>CSG</code> object straight from <code>eu.mihosoft.vrl.v3d.Cube</code>, wires up
+parameter sliders for width, height, depth, and corner rounding, and
+returns the shape.</p>
+<p>The spur gear above works differently. Its <code>.groovy</code> file is a thin
+bridge, not the geometry itself:</p>
+<pre><code class="language-groovy">import com.neuronrobotics.bowlerstudio.scripting.Build123dLoader
+
+return Build123dLoader.getGear(csgdb, &quot;SpurGear&quot;, args)
+</code></pre>
+<p><code>"plugin": "build123d"</code> tells CaDoodle this script hands off to the
+<code>build123d</code> plugin, which runs Python's <code>build123d</code> CAD library to build
+the actual gear and hands a CSG shape back. Same JSON shape, same
+scripting hook, a different plugin doing the real modeling.</p>
+<h3 id="from-your-clone-to-a-merged-pr">From your clone to a merged PR</h3>
+<ol>
+<li>Decide whether you're adding a brand new script or reusing one that
+   already exists. A new script goes in
+   <a href="https://github.com/CommonWealthRobotics/CaDoodle-Example-Objects">CaDoodle-Example-Objects</a>.
+   Registering it as a palette button goes in
+   <a href="https://github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content">CaDoodle-ShapesPalet-Content</a>.
+   Most new objects touch both.</li>
+<li>Fork whichever repo (or both) you need, and clone your fork.</li>
+<li>Add your script to <code>CaDoodle-Example-Objects</code>, and add a JSON entry
+   for it to the right file in <code>CaDoodle-ShapesPalet-Content</code>
+   (<code>Plugins.json</code>, <code>BasicShapes.json</code>, or whichever category fits).</li>
+<li>Fully quit and relaunch CaDoodle to see your button and test it.
+   Repeat steps 3-4 until it works the way you want.</li>
+<li>Commit and push to your fork(s).</li>
+<li>Open a pull request back to whichever of
+   <code>CommonWealthRobotics/CaDoodle-Example-Objects</code> or
+   <code>CommonWealthRobotics/CaDoodle-ShapesPalet-Content</code> you changed.</li>
+<li>A maintainer reviews and merges. Once merged, your object is available
+   to the whole community as an example object.</li>
+</ol>
+<h2 id="supported-file-types">Supported file types</h2>
+<ul>
+<li>Doodle files (CaDoodle native file format)</li>
+<li>BowlerStudio scripted CAD (Groovy)</li>
+<li>FreeCAD files</li>
+<li>Blender files</li>
+<li>Inkscape SVGs (where all objects are paths) for extrusion</li>
+<li>Inkscape SVGs as sweep inputs (rings, threads, spirals)</li>
+<li>OpenSCAD files (you need to wrap it in a groovy file to expose the parametrics)</li>
+<li>STL files</li>
+<li>OBJ files</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="KeyboardShortcuts.html" class="btn btn-neutral float-left" title="Keyboard Shortcuts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="ThemeCustomization.html" class="btn btn-neutral float-right" title="Theme Customization">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="KeyboardShortcuts.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="ThemeCustomization.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../js/vendor/babylon.js"></script>
+      <script src="../js/vendor/babylon.stlFileLoader.js"></script>
+      <script src="../js/stl-viewer.mjs" type="module"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
