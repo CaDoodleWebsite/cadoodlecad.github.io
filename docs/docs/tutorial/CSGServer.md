@@ -1,10 +1,10 @@
 # CSG Server
 
-CaDoodle supports running a remote server that will process the compute/ram heave operations and return the result into your running application.
+CaDoodle supports running a remote server that will process the compute/RAM-heavy operations and return the result to your running application.
 
 # 0. Functionality
 
-When a client is connected to a server, then all CSG operations in the application will be tested for size, and off-loaded if the Operation is on more than 200 polygons.
+When a client is connected to a server, then all CSG operations in the application will be tested for size, and off-loaded if the operation is on more than 200 polygons.
 
 # 1. Setup the Server
 
@@ -14,7 +14,7 @@ BowlerStudio.jar v3.10.3+
 
 Java17 JDK+JFX
 
-A file containing valid API keys (In the tutorial it will be called File.txt)
+A file containing valid API keys (in the tutorial it will be called File.txt)
 
 JAVA_HOME configured to point towards the JVM installed
 
@@ -44,9 +44,9 @@ bash launch.sh /opt/File.txt 3742
 
 ## Docker
 
-Put your API keys in `/opt/File.txt` and populate the file with API keys.
+Create `/opt/File.txt` and populate the file with API keys.
 
-To compile the image from the dockerfile:
+To compile the image from the Dockerfile:
 
 ```bash
 sudo bash docker-launch.sh
@@ -54,7 +54,7 @@ sudo bash docker-launch.sh
 
 or install the Dockerfile and Docker Compose files as needed.
 
-To just run the server, add the docker-compose.yml to your server and it will load the latest image from dockerhub.
+To just run the server, add the docker-compose.yml to your server and it will load the latest image from Docker Hub.
 
 # 3. Connect to the server
 
@@ -66,7 +66,7 @@ CSGClient.start("127.0.0.1", 3742, new File("/opt/File.txt"));
 
 ## 3.1 Configure client
 
-By default the client will only off-load CSG operations that are more than 200 polygons.
+By default, the client will only off-load CSG operations that are more than 200 polygons.
 
 To configure this call:
 
@@ -77,7 +77,7 @@ CSG.setMinPolygonsForOffloading(4);
 
 ## 3.2 Close the client
 
-When you are done running with a client, you can close it by calling:
+When you are done using a client, you can close it by calling:
 
 ```java
 CSGClient.close();

@@ -123,11 +123,11 @@ scripting hook, a different plugin doing the real modeling.
 ## Supported file types
 
 - Doodle files (CaDoodle native file format)
-- BowlerStudio scripted cad (Groovy)
+- BowlerStudio scripted CAD (Groovy)
 - FreeCAD files
-- Blender Files
-- Inkscape SVG's (where all objects are paths) for extrusion
-- Inkscape SVG's as sweep inputs (rings, threads, spirals)
+- Blender files
+- Inkscape SVGs (where all objects are paths) for extrusion
+- Inkscape SVGs as sweep inputs (rings, threads, spirals)
 - OpenSCAD files (you need to wrap it in a groovy file to expose the parametrics)
 - STL files
-- OBJ Files
+- OBJ files

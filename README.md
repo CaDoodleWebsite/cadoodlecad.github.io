@@ -30,7 +30,7 @@ These instructions assume that:
 ## Add Markdown File to Repository
 
 - Navigate to the tutorial directory: `cd ~/Documents/GitHub/cadoodlecad.github.io/docs/docs/tutorial`
-- Create a Markdown file with the extension `nano <Name of Tutorial File>.md`
+- Create a Markdown file: `nano <Name of Tutorial File>.md`
 - Add tutorial content to the file
 - Save file, commit and push changes
 
@@ -38,7 +38,7 @@ These instructions assume that:
 
 - Navigate to the local directory containing the file: `cd ~/Documents/GitHub/cadoodlecad.github.io/docs`
 
-- Open the file: `nano mkdocs.yaml`
+- Open the file: `nano mkdocs.yml`
 
 - Create a new line under nav > Tutorial using the following format: `<Display Page Name>: tutorial/<Name of Tutorial File>.md`
     - E.g. `Getting Started: tutorial/getting-started.md`

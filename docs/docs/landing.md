@@ -2,7 +2,7 @@
 
 ## What is CaDoodle?
 
-CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. Users models are stored on their own computer, and the application runs without an internet connection.
+CaDoodle is a local drag-and-drop CAD application for Linux, Windows, Mac and ChromeOS. User models are stored on their own computer, and the application runs without an internet connection.
 
 ## Modes
 
@@ -48,15 +48,15 @@ CaDoodle is inspired by TinkerCAD. The workflow of TinkerCAD is an excellent exp
 
 However, this workflow suffers from a few fundamental problems:
 
-1. Web based UI means it is enclosed by whomever runs the server
+1. Web-based UI means it is enclosed by whoever runs the server
 1. Subscription model is precarious (Autodesk is not known as a reliable partner for free tools over time)
-1. Proprietary source files limit sharing, collaboration, and reproducability
+1. Proprietary source files limit sharing, collaboration, and reproducibility
 
 ## Solution 
 
-This application is Java based and uses BowerStudio as the CAD kernel.
+This application is Java-based and uses BowlerStudio as the CAD kernel.
 
-All scripts will be compatible BowlerStudio scripts. 
+All scripts will be compatible with BowlerStudio scripts. 
 
 UI will be laid out in SceneBuilder / JavaFX.
 
@@ -105,11 +105,11 @@ Linux is off by default. You can turn it on any time from Settings.
 
 5.    A terminal window opens. You have a Debian environment. You can run Linux commands, install more tools using the APT package manager, and customize your shell.
 
-6. [Next download the ChromeOS .deb installer here](https://cadoodlecad.com/)
+6. [Next, download the ChromeOS .deb installer here](https://cadoodlecad.com/)
 
 7. Finally, double-click on the .deb to install CaDoodle.
 
-8. You can now launch CaDoodle from the applications launcher window.
+8. You can now launch CaDoodle from the application launcher window.
 
 9. (If possible on your hardware) Enable GPU acceleration via these instructions: (Source: https://www.aboutchromebooks.com/chrome-flags-crostini-gpu-support/ )
 
@@ -202,15 +202,15 @@ Use case: Simulating mobile interactions and terminal access in development work
 ## History
 
 
-As an elementary school technology teacher, TinkerCAD provided easy to use on-ramps for students as young as 2nd grade. I spent the 23/24 school year teaching with TinkerCAD and found myself increasingly upset by the limitations and constraints of TinkerCAD. First and foremost, the fact of the CAD models sources being entirely unavailable. The "Tinkercad source" is actually entries in the Autodesk servers database. With no option to access those actual sources, students are tied entirely to the tinkercad website.
+As an elementary school technology teacher, I found TinkerCAD provided easy-to-use on-ramps for students as young as 2nd grade. I spent the 23/24 school year teaching with TinkerCAD and found myself increasingly upset by the limitations and constraints of TinkerCAD. First and foremost, the fact of the CAD model sources being entirely unavailable. The "Tinkercad source" is actually entries in the Autodesk servers database. With no option to access those actual sources, students are tied entirely to the tinkercad website.
 
-The first real problem came when a student made a model in 5th grade that was so complex that the Tinkercad site crashed. The model was not recoverable, and the student that had done all of that extra work to add detail to his model lost everything. This experience started me thinking about how this could be made better for the students.
+The first real problem came when a student made a model in 5th grade that was so complex that the Tinkercad site crashed. The model was not recoverable, and the student who had done all of that extra work to add detail to his model lost everything. This experience started me thinking about how this could be made better for the students.
 
 The next major problem came when another student wanted to do CAD work on her ride home (which due to bus schedules took over an hour each day). She wanted to keep designing things, but without an internet connection she was unable to do any work.
 
-Finally i began to contemplate the pedagogical damage being done by teaching students a skill that is only accessible to them as mediated by a company. I began to feel a deep sense of unease that the skills of my students were increasingly being trapped behind a paywall.
+Finally I began to contemplate the pedagogical damage being done by teaching students a skill that is only accessible to them as mediated by a company. I began to feel a deep sense of unease that the skills of my students were increasingly being trapped behind a paywall.
 
-My solution was to make a locally installed application, that used an open file format that is stored locally on the disk, and that had access to the full resources of the computer the application was running on.
+My solution was to make a locally installed application that used an open file format stored locally on the disk and that had access to the full resources of the computer the application was running on.
 
 In July 2024 I began work in earnest on CaDoodle. 
 
