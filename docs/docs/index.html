@@ -1092,42 +1092,42 @@ sudo snap install blender --classic
               </div>
             </div>
             <div class="sponsor-options">
-              <div class="sponsor-option" data-amount="21">
+              <div class="sponsor-option" data-amount="21" data-provider="paypal">
                   <img src="./img/paypal.png" alt="PayPal logo" >
                   <h3>$20 one time</h3>
                   <p>Personal Use</p>
               </div>
-              <div class="sponsor-option" data-amount="22">
+              <div class="sponsor-option" data-amount="22" data-provider="paypal">
                   <img src="./img/paypal.png" alt="PayPal logo" >
                   <h3>Pay What You Can</h3>
                   <p>Personal Use</p>
               </div>
-              <div class="sponsor-option selected" data-amount="20">
+              <div class="sponsor-option selected" data-amount="20" data-provider="github">
                   <img src="./img/github.png" alt="GitHub logo" >
                   <h3>$20 one time</h3>
                   <p>Personal Use</p>
               </div>
-              <div class="sponsor-option " data-amount="5">
+              <div class="sponsor-option " data-amount="5" data-provider="github">
                   <img src="./img/github.png" alt="GitHub logo">
                   <h3>$5/month</h3>
                   <p>Supporter Subscription</p>
               </div>
-              <div class="sponsor-option" data-amount="50">
+              <div class="sponsor-option" data-amount="50" data-provider="github">
                   <img src="./img/github.png" alt="GitHub logo" >
                   <h3>$25/month</h3>
                   <p>Sponsor Subscription</p>
               </div>
-              <div class="sponsor-option" data-amount="500">
+              <div class="sponsor-option" data-amount="500" data-provider="github">
                   <img src="./img/github.png" alt="GitHub logo" >
                   <h3>$500/month</h3>
                   <p>Institutional Subscription</p>
               </div>
-              <div class="sponsor-option" data-amount="0">
+              <div class="sponsor-option" data-amount="0" data-provider="pay-it-forward">
                   <img src="./img/kevin.jpeg" alt="Lead Developer Kevin Harrington" >
                   <h3>$0</h3>
                   <p>I promise to pay it forward.</p>
               </div>
-              <div class="sponsor-option" data-amount="0">
+              <div class="sponsor-option" data-amount="0" data-provider="skip">
                   <img src="./img/no-kevin.jpeg" alt="Lead Developer Kevin Harrington" >
                   <h3>$0</h3>
                   <p>Skip Support, Just Download</p>
@@ -1194,6 +1194,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initially hide download section
     downloadSection.style.display = 'none';
+
+    // Track clicks on the direct download buttons
+    downloadSection.addEventListener('click', function(e) {
+        const link = e.target.closest('.download-buttons a.btn');
+        if (!link || !/\/releases\//.test(link.href)) return;
+        const option = link.closest('.download-option');
+        gtag('event', 'download_click', {
+            platform: option ? (option.getAttribute('data-os') || 'unknown') : 'unknown',
+            file: link.textContent.trim(),
+            url: link.href
+        });
+    });
+
+    // Track Windows Store click
+    const storeButton = document.querySelector('.stores-section a.btn');
+    if (storeButton) {
+        storeButton.addEventListener('click', function() {
+            gtag('event', 'download_click', {
+                platform: 'windows',
+                file: 'Windows Store',
+                url: this.href
+            });
+        });
+    }
     
     // Set a variable to store the selected OS
     let selectedOS = null;
@@ -1316,6 +1340,13 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
             // Update selected amount
             selectedAmount = parseInt(this.getAttribute('data-amount'));
+
+            gtag('event', 'paywall_option_select', {
+                provider: this.getAttribute('data-provider') || 'unknown',
+                amount: this.getAttribute('data-amount'),
+                label: this.querySelector('h3') ? this.querySelector('h3').textContent.trim() : '',
+                description: this.querySelector('p') ? this.querySelector('p').textContent.trim() : ''
+            });
                     
         
         // Open GitHub Sponsors page with selected amount
@@ -1332,8 +1363,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		        paywallOverlay.style.display = 'none';
 		        downloadSection.style.display = 'block';
 		        
-		        // Track skip click (you could add analytics here)
-		        console.log('User skipped payment');
 		        localStorage.setItem('hasSupportedCaDoodle', 'true');
 		        return;
         	}else{
@@ -1348,8 +1377,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show thank you message
         thankYouMessage.style.display = 'block';
         
-        // Track sponsor click (you could add analytics here)
-        console.log(`User clicked sponsor with amount: ${selectedAmount}`);
         localStorage.setItem('hasSupportedCadoodle', 'true');
         });
     });
