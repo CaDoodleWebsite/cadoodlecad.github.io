@@ -24,9 +24,11 @@ extra_css:
   - css/stl-viewer.css
 nav:
   - About CaDoodle CAD: landing.md
-  - Tutorial: 
+  - Tutorial:
     - Getting Started: tutorial/getting-started.md
     - Keyboard Shortcuts: tutorial/KeyboardShortcuts.md
+    - Tips & Shortcuts: tutorial/TipsAndShortcuts.md
+    - Using the MCP Server: tutorial/UsingMCPServer.md
   - Developer Information:
     - Adding New Example Objects: tutorial/AddNewExampleObjects.md
     - Theme Customization: tutorial/ThemeCustomization.md
