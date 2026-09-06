@@ -67,6 +67,23 @@ The **rotate** handles wrap around the shape on each axis. Drag a rotation handl
 
 ![Dragging a rotation handle to spin a shape](../img/rotate-handles.gif)
 
-The **resize** handles sit on the corners and edges of the shape's bounding box. Drag a corner to resize uniformly, or drag an edge handle to stretch along a single axis.
+The **resize** handles sit on the corners and edges of the shape's bounding box. Drag a corner to resize freely on multiple axes at once, or drag an edge handle to stretch along a single axis. To resize proportionally (keep the shape's aspect ratio while scaling it up or down), hold `Shift` before dragging a corner — see [Uniform Scale](TipsAndShortcuts.md#uniform-scale).
 
 <!-- ![Shape with stretch/resize handles visible](../img/stretch-handles.png) -->
+
+## Why the grid and rulers stay visible through transparent objects
+
+Toggle a shape transparent (`T`) and you'll notice the grid and rulers keep
+showing through it, even where a solid object would hide them. That's
+deliberate, not a rendering glitch: transparent objects are drawn with a
+render order set further back specifically so the grid/ruler are forced to
+draw on top of them — otherwise you'd lose the alignment reference the
+transparency was probably meant to help with in the first place.
+
+The tradeoff, in the maintainer's own words: this works well for a
+transparent object on its own, but "when a transparent object shares a layer
+with solid objects," the same trick "confuses the transparency" and can make
+it hard to tell which solid is in front of which. Transparency in JavaFX (the
+UI toolkit CaDoodle is built on) is delicate in general — if depth ordering
+looks wrong with multiple transparent/solid objects overlapping, this
+render-order tradeoff is the likely cause, not a bug specific to your model.
