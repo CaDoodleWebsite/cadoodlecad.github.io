@@ -10,6 +10,7 @@
 |---|---|---|
 | **Group** | `Ctrl` + `G` | `Cmd` + `G` |
 | **Ungroup** | `Ctrl` + `Shift` + `G` | `Cmd` + `Shift` + `G` |
+| **Align** | `L` | `L` |
 | **Make a Hole** | `H` | `H` |
 | **Make a Solid** | `S` | `S` |
 | **Make Transparent** | `T` | `T` |
