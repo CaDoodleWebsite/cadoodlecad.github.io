@@ -28,9 +28,9 @@ CaDoodle supports multiple color themes that can be switched on the fly.
 
 ## Languages
 
-CaDoodle supports 60 languages to make the application accessible to users worldwide. The application ships with language files for:
+CaDoodle supports 61 languages to make the application accessible to users worldwide. The application ships with language files for:
 
-Albanian (sq) · Amharic (am) · Arabic (ar) · Armenian (hy) · Azerbaijani (az) · Bengali (bn) · Burmese (my) · Catalan (ca) · Czech (cs) · Danish (da) · Dutch (nl) · English (en) · Estonian (et) · Farsi/Persian (fa) · Finnish (fi) · French (fr) · German (de) · Greek (el) · Gujarati (gu) · Hausa (ha) · Hindi (hi) · Hungarian (hu) · Indonesian (id) · Italian (it) · Japanese (ja) · Kazakh (kk) · Korean (ko) · Latvian (lv) · Lithuanian (lt) · Malay (ms) · Malayalam (ml) · Marathi (mr) · Nepali (ne) · Norwegian (no) · Oromo (om) · Punjabi (pa) · Pashto (ps) · Polish (pl) · Portuguese (pt) · Romanian (ro) · Russian (ru) · Serbian (sr) · Sinhala (si) · Slovak (sk) · Spanish (es) · Swahili (sw) · Swedish (sv) · Tamil (ta) · Telugu (te) · Thai (th) · Tagalog (tl) · Turkish (tr) · Ukrainian (uk) · Urdu (ur) · Vietnamese (vi) · Yoruba (yo) · Chinese (zh) · Bulgarian (bg) · Igbo (ig) · Georgian (ka) · Khmer (km) · Sindhi (sd)
+Albanian (sq) · Amharic (am) · Arabic (ar) · Armenian (hy) · Azerbaijani (az) · Bengali (bn) · Burmese (my) · Catalan (ca) · Czech (cs) · Danish (da) · Dutch (nl) · English (en) · Estonian (et) · Farsi/Persian (fa) · Finnish (fi) · French (fr) · German (de) · Greek (el) · Gujarati (gu) · Hausa (ha) · Hindi (hi) · Hungarian (hu) · Indonesian (id) · Italian (it) · Japanese (ja) · Kazakh (kk) · Korean (ko) · Latvian (lv) · Lithuanian (lt) · Malay (ms) · Malayalam (ml) · Nepali (ne) · Norwegian (no) · Oromo (om) · Punjabi (pa) · Pashto (ps) · Polish (pl) · Portuguese (pt) · Romanian (ro) · Russian (ru) · Serbian (sr) · Sinhala (si) · Slovak (sk) · Spanish (es) · Swahili (sw) · Swedish (sv) · Tamil (ta) · Telugu (te) · Thai (th) · Tagalog (tl) · Turkish (tr) · Ukrainian (uk) · Urdu (ur) · Vietnamese (vi) · Yoruba (yo) · Chinese (zh) · Bulgarian (bg) · Igbo (ig) · Georgian (ka) · Khmer (km) · Sindhi (sd)
 
 Each language is defined in a `Messages_*.properties` file located in the `lang` directory of the application resources. The application automatically detects the system locale and loads the corresponding language file, falling back to English if no translation is available.
 
@@ -60,7 +60,7 @@ All scripts will be compatible with BowlerStudio scripts.
 
 UI will be laid out in SceneBuilder / JavaFX.
 
-OpenJDK 17 
+OpenJDK 25 
 
 ## Hardware Requirements
 
