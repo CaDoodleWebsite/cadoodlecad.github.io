@@ -11,6 +11,8 @@
 | **Group** | `Ctrl` + `G` | `Cmd` + `G` |
 | **Ungroup** | `Ctrl` + `Shift` + `G` | `Cmd` + `Shift` + `G` |
 | **Align** | `L` | `L` |
+| **Mirror** | `M` | `M` |
+| **Cruise** | `C` | `C` |
 | **Make a Hole** | `H` | `H` |
 | **Make a Solid** | `S` | `S` |
 | **Make Transparent** | `T` | `T` |
@@ -28,8 +30,9 @@
 |---|---|
 | **Place Ruler** | `R` |
 | **Place Workplane** | `W` |
-| **Place Workplane at Shape** | `Shift` + click shape | 
-| **Show Shape Workplane** | `Shift` + `W` |
+| **Place Workplane at Shape** | `W`, then click the shape's face | 
+| **Object Workplane** | `E` |
+| **Drop to Workplane** | `D` |
 
 ---
 
@@ -42,6 +45,8 @@
 | **Pan** | Middle-click + drag | 
 | **Pan (alternate)** | `Shift` + Right-click + drag | 
 | **Zoom In or Out** | Scroll wheel | 
+| **Zoom In** | `+` | 
+| **Zoom Out** | `-` | 
 
 ---
 
@@ -52,6 +57,7 @@
 | **Undo** | `Ctrl` + `Z` | `Cmd` + `Z` |
 | **Redo** | `Ctrl` + `Y` | `Cmd` + `Y` |
 | **Select All** | `Ctrl` + `A` | `Cmd` + `A` |
+| **Add or Remove from Selection** | `Shift` + click shape | `Shift` + click shape |
 | **Copy** | `Ctrl` + `C` | `Cmd` + `C` |
 | **Paste** | `Ctrl` + `V` | `Cmd` + `V` |
 | **Delete** | `Delete` or `Backspace` | `Delete` or `Backspace` |
@@ -68,6 +74,6 @@
 | **Right View** | `4` |
 | **Bottom View** | `5` |
 | **Top View** | `6` |
-| **Perspective / Orthographic Toggle** | `P` |
+| **Home View** | `P` |
 
 ---

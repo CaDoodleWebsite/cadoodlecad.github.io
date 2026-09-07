@@ -45,10 +45,11 @@ the other dimensions automatically. No calculator needed.
 
 The shapes panel doesn't only hold the basic primitives you see when you
 first open a new file. Click the dropdown at the top of the panel (it starts
-on "Basic Shapes") to switch to other plugin categories. One of them is
-Vitamins, a set of pre-built hardware and fastener shapes, including real,
-usable gears generated on the fly by the
-[`build123d`](https://build123d.readthedocs.io/) plugin.
+on "Basic Shapes") to switch to the other categories: My Doodles,
+Mechanisms, Plug-ins, Symbols, VEX Parts and Vitamins. Vitamins is a set of
+pre-built hardware and fastener shapes, including cap screws, nuts, heat-set
+inserts and motors. Plug-ins holds real, usable gears generated on the fly
+by the [`build123d`](https://build123d.readthedocs.io/) plugin.
 
 This is the same `build123d` plugin mechanism that [Adding New Example
 Objects](AddNewExampleObjects.md) covers in depth from the *contributor* side
@@ -58,5 +59,5 @@ user. It's easy to miss, since the dropdown gives no visual hint that
 switching categories reveals more than the default "Basic Shapes" set.
 
 If you're looking for a specific kind of part (screws, gears, common
-hardware) before writing your own, check the plugin categories in this
+hardware) before writing your own, check the other categories in this
 dropdown first. There may already be one.
