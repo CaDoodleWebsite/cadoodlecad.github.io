@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cadoodlecad.com/tutorial/UsingMCPServer.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Using the MCP Server - CaDoodle CAD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/stl-viewer.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Using the MCP Server";
+        var mkdocs_page_input_path = "tutorial/UsingMCPServer.md";
+        var mkdocs_page_url = "/tutorial/UsingMCPServer.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CaDoodle CAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../landing.html">About CaDoodle CAD</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="TipsAndShortcuts.html">Tips & Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Using the MCP Server</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#starting-the-server">Starting the server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-can-do">What it can do</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-it-for-issue-documentation">Using it for issue documentation</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="AddNewExampleObjects.html">Adding New Example Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ThemeCustomization.html">Theme Customization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="CSGServer.html">CSG Server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="where-are-my-files.html">Where Are My Files</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CaDoodle CAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutorial</li>
+      <li class="breadcrumb-item active">Using the MCP Server</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io/edit/main/docs/docs/tutorial/UsingMCPServer.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="using-the-mcp-server">Using the MCP Server</h1>
+<p>CaDoodle ships a built-in MCP (Model Context Protocol) server for scripting
+the live scene. It's a scripting API for the model you're working on, not a
+remote control for the application: it can read and write CSGs, drive the
+operation timeline, move the camera, and capture a screenshot of the 3D
+view. It has no access to themes, CSS, or anything outside the 3D scene.</p>
+<p>If you're writing a tool, an agent, or a script that needs to inspect or
+change a CaDoodle scene without a human clicking around the UI, this is how
+you do it.</p>
+<h2 id="starting-the-server">Starting the server</h2>
+<p>Open Settings, go to the Server tab, and check "Start server" under "Model
+Context Protocol Server on port." The server binds to <code>127.0.0.1</code> only, not
+the network.</p>
+<p>Read your port number out of that field rather than assuming one. CaDoodle
+picks it at random the first time it needs one and then remembers it, so it
+differs from install to install and any port you see in an example is that
+author's, not yours.</p>
+<p>There's no authentication. Any process on this machine that can reach that
+port gets full scene read/write, including writing files to disk via the
+screenshot tool's output path. That's normal for a localhost dev tool, but
+worth knowing before leaving it running.</p>
+<h2 id="what-it-can-do">What it can do</h2>
+<p>The server exposes fifteen tools across six areas:</p>
+<ul>
+<li>Scene inspection: read the current scene, the selection, every CSG, and
+  the camera state.</li>
+<li>Selection: select or deselect CSGs by name.</li>
+<li>The operation timeline: add, remove, and regenerate operations, the same
+  ones the UI itself uses.</li>
+<li>Parameters: read or set a CSG's named parameters, or resize it to exact
+  bounds.</li>
+<li>Shapes: browse the shape palette and add a shape by name.</li>
+<li>Camera and capture: move the camera and capture a screenshot of the 3D
+  view.</li>
+</ul>
+<h2 id="using-it-for-issue-documentation">Using it for issue documentation</h2>
+<p>Screenshots for example-object pages are exactly viewport shots: a shape,
+from a chosen angle, in the scene. Adding a shape, moving the camera, and
+taking a screenshot can produce one of those in a single round trip, at an
+exact resolution, with no manual Print Screen step. The camera parameters
+used for a shot can be recorded and rerun later, which a manual screenshot
+has no way to do.</p>
+<p>It can't drive a theme change or force a CSS reload, so it's no help
+reproducing an issue that only shows up after switching themes by hand.
+But for documenting a reproducible issue in the scene itself, it's a real
+upgrade over a text description. Reading the scene state and capturing a
+screenshot together gets you the exact operation timeline and a matching
+image at a known camera angle, so a bug report can point at precisely what
+produced the result instead of asking a maintainer to guess and re-create
+it by hand.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="TipsAndShortcuts.html" class="btn btn-neutral float-left" title="Tips & Shortcuts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="AddNewExampleObjects.html" class="btn btn-neutral float-right" title="Adding New Example Objects">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="TipsAndShortcuts.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="AddNewExampleObjects.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../js/vendor/babylon.js"></script>
+      <script src="../js/vendor/babylon.stlFileLoader.js"></script>
+      <script src="../js/stl-viewer.mjs" type="module"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
