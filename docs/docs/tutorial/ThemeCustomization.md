@@ -65,12 +65,14 @@ just a GitHub account and `git`:
 
 As of CaDoodle 0.46.055, the buttons in the shapes palette use their own
 CSS class, `image-button-shape-pallet`, instead of sharing `.image-button`
-with the rest of the toolbar. This exists because the shapes shown on
-those buttons are rendered from the part model itself — their colors are
-fixed, not theme-controlled — so a dark theme with a dark background could
-otherwise leave a dark shape icon sitting on a dark, low-contrast button.
-Giving the palette buttons their own class lets a theme set a background
-color behind them without touching every other button in the app.
+with the rest of the toolbar.
+
+This exists because the shapes shown on those buttons are rendered from
+the part model itself, so their colors are fixed rather than
+theme-controlled. A dark theme with a dark background could otherwise
+leave a dark shape icon sitting on a dark, low-contrast button. Giving the
+palette buttons their own class lets a theme set a background color behind
+them without touching every other button in the app.
 
 ```css
 .image-button-shape-pallet {
@@ -84,19 +86,21 @@ color behind them without touching every other button in the app.
 .image-button-shape-pallet:hover   { -fx-background-color: #313244; }
 ```
 
-(`Dark-Blue.css`'s real values, shown above, are a good starting point — a
-semi-transparent light tint behind the buttons so fixed-color shape icons
-stay legible against a dark workspace. Light themes can generally leave
-this transparent, as `Kala.css` does.)
+(`Dark-Blue.css`'s real values, shown above, are a good starting point.
+They set a semi-transparent light tint behind the buttons so fixed-color
+shape icons stay legible against a dark workspace. Light themes can
+generally leave this transparent, as `Kala.css` does.)
 
 ## Theming the design-plane grid and ruler
 
 The grid used to be hardcoded and untouched by theme switches. As of
-CaDoodle 0.46.055 (2026-08-22), it isn't anymore: three CSS classes now
-drive the grid's colors, and it regenerates automatically the moment you
-pick a new theme from the Style and Colors dropdown in Settings. No
-relaunch is needed for that part, though hand-editing a CSS file directly
-still follows the normal "relaunch to see it" rule described above.
+CaDoodle 0.46.055 (2026-08-22), it isn't anymore.
+
+Three CSS classes now drive the grid's colors, and it regenerates
+automatically the moment you pick a new theme from the Style and Colors
+dropdown in Settings. No relaunch is needed for that part, though
+hand-editing a CSS file directly still follows the normal "relaunch to see
+it" rule described above.
 
 The three grid classes:
 
@@ -110,9 +114,9 @@ The fallbacks are what the 3D engine compiles in. Every shipped theme
 overrides all three, so what you see on screen comes from the active CSS
 file rather than from this column.
 
-These aren't a new kind of CSS property — they're ordinary style classes,
-read the same way regular text labels are. **Set `-fx-text-fill` on each
-one**, not `-fx-background-color`:
+These aren't a new kind of CSS property. They're ordinary style classes,
+read the same way regular text labels are. Set `-fx-text-fill` on each
+one, not `-fx-background-color`:
 
 ```css
 .grid-key-color   { -fx-text-fill: #0000FA; }
@@ -120,7 +124,7 @@ one**, not `-fx-background-color`:
 .grid-light-color { -fx-text-fill: #40206080; }
 ```
 
-All six official themes already define these three classes — open any of
+All six official themes already define these three classes. Open any of
 them (`Dark-Blue.css` is a good one to start from) to see real values
 rather than just fallbacks. Standard 8-digit hex (`#RRGGBBAA`) works too;
 setting the alpha channel low or to `00` fades or fully suppresses that
@@ -129,12 +133,13 @@ grid layer, which several of the shipped themes already do.
 ### Ruler color
 
 The ruler doesn't get its own CSS class. It's tied directly to whatever
-`.label` already resolves to in your theme — the same `-fx-text-fill`
-value used for ordinary text labels throughout the app. If you've already
-set `.label`'s text color, the ruler already matches it; there's nothing
-extra to configure. If you want the ruler to stand out from body text
-specifically, that's not independently possible right now — changing
-`.label` changes both.
+`.label` already resolves to in your theme. That's the same
+`-fx-text-fill` value used for ordinary text labels throughout the app.
+
+If you've already set `.label`'s text color, the ruler already matches it;
+there's nothing extra to configure. If you want the ruler to stand out
+from body text specifically, that's not independently possible right now.
+Changing `.label` changes both.
 
 If the grid competing visually with your models is the problem, try:
 
@@ -149,5 +154,5 @@ integrates well with your regular workflow.
 
 - Where the per-shape menu icons (light and dark variants) live and how
   to customize them. (The 0.46.055 shapes-palette button update above
-  covers the button's background/border, not the icon images themselves —
-  that gap is unchanged.)
+  covers the button's background/border, not the icon images themselves.
+  That gap is unchanged.)
