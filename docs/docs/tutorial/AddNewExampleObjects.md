@@ -54,6 +54,11 @@ together to put an object in the shapes palette:
   palette, cloned into
   `~/Documents/CaDoodle-workspace/gitcache/github.com/CommonWealthRobotics/CaDoodle-ShapesPalet-Content/`.
 
+That clone path is the Linux and Windows one. On macOS the workspace sits
+under `~/Library/Application Support/BowlerLauncher/`, reachable through the
+`~/Documents/BowlerLauncher` symlink. See
+[Where Are My Files](where-are-my-files.md).
+
 ### How the JSON and the script produce what you see
 
 The JSON entry has no geometry in it. It just points CaDoodle at a script

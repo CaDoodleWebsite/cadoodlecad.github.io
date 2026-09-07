@@ -33,6 +33,10 @@ User files and example models are in:
 
 `~/Documents/BowlerLauncher/CaDoodle-workspace`
 
+That is a symlink. The files themselves live in:
+
+`~/Library/Application Support/BowlerLauncher/CaDoodle-workspace`
+
 
 ## Windows 
 
