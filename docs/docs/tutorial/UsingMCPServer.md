@@ -13,8 +13,13 @@ you do it.
 ## Starting the server
 
 Open Settings, go to the Server tab, and check "Start server" under "Model
-Context Protocol Server on port." The default port is 30170. The server
-binds to `127.0.0.1` only, not the network.
+Context Protocol Server on port." The server binds to `127.0.0.1` only, not
+the network.
+
+Read your port number out of that field rather than assuming one. CaDoodle
+picks it at random the first time it needs one and then remembers it, so it
+differs from install to install and any port you see in an example is that
+author's, not yours.
 
 There's no authentication. Any process on this machine that can reach that
 port gets full scene read/write, including writing files to disk via the
