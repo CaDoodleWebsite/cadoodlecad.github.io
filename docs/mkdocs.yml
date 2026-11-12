@@ -32,5 +32,6 @@ nav:
   - Developer Information:
     - Adding New Example Objects: tutorial/AddNewExampleObjects.md
     - Theme Customization: tutorial/ThemeCustomization.md
+    - Plugin Architecture: tutorial/PluginArchitecture.md
     - CSG Server: tutorial/CSGServer.md
     - Where Are My Files: tutorial/where-are-my-files.md
