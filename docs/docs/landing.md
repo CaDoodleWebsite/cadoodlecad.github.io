@@ -85,6 +85,8 @@ OpenJDK 25
    brew install --cask openscad@snapshot
    ```
 
+For the full list of plugins CaDoodle installs and where each one comes from, see [Plugin Architecture](tutorial/PluginArchitecture.md).
+
 The following platforms will **not** be targeted:
 
 * Android
