@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cadoodlecad.com/tutorial/PluginArchitecture.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Plugin Architecture - CaDoodle CAD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/stl-viewer.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Plugin Architecture";
+        var mkdocs_page_input_path = "tutorial/PluginArchitecture.md";
+        var mkdocs_page_url = "/tutorial/PluginArchitecture.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CaDoodle CAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../landing.html">About CaDoodle CAD</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="TipsAndShortcuts.html">Tips & Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="UsingMCPServer.html">Using the MCP Server</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Information</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="AddNewExampleObjects.html">Adding New Example Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ThemeCustomization.html">Theme Customization</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Plugin Architecture</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-the-plugin-system-works">How the plugin system works</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#registry-file-reference">Registry file reference</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plugin-catalog">Plugin catalog</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#admesh">admesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arduino-cli">arduino-cli</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arduino-installer">arduino-installer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arduino2">arduino2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blender">blender</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#build123d">build123d</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cadoodle">cadoodle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#eclipse">eclipse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#freecad">freecad</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inkscape">inkscape</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#meshlab">meshlab</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#openscad">openscad</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scenebuilder">scenebuilder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sevenzip">sevenzip</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-or-updating-a-plugin">Adding or updating a plugin</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="CSGServer.html">CSG Server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="where-are-my-files.html">Where Are My Files</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CaDoodle CAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developer Information</li>
+      <li class="breadcrumb-item active">Plugin Architecture</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io/edit/main/docs/docs/tutorial/PluginArchitecture.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="plugin-architecture">Plugin Architecture</h1>
+<p>CaDoodle works alongside a set of external tools. Each tool is packaged as a plugin: a small JSON file that tells CaDoodle where to download the tool from, how to unpack it, and which executable inside it to run. This page documents the plugin system and every plugin in the current registry, with a direct download link for each platform.</p>
+<h2 id="how-the-plugin-system-works">How the plugin system works</h2>
+<p>The plugin registry lives in the <a href="https://github.com/CommonWealthRobotics/ExternalEditorsBowlerStudio">ExternalEditorsBowlerStudio</a> repository. It contains one JSON file per plugin. When CaDoodle needs a tool, it clones this repository, finds the JSON file matching the plugin name, and follows the instructions in it.</p>
+<p>For each plugin, CaDoodle:</p>
+<ol>
+<li>Picks the JSON entry that matches the current platform (<code>Linux-x64</code>, <code>Linux-aarch64</code>, <code>Mac-x64</code>, <code>Mac-aarch64</code>, or <code>Windows-x64</code>).</li>
+<li>Downloads the archive from <code>url</code> + <code>name</code> + <code>.</code> + <code>type</code>, for example <code>https://files.openscad.org/snapshots/</code> + <code>OpenSCAD-2026.01.03-x86_64</code> + <code>.AppImage</code>.</li>
+<li>Extracts the archive into the plugin install directory. Supported archive types are <code>zip</code>, <code>tar.gz</code>, <code>tar.xz</code>, <code>7z</code>, <code>sfx</code>, <code>dmg</code>, <code>AppImage</code>, <code>msi</code>, and <code>jar</code>.</li>
+<li>Resolves the <code>executable</code> path inside the extracted folder, or the <code>configExecutable</code> path when a tool is only being configured.</li>
+<li>Launches the tool and hands it the file to open.</li>
+</ol>
+<p>Plugins install under <code>~/bin/CaDoodle-ApplicationInstall/</code>, each in a sub-folder named after the plugin key. Set the <code>BOWLER_PLUGIN_LOCATION</code> environment variable to install plugins somewhere else. See <a href="where-are-my-files.html">Where Are My Files</a> for the full layout.</p>
+<p>Several fields let a plugin use an existing installation instead of downloading a private copy:</p>
+<ul>
+<li><code>ospath</code>: check a well-known system location first, for example <code>/Applications/</code> on MacOS or <code>C:\Program Files\7-zip\</code> on Windows. If the executable already exists there, CaDoodle uses it and skips the download.</li>
+<li>On every platform, CaDoodle also searches the <code>PATH</code> for the executable by name before downloading. On MacOS it additionally scans <code>/Applications</code> for a matching app bundle. An installed copy of the tool is reused in place of the plugin download.</li>
+<li><code>installer</code>: names another plugin to download and run first. Arduino IDE uses this to install its Windows MSI helper.</li>
+<li><code>environment</code>: extra environment variables set when the tool runs. Eclipse sets <code>WEBKIT_DISABLE_DMABUF_RENDERER</code> this way.</li>
+<li><code>version</code>: pins a plugin build. When the value changes, CaDoodle deletes the cached install and re-downloads.</li>
+<li><code>jvmargs</code>: JVM options recorded for Java plugins, for example <code>-Dprism.forceGPU=true</code>.</li>
+<li><code>Meta-Configuration</code>: a list of command lines run against <code>configExecutable</code> after extraction, used to configure the tool on first install.</li>
+</ul>
+<h2 id="registry-file-reference">Registry file reference</h2>
+<p>Each JSON file maps platform keys to download recipes. All fields are required except the optional ones marked below.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td>
+<td>Base URL of the download directory, kept with a trailing slash</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Archive or file type: <code>zip</code>, <code>tar.gz</code>, <code>tar.xz</code>, <code>7z</code>, <code>sfx</code>, <code>dmg</code>, <code>AppImage</code>, <code>msi</code>, or <code>jar</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>File name of the archive, without extension</td>
+</tr>
+<tr>
+<td><code>executable</code></td>
+<td>Path inside the extracted folder to the launcher</td>
+</tr>
+<tr>
+<td><code>configExecutable</code></td>
+<td>Path to the executable used for configuration commands</td>
+</tr>
+<tr>
+<td><code>ospath</code></td>
+<td>Optional system directory checked before downloading</td>
+</tr>
+<tr>
+<td><code>installer</code></td>
+<td>Optional list of other plugins to download and run first</td>
+</tr>
+<tr>
+<td><code>environment</code></td>
+<td>Optional map of environment variables for the tool</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Optional pin; changing it forces a fresh download</td>
+</tr>
+<tr>
+<td><code>jvmargs</code></td>
+<td>Optional JVM arguments for Java plugins</td>
+</tr>
+<tr>
+<td><code>osEXE</code>, <code>osCONFIG</code></td>
+<td>Optional overrides for executables already installed by the OS package</td>
+</tr>
+<tr>
+<td><code>Meta-Configuration</code></td>
+<td>Optional list of post-install configuration command lines</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plugin-catalog">Plugin catalog</h2>
+<p>Every JSON file in the registry is listed here. The download links are the exact URLs the plugins resolve to on each platform.</p>
+<h3 id="admesh">admesh</h3>
+<p><a href="https://github.com/CommonWealthRobotics/admesh">Project website</a></p>
+<p>ADMesh repairs STL meshes. CaDoodle runs it automatically on STL files loaded into the library of parts, filling holes, connecting nearby facets, and fixing normal directions so later operations start from a valid solid.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://github.com/CommonWealthRobotics/admesh/releases/download/v1.0.0-beta.3/admesh-linux-x86_64-gcc-v1.0.0-beta.3.zip">Download</a></td>
+</tr>
+<tr>
+<td>Linux aarch64</td>
+<td><a href="https://github.com/CommonWealthRobotics/admesh/releases/download/v1.0.0-beta.3/admesh-linux-aarch64-gcc-v1.0.0-beta.3.zip">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://github.com/CommonWealthRobotics/admesh/releases/download/v1.0.0-beta.3/admesh-windows-x86_64-mingw-v1.0.0-beta.3.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://github.com/CommonWealthRobotics/admesh/releases/download/v1.0.0-beta.3/admesh-macos-arm64-clang-v1.0.0-beta.3.zip">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="arduino-cli">arduino-cli</h3>
+<p><a href="https://www.arduino.cc/pro/cli/">Project website</a></p>
+<p>The Arduino command line toolchain. It compiles and uploads firmware for embedded projects driven from CaDoodle scripts.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Windows_64bit.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS x64</td>
+<td><a href="https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_macOS_64bit.tar.gz">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_macOS_arm64.tar.gz">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="arduino-installer">arduino-installer</h3>
+<p><a href="https://www.arduino.cc/en/software">Project website</a></p>
+<p>The Windows MSI installer for Arduino IDE 2. A helper plugin: the <code>arduino2</code> plugin lists it in its <code>installer</code> field, so on Windows CaDoodle downloads the MSI and runs it through <code>msiexec</code> alongside the portable IDE.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://downloads.arduino.cc/arduino-ide/arduino-ide_2.3.2_Windows_64bit.msi">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="arduino2">arduino2</h3>
+<p><a href="https://www.arduino.cc/en/software">Project website</a></p>
+<p>Arduino IDE 2. CaDoodle launches it for <code>.ino</code>, <code>.c</code>, <code>.cpp</code>, and related firmware files. The plugin downloads the portable IDE, and on Windows also runs the <code>arduino-installer</code> MSI helper. On MacOS the app lands in <code>/Applications/</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://downloads.arduino.cc/arduino-ide/arduino-ide_2.3.2_Linux_64bit.zip">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://downloads.arduino.cc/arduino-ide/arduino-ide_2.3.2_Windows_64bit.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS x64</td>
+<td><a href="https://downloads.arduino.cc/arduino-ide/arduino-ide_2.3.2_macOS_64bit.dmg">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://downloads.arduino.cc/arduino-ide/arduino-ide_2.3.2_macOS_arm64.dmg">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="blender">blender</h3>
+<p><a href="https://www.blender.org/">Project website</a></p>
+<p>Blender 4.2. CaDoodle launches it for <code>.blend</code> files and calls it headlessly to convert Blender scenes into STL geometry that loads into a design.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://mirrors.iu13.net/blender/release/Blender4.2/blender-4.2.3-linux-x64.tar.xz">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://mirrors.iu13.net/blender/release/Blender4.2/blender-4.2.3-windows-x64.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS x64</td>
+<td><a href="https://mirrors.iu13.net/blender/release/Blender4.2/blender-4.2.3-macos-x64.dmg">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://mirrors.aliyun.com/blender/release/Blender4.2/blender-4.2.3-macos-arm64.dmg">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="build123d">build123d</h3>
+<p><a href="https://github.com/gumyr/build123d">Project website</a> · <a href="https://github.com/jdegenstein/cadoodle-build123d-portable">Portable build used by the plugin</a></p>
+<p>build123d is a Python based parametric CAD library. The plugin ships a portable Python runtime with build123d preinstalled. CaDoodle runs <code>.py</code> and <code>.build123d</code> scripts through it and loads the resulting geometry. The <code>version</code> field pins the portable build so upgrades re-download cleanly.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://github.com/jdegenstein/cadoodle-build123d-portable/releases/download/v0.0.9/cadoodle-b123d_v0.0.9-linux-x86_64.tar.gz">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://github.com/jdegenstein/cadoodle-build123d-portable/releases/download/v0.0.9/cadoodle-b123d_v0.0.9-windows-x86_64.sfx">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://github.com/jdegenstein/cadoodle-build123d-portable/releases/download/v0.0.9/cadoodle-b123d_v0.0.9-macos-x86_64.zip">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="cadoodle">cadoodle</h3>
+<p><a href="https://github.com/CommonWealthRobotics/CaDoodle">Project website</a></p>
+<p>CaDoodle itself, packaged as a plugin. This entry lets one CaDoodle installation open, edit, and save another user's <code>.doodle</code> and <code>.cadoodle</code> design files, the same way it opens a Blender or FreeCAD file. The links point at the latest release build.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-x86_64.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Linux aarch64</td>
+<td><a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Linux-arm64.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-Windows-x86_64.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS x64</td>
+<td><a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-x86_64.dmg">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://github.com/CommonWealthRobotics/CaDoodle/releases/latest/download/CaDoodle-MacOS-arm64.dmg">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="eclipse">eclipse</h3>
+<p><a href="https://www.eclipse.org/ide/">Project website</a></p>
+<p>Eclipse with the Groovy tooling, packaged by CommonWealth Robotics. It is the advanced editor for Groovy scripts and supporting files. The Linux entry sets <code>WEBKIT_DISABLE_DMABUF_RENDERER=1</code> in its <code>environment</code> field to keep the embedded browser rendering reliably.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://github.com/CommonWealthRobotics/ExternalEditorsBowlerStudio/releases/download/0.2.3/Eclipse-Groovy-Linux-x86_64.tar.gz">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://github.com/CommonWealthRobotics/ExternalEditorsBowlerStudio/releases/download/0.2.3/Eclipse-Groovy-Windows-x86_64.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://github.com/CommonWealthRobotics/ExternalEditorsBowlerStudio/releases/download/0.2.3/Eclipse-Groovy-Mac-arm64.zip">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="freecad">freecad</h3>
+<p><a href="https://www.freecad.org/">Project website</a></p>
+<p>FreeCAD 1.1. CaDoodle launches it for <code>.FCStd</code> documents and calls it headlessly to convert FreeCAD designs into SVG sketches and STL geometry.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://github.com/FreeCAD/FreeCAD/releases/download/1.1.3/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://github.com/FreeCAD/FreeCAD/releases/download/1.1.3/FreeCAD_1.1.3-Windows-x86_64-py311.7z">Download</a></td>
+</tr>
+<tr>
+<td>MacOS x64</td>
+<td><a href="https://github.com/FreeCAD/FreeCAD/releases/download/1.1.3/FreeCAD_1.1.3-macOS-x86_64-py311.dmg">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://github.com/FreeCAD/FreeCAD/releases/download/1.1.3/FreeCAD_1.1.3-macOS-arm64-py311.dmg">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="inkscape">inkscape</h3>
+<p><a href="https://inkscape.org/">Project website</a></p>
+<p>Inkscape 1.3.2. CaDoodle launches it for SVG files so sketches imported from FreeCAD or drawn by hand can be edited in a full vector editor.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://inkscape.org/gallery/item/44616/Inkscape-091e20e-x86_64.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://inkscape.org/gallery/item/44622/inkscape-1.3.2_2023-11-25_091e20e-x64.7z">Download</a></td>
+</tr>
+<tr>
+<td>MacOS x64</td>
+<td><a href="https://inkscape.org/gallery/item/44623/Inkscape-1.3.2_x86_64.dmg">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://inkscape.org/gallery/item/44624/Inkscape-1.3.2_arm64.dmg">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="meshlab">meshlab</h3>
+<p><a href="https://www.meshlab.net/">Project website</a></p>
+<p>MeshLab 2025.07, a mesh processing and inspection tool. Available as a plugin for working on meshes outside CaDoodle's repair pipeline.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2025.07/MeshLab2025.07-linux_x86_64.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Linux aarch64</td>
+<td><a href="https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2025.07/MeshLab2025.07-linux_aarch64.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2025.07/MeshLab2025.07-windows_x86_64.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS x64</td>
+<td><a href="https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2025.07/MeshLab2025.07-macos_x86_64.dmg">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://github.com/cnr-isti-vclab/meshlab/releases/download/MeshLab-2025.07/MeshLab2025.07-macos_arm64.dmg">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="openscad">openscad</h3>
+<p><a href="https://openscad.org/">Project website</a></p>
+<p>OpenSCAD, the constructive solid geometry modeler. CaDoodle launches it for <code>.scad</code> files, and its geometry kernel pairs with CaDoodle's CSG engine for designs authored in OpenSCAD's language.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x64</td>
+<td><a href="https://files.openscad.org/snapshots/OpenSCAD-2026.01.03-x86_64.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Linux aarch64</td>
+<td><a href="https://files.openscad.org/snapshots/OpenSCAD-2023.09.11.ai-aarch64.AppImage">Download</a></td>
+</tr>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://files.openscad.org/snapshots/OpenSCAD-2026.01.03-x86-64.zip">Download</a></td>
+</tr>
+<tr>
+<td>MacOS aarch64</td>
+<td><a href="https://files.openscad.org/snapshots/snapshots/OpenSCAD-2026.01.03.dmg">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="scenebuilder">scenebuilder</h3>
+<p><a href="https://gluonhq.com/products/scene-builder/">Project website</a></p>
+<p>Gluon SceneBuilder 8.5.0, a visual editor for JavaFX FXML layouts. CaDoodle launches it for <code>.fxml</code> UI files, running the single cross-platform JAR on a bundled Java 17 runtime, so one download serves every platform.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All platforms</td>
+<td><a href="https://download2.gluonhq.com/scenebuilder/8.5.0/scenebuilder-8.5.0-all.jar">Download</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="sevenzip">sevenzip</h3>
+<p><a href="https://www.7-zip.org/">Project website</a> · <a href="https://github.com/ip7z/7zip/releases">Release builds</a></p>
+<p>7-Zip. An internal plugin: CaDoodle's downloader uses it to unpack <code>.7z</code> archives on Windows, including the FreeCAD and Inkscape downloads above. On Windows it prefers the copy in <code>C:\Program Files\7-zip\</code> through its <code>ospath</code> field.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows x64</td>
+<td><a href="https://github.com/ip7z/7zip/releases/download/26.01/7z2601-extra.7z">Download</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="adding-or-updating-a-plugin">Adding or updating a plugin</h2>
+<p>Plugin definitions live in the <a href="https://github.com/CommonWealthRobotics/ExternalEditorsBowlerStudio">ExternalEditorsBowlerStudio</a> repository. To add a tool, add one JSON file named after the plugin key, for example <code>mytool.json</code>, with an entry per supported platform. Follow the field reference above. To move a tool to a newer release, update <code>url</code>, <code>name</code>, and <code>type</code> in each platform entry, and bump the <code>version</code> field when one is present so existing installs refresh.</p>
+<p>To change which tools CaDoodle offers for a file type, the editor side lives in the application's <code>ExternalEditorController</code>, which binds file extensions to plugins. Application source: <a href="https://github.com/CommonWealthRobotics/CaDoodle-Application">CaDoodle-Application</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="ThemeCustomization.html" class="btn btn-neutral float-left" title="Theme Customization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="CSGServer.html" class="btn btn-neutral float-right" title="CSG Server">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="ThemeCustomization.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="CSGServer.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../js/vendor/babylon.js"></script>
+      <script src="../js/vendor/babylon.stlFileLoader.js"></script>
+      <script src="../js/stl-viewer.mjs" type="module"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

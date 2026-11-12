@@ -1,0 +1,163 @@
+.stl-viewer {
+  position: relative;
+  width: 100%;
+  margin: 1.25rem 0;
+  border: 1px solid rgba(128, 140, 155, 0.35);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #1c2128;
+}
+
+.stl-viewer__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  /* The canvas swallows wheel events for zoom; without this the page also
+     scrolls, so the model and the article fight over the same gesture. */
+  touch-action: none;
+}
+
+/* Idle state doubles as the loading affordance: viewers are created lazily on
+   scroll, so a viewer may sit idle for a while before its first frame. */
+.stl-viewer[data-stl-state="idle"]::after {
+  content: "Loading 3D model\2026";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b98a8;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.stl-viewer__controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 4px;
+}
+
+.stl-viewer__btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+  /* CaDoodle's own real button colors, sampled directly from a screenshot of
+     its Settings dialog (the "Test" button and active-tab fill): gold fill,
+     a darker gold-brown border, indigo glyph color. Not an approximation --
+     these are the app's actual control-chrome colors, not the workplane
+     grid's. */
+  color: #263d8c;
+  background: rgba(242, 200, 61, 0.92);
+  border: 1px solid #ddba45;
+  border-radius: 4px;
+  cursor: pointer;
+  backdrop-filter: blur(3px);
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.stl-viewer__btn:hover {
+  background: rgba(247, 214, 107, 0.96);
+  color: #182a66;
+}
+
+.stl-viewer__btn:focus-visible {
+  /* CaDoodle's own checked-state indigo, sampled from the same screenshot. */
+  outline: 2px solid #263d8c;
+  outline-offset: 1px;
+}
+
+.stl-viewer__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  z-index: 2;
+  transform: translateX(-50%);
+  padding: 4px 10px;
+  color: #b6c0cd;
+  background: rgba(28, 33, 40, 0.78);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+
+.stl-viewer__hint.is-hidden {
+  opacity: 0;
+}
+
+/* The canvas only takes keyboard events once focused, so show that it is. */
+.stl-viewer__canvas:focus-visible {
+  outline: 2px solid #0000ff;
+  outline-offset: -2px;
+}
+
+.stl-viewer__error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  color: #ff9d9d;
+  background: #2b1d1f;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.stl-viewer__caption {
+  margin-top: -0.9rem;
+  margin-bottom: 0.6rem;
+  color: #6b7684;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.stl-viewer__downloads {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.9rem 0 2.25rem;
+}
+
+/* Same CaDoodle chrome colors as the viewer's own on-canvas buttons, so a
+   download action reads as part of the same control language rather than a
+   generic markdown link. */
+.stl-viewer__download-btn {
+  padding: 0.4rem 0.9rem;
+  color: #263d8c;
+  background: rgba(242, 200, 61, 0.92);
+  border: 1px solid #ddba45;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.stl-viewer__download-btn:hover {
+  background: rgba(247, 214, 107, 0.96);
+  color: #182a66;
+}
+
+.stl-viewer__download-btn:focus-visible {
+  outline: 2px solid #263d8c;
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Auto-rotation is decorative; honour the OS-level preference. */
+  .stl-viewer {
+    scroll-behavior: auto;
+  }
+}
