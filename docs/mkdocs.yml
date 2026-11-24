@@ -26,6 +26,7 @@ nav:
   - About CaDoodle CAD: landing.md
   - Tutorial:
     - Getting Started: tutorial/getting-started.md
+    - Simplify Mesh: tutorial/SimplifyMesh.md
     - Keyboard Shortcuts: tutorial/KeyboardShortcuts.md
     - Tips & Shortcuts: tutorial/TipsAndShortcuts.md
     - Using the MCP Server: tutorial/UsingMCPServer.md

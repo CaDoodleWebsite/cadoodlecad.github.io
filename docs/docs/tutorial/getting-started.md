@@ -24,6 +24,13 @@ When a shape is selected, a customization menu appears. The options available de
 
 Experiment with these options to see how they change your shape. You can always undo a change if the result isn't what you expected.
 
+## Simplifying meshes
+
+In Advanced mode, select objects and click **Simplify mesh** to reduce mesh detail.
+The default applies simplification only; optional smoothing and refinement
+controls let you adjust the surface afterward. See [Simplify Mesh](SimplifyMesh.md)
+for the toolbar location, settings, and refinement examples.
+
 ## Grouping and ungrouping
 
 Grouping combines multiple shapes into a single object. This is how you build complex models from simple parts.
