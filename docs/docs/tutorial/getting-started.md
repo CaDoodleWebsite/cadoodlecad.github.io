@@ -31,6 +31,13 @@ The default applies simplification only; optional smoothing and refinement
 controls let you adjust the surface afterward. See [Simplify Mesh](SimplifyMesh.md)
 for the toolbar location, settings, and refinement examples.
 
+## Separating disconnected parts
+
+In Advanced mode, select an object and click **Break into parts**, immediately left
+of Simplify mesh, to replace it with its disconnected components. The parts stay
+in place and become individually selectable. See [Break Into Parts](BreakUp.md)
+for examples and how it differs from Ungroup.
+
 ## Grouping and ungrouping
 
 Grouping combines multiple shapes into a single object. This is how you build complex models from simple parts.
