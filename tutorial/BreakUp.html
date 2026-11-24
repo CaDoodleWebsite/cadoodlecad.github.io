@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cadoodlecad.com/tutorial/BreakUp.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Break Into Parts - CaDoodle CAD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/stl-viewer.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Break Into Parts";
+        var mkdocs_page_input_path = "tutorial/BreakUp.md";
+        var mkdocs_page_url = "/tutorial/BreakUp.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CaDoodle CAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../landing.html">About CaDoodle CAD</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Break Into Parts</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#break-up-selected-objects">Break up selected objects</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#break-into-parts-versus-ungroup">Break Into Parts versus Ungroup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#edit-or-undo-the-result">Edit or undo the result</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="SimplifyMesh.html">Simplify Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="TipsAndShortcuts.html">Tips & Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="UsingMCPServer.html">Using the MCP Server</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="AddNewExampleObjects.html">Adding New Example Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ThemeCustomization.html">Theme Customization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="PluginArchitecture.html">Plugin Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="CSGServer.html">CSG Server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="where-are-my-files.html">Where Are My Files</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CaDoodle CAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutorial</li>
+      <li class="breadcrumb-item active">Break Into Parts</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io/edit/main/docs/docs/tutorial/BreakUp.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="break-into-parts">Break Into Parts</h1>
+<p><strong>Break into parts</strong> separates an object that contains disconnected pieces into
+individually selectable objects. Use it when an imported mesh or a grouped object
+contains several separate pieces that you want to move, edit, or export on their
+own.</p>
+<h2 id="break-up-selected-objects">Break up selected objects</h2>
+<ol>
+<li>Open your model in <strong>Advanced mode</strong>.</li>
+<li>Select the objects you want to separate.</li>
+<li>Click <strong>Break into parts</strong>, immediately to the left of <strong>Simplify mesh</strong> in the
+   toolbar. The icon shows a large shape split by a zig-zag gap down the middle.</li>
+<li>Wait for the operation to finish. The resulting parts become the selection.</li>
+<li>Clear the selection and select an individual part to work on it separately.</li>
+</ol>
+<p><img alt="Break into parts toolbar icon" src="../img/breakUp.png" /></p>
+<p>Each selected object is replaced by its disconnected components. The parts stay
+in their original positions and keep the source object's color and solid/hole
+status. Other objects in the scene are left unchanged. The operation separates
+geometry instead of making another overlapping copy of the original.</p>
+<p>There are no parameter values to set. Break Into Parts uses the connections in
+the existing mesh. For an object with one connected component, the result is one
+part in the same position. Increasing the number of triangles with
+<a href="SimplifyMesh.html#adjust-refinement">refinement</a> does not create separate parts.</p>
+<h2 id="break-into-parts-versus-ungroup">Break Into Parts versus Ungroup</h2>
+<p><strong>Ungroup</strong> restores the constituent objects of a CaDoodle group. <strong>Break into
+parts</strong> separates the disconnected components of the group's resulting mesh.</p>
+<p>For example:</p>
+<ul>
+<li>A single imported mesh containing three separate pieces becomes three objects.</li>
+<li>A group containing two separate cubes becomes two objects when its resulting
+  mesh has two disconnected components.</li>
+<li>Two overlapping shapes combined into one connected solid remain one part.</li>
+<li>A hole through a connected solid remains a hole in that part; Break Into Parts
+  does not restore the cutter used to make it.</li>
+</ul>
+<p>Break Into Parts does not cut a connected solid into arbitrary sections or spread
+its pieces apart automatically. If a visible seam remains part of one connected
+mesh, the seam alone will not produce separate objects.</p>
+<h2 id="edit-or-undo-the-result">Edit or undo the result</h2>
+<p>Use the normal movement, rotation, and sizing controls on the resulting parts.
+Break Into Parts does not restore the original shape-generation controls on each
+piece. To change the original construction, return to an earlier step or undo the
+Break Into Parts operation.</p>
+<p>Use <strong>Undo</strong> to restore the selected source objects in place of their parts.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="getting-started.html" class="btn btn-neutral float-left" title="Getting Started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="SimplifyMesh.html" class="btn btn-neutral float-right" title="Simplify Mesh">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="getting-started.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="SimplifyMesh.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../js/vendor/babylon.js"></script>
+      <script src="../js/vendor/babylon.stlFileLoader.js"></script>
+      <script src="../js/stl-viewer.mjs" type="module"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

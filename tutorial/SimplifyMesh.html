@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cadoodlecad.com/tutorial/SimplifyMesh.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Simplify Mesh - CaDoodle CAD</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/stl-viewer.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Simplify Mesh";
+        var mkdocs_page_input_path = "tutorial/SimplifyMesh.md";
+        var mkdocs_page_url = "/tutorial/SimplifyMesh.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CaDoodle CAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../landing.html">About CaDoodle CAD</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="BreakUp.html">Break Into Parts</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Simplify Mesh</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#simplify-selected-objects">Simplify selected objects</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adjust-refinement">Adjust refinement</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="TipsAndShortcuts.html">Tips & Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="UsingMCPServer.html">Using the MCP Server</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="AddNewExampleObjects.html">Adding New Example Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ThemeCustomization.html">Theme Customization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="PluginArchitecture.html">Plugin Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="CSGServer.html">CSG Server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="where-are-my-files.html">Where Are My Files</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CaDoodle CAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutorial</li>
+      <li class="breadcrumb-item active">Simplify Mesh</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io/edit/main/docs/docs/tutorial/SimplifyMesh.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="simplify-mesh">Simplify Mesh</h1>
+<p>Simplify Mesh reduces mesh detail on selected objects. Use it to reduce a dense
+mesh before continuing to model or exporting. Optional smoothing and refinement
+controls let you adjust the surface afterward.</p>
+<p>Simplification can remove small features. Start with a low tolerance when working
+with thin walls, small holes, or parts that must fit together, and inspect the
+result before exporting.</p>
+<h2 id="simplify-selected-objects">Simplify selected objects</h2>
+<ol>
+<li>Open your model in <strong>Advanced mode</strong>.</li>
+<li>Select the objects you want to simplify.</li>
+<li>Click <strong>Simplify mesh</strong> in the toolbar. Its icon shows a dense mesh becoming a
+   simpler mesh. It is immediately to the left of the conversion buttons, separated
+   from them by a vertical divider.</li>
+<li>Select one of the affected objects to show its settings in the shape
+   customization panel.</li>
+<li>Adjust <code>simplify</code> and press <strong>Enter</strong> to apply the value.</li>
+</ol>
+<p><img alt="Simplify mesh toolbar icon" src="../img/simplify.png" /></p>
+<p>The default <code>simplify</code> tolerance is <strong>0.5 model units</strong>. Smoothing and refinement
+start disabled, so clicking the button applies simplification only. Other objects
+in the scene are left unchanged.</p>
+<p>A larger <code>simplify</code> tolerance allows more detail to be removed. A smaller positive
+value preserves finer features. The value is a distance tolerance, rather than a
+percentage of triangles to remove, so the reduction depends on the input mesh.</p>
+<p>If you selected several objects when creating the step, they share its settings.
+Select one of those objects to edit the settings for the whole step. Each edit
+recalculates from the mesh entering that step, instead of repeatedly simplifying
+the previous result. Use <strong>Undo</strong> to remove the step if needed.</p>
+<h2 id="settings">Settings</h2>
+<p>Decimal settings use typable numeric fields. Integer settings provide a list of
+options. The names below match the labels in the customization panel.</p>
+<p>For each method control, <strong>0 or a negative value disables that method</strong>. A positive
+value enables it. <code>normalAngle</code> and <code>smoothness</code> are supporting settings rather
+than separate methods; changing either alone leaves smoothing disabled.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>simplify</code></td>
+<td><code>0.5</code></td>
+<td>Distance tolerance for removing mesh detail, in model units. Increase gradually for stronger simplification.</td>
+</tr>
+<tr>
+<td><code>smoothOut</code></td>
+<td><code>0</code></td>
+<td>Enables smoothing with a crease-angle threshold in degrees. Edges sharper than the threshold remain sharp when <code>smoothness</code> is <code>0</code>. Higher angles allow more edges to be smoothed.</td>
+</tr>
+<tr>
+<td><code>smoothness</code></td>
+<td><code>0</code></td>
+<td>Adjusts sharp-edge blending for <code>smoothOut</code>, from <code>0</code> to <code>1</code>. At <code>0</code>, the crease-angle threshold controls which edges remain sharp; at <code>1</code>, smoothing extends across all angles.</td>
+</tr>
+<tr>
+<td><code>calculateNormals</code></td>
+<td><code>0</code></td>
+<td>Calculates surface normals for smoothing. Choices are <code>0</code>, <code>1</code>, <code>2</code>, and <code>3</code>; positive values select a normal-data channel, rather than smoothing strength.</td>
+</tr>
+<tr>
+<td><code>smoothByNormals</code></td>
+<td><code>0</code></td>
+<td>Smooths using a normal-data channel. Choices are <code>0</code>, <code>1</code>, <code>2</code>, and <code>3</code>. The required normals are prepared automatically.</td>
+</tr>
+<tr>
+<td><code>normalAngle</code></td>
+<td><code>60</code></td>
+<td>Crease-angle threshold in degrees for <code>calculateNormals</code> and <code>smoothByNormals</code>, from <code>0</code> to <code>180</code>.</td>
+</tr>
+<tr>
+<td><code>refine</code></td>
+<td><code>0</code></td>
+<td>Subdivides each edge into the chosen number of pieces. Choices are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, and <code>8</code>. Choose <code>2</code> or more to add detail; <code>1</code> leaves the mesh unchanged at this stage.</td>
+</tr>
+<tr>
+<td><code>refineToLength</code></td>
+<td><code>0</code></td>
+<td>Subdivides edges longer than this distance in model units. Smaller positive values produce a denser mesh.</td>
+</tr>
+<tr>
+<td><code>refineToTolerance</code></td>
+<td><code>0</code></td>
+<td>Refines a smoothed surface to this distance tolerance in model units. Smaller positive values give a closer approximation with more triangles. Without smoothing, planar geometry stays unchanged.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adjust-refinement">Adjust refinement</h2>
+<p>Refinement adds triangles, so it can increase mesh size after simplification.
+Leave all refinement controls at <code>0</code> when your goal is simply to reduce mesh
+complexity.</p>
+<p>To add a controlled amount of detail after simplifying:</p>
+<ol>
+<li>Keep your chosen <code>simplify</code> tolerance.</li>
+<li>Set <code>refine</code> to <code>2</code> to split each edge into two pieces, or set
+   <code>refineToLength</code> to a desired maximum edge length.</li>
+<li>Inspect the result before increasing refinement further.</li>
+</ol>
+<p>For a smoother surface:</p>
+<ol>
+<li>Start with <code>smoothOut</code> at <code>60</code> degrees and <code>smoothness</code> at <code>0</code>.</li>
+<li>Increase <code>smoothOut</code> gradually if you want more edges to be smoothed.</li>
+<li>For distance-based control of the curved surface, set <code>refineToTolerance</code> to a
+   small positive value appropriate for the size of the model.</li>
+</ol>
+<p>Smoothing can change dimensions and round features. Check holes, mating surfaces,
+and sharp corners after enabling it. Refinement alone adds mesh detail while
+preserving the shape.</p>
+<p>When smoothing is enabled and all refinement controls are disabled, the operation
+automatically subdivides edges into two pieces to represent the smoothed surface.
+An enabled refinement control replaces this automatic subdivision. Avoid
+<code>refine = 1</code> when you want refinement to reveal the smoothed surface, since that
+value leaves the mesh unchanged at the refinement stage.</p>
+<p>If several methods are enabled, they run in this order: simplification, normal
+calculation, normal-based smoothing, smooth-out, subdivision by count, refinement
+to length, and refinement to tolerance. Start with one smoothing method and one
+refinement control so that each adjustment is easier to evaluate.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="BreakUp.html" class="btn btn-neutral float-left" title="Break Into Parts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="KeyboardShortcuts.html" class="btn btn-neutral float-right" title="Keyboard Shortcuts">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/CaDoodleWebsite/cadoodlecad.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="BreakUp.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="KeyboardShortcuts.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../js/vendor/babylon.js"></script>
+      <script src="../js/vendor/babylon.stlFileLoader.js"></script>
+      <script src="../js/stl-viewer.mjs" type="module"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
